@@ -1,0 +1,22 @@
+{
+  "name": "intern-theory-project",
+  "version": "1.0.0",
+  "description": "InternTheory Clone Project - Full Stack Application",
+  "scripts": {
+    "start": "npm run start:all",
+    "start:all": "npm run start:backend & npm run start:frontend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "npx http-server . -p 3000 -o /index.html",
+    "install:all": "npm run install:backend",
+    "install:backend": "cd backend && npm install",
+    "seed": "curl -X POST http://localhost:5000/api/seed/seed"
+  },
+  "keywords": [
+    "internship",
+    "education",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+

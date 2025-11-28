@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships | InternTheory</title>
+    <script src="https://kit.fontawesome.com/833a729023.js" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel="stylesheet" href="./style/m_sidebar2.css">
+    <link rel="stylesheet" href="./style/navbar.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <style>
+        #main_div{
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+        }
+        #advertisment{
+            width: 25%;
+            height: 250px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        }
+        #advertisment > img{
+           width: 100%;
+           height: 100%;    
+        }
+        #all_intership{
+            width: 75%;
+            margin-left: 15px;
+            padding: 20px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        }
+        #heading>h2{
+            padding-left: 10px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 100;
+        }
+        #intership_programs{
+            display: flex;
+            border-color: lightgray;
+            border-bottom-style:dashed;
+        }
+        #imd-div{
+            width: 20%;
+            text-align: center;
+        }
+        #content{
+            width: 60%;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+        #view_apply{
+            width: 20%;
+            padding-right: 10px;
+            text-align : right;
+        }
+        #imd-div>img{
+            width: 60%;
+            height: 40%;
+            margin-top: 30%;   
+        }
+        #content>p{
+            margin: 0 ;
+            color: gray;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #content>:nth-child(2), #content>:nth-child(6){
+            color: black;
+        }
+        #content>h3{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 100;
+            margin-bottom: 10px;
+        }
+        #view_apply>:nth-child(2){
+             margin: 30px 0 30px 0;
+        }
+        .view_apply_link{
+            color: #3498DB;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .view_apply_link:hover{
+            text-decoration: underline;
+        }
+        .list_empty_state{
+            color: #555;
+            padding: 20px 0;
+        }
+        .search_nav{
+            height: 35%;
+            width: 100%;
+            margin-top: 0px;
+            border: 2px solid transparent;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            color: grey;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        }
+        #search_nav_box{
+            display: flex;
+            margin-top: 3%;
+        }
+        #select_dropdown{
+            width: 750px;
+            display: flex;
+        }
+        #searcgbox{
+            width: 300px;
+            display: flex;
+            margin-left: -5%;
+        }
+        #cities{
+            height: 40px;
+            width: 230px;
+        }
+        .myselectbox{
+            border: 0px;
+            padding: 5px 0px;
+            margin: 0px 5px;
+            width: 220px;
+            background-color: white;
+            border-bottom: 1px solid gray;
+            color: grey;
+            font-size: 15px;
+        }
+        #or{
+            margin-top: 2%;
+        }
+        #search-input >button{
+            border: none;
+            background-color: rgb(206, 7, 7);
+            color: white;
+            height: 35px;
+            width: 70px;
+            font-weight: 700;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navBarBox"></div>
+
+    <div class="search_nav">
+        <div id="search_nav_box">
+           <div id="select_dropdown">
+                <div id="cities"> 
+                <select  name="city" id="city" class="myselectbox">
+                   <option value="Cities" style="color: rgb(240, 238, 238);"> Cities...</option>
+                   <option value="Ahmedabad">Ahmedabad</option>
+                   <option value="Bangalore">Bangalore</option>
+                   <option value="Delhi">Delhi</option>
+                   <option value="Mumbai">Mumbai</option>
+               </select>
+           </div>
+           <div id="cities">
+                <select  name="type" id="work_type" class="myselectbox">
+                    <option value="Type" style="color: rgb(240, 238, 238);">Type...</option>
+                    <option value="Full Time Internship">Full Time</option>
+                    <option value="Work From Home Internship">Work From Home</option>
+                    <option value="Part Time Internship">Part Time</option>     
+                </select>
+            </div>
+            <div id="cities">
+                <select name="preference" class="myselectbox">
+                     <option style="color: rgb(240, 238, 238);" value="">Preferences...</option>
+                     <option value="Actuarial Science">Actuarial Science</option>
+                     <option value="Admin">Admin</option>
+                     <option value="Advertising">Advertising</option>
+                     <option value="Animation">Animation</option>
+                     <option value="App Design and Development">App Design and Development</option>
+                     <option value="Architecture">Architecture</option>
+                     <option value="Biotech And Medicine">Biotech And Medicine</option>
+                     <option value="Branding">Branding</option>
+                     <option value="Business Development">Business Development</option>
+                     <option value="Ca Articleship">CA Articleship</option>
+                     <option value="Civil Engineering">Civil Engineering</option>
+                     <option value="Client Servicing">Client Servicing</option>
+                     <option value="Consulting">Consulting</option>
+                     <option value="Content Writing">Content Writing</option>
+                     <option value="Digital Marketing">Digital Marketing</option>
+                     <option value="Engineering">Engineering</option>
+                 </select>
+             </div>
+       </div>
+       <div id="searcgbox">
+           <div id="or">OR</div>
+           <div id="search-input"><input type="text"><button>SEARCH</button></div>
+       </div>
+      </div>
+    </div>
+
+    <div id="sidebar_div" ></div>
+
+    <div  id="main_div">
+        <div id="advertisment" >
+            <img src="https://assets.interntheory.com/creative/Internship_left_course_add_02.png" alt="Ad banner">
+        </div>
+         
+        <div id="all_intership">
+                <div id="heading" ><h2>All Internships</h2></div>
+                <div id="intership_programs">
+                    <div id="imd-div">
+                        <img src="https://assets.interntheory.com/creative/logo.png" alt="InternTheory">
+                    </div>
+                    <div id="content" >
+                        <h3>Develop Your Skillset</h3>
+                        <p>Online Skill Development Programs</p>
+                        <p>Taught by Industry Experts Internship</p>
+                        <p>Certified Courses</p>
+                        <p>Guaranteed Internship Opportunities</p>
+                        <p>Learn Industry-Demanded Skills</p>
+                    </div>
+                    <div id="view_apply" >
+                         <p>4-6 Weeks</p>
+                         <p><i style="font-size: large;" class="fi fi-sr-share"></i></p>
+                         <a class="view_apply_link" href="register.html" data-route="register">UPGRADE SKILL</a>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+    <div id="footer_container"></div>
+</body>
+</html>
+<script type="module" src="./script/pages/internship.js"></script>
+

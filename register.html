@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - InternTheory</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .register-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .register-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .register-header h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .register-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .register-header a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .user-type-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: #f5f5f5;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .user-type-toggle button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .user-type-toggle button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .name-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+            color: #999;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+            line-height: 1.6;
+        }
+        
+        .error-message div {
+            margin: 4px 0;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background: #efe;
+            color: #3c3;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .student-fields {
+            display: block;
+        }
+
+        .company-fields {
+            display: none;
+        }
+
+        .company-fields.show {
+            display: block;
+        }
+
+        /* Footer Styles */
+        #footer_container {
+            width: 100%;
+            background-color: #2D5A5A;
+            padding: 60px 40px 40px;
+            color: white;
+        }
+
+        .footer_internships_header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .footer_internship_type {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin: 5px 0;
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .footer_line {
+            width: 100%;
+            height: 1px;
+            background-color: white;
+            margin: 25px 0;
+        }
+
+        .footer_navigation {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px 40px;
+            margin: 30px 0;
+        }
+
+        .footer_nav_link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer_nav_link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .footer_copyright {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer_copyright p {
+            color: white;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .register-card {
+                padding: 30px 20px;
+            }
+
+            .register-header h1 {
+                font-size: 28px;
+            }
+
+            .name-row {
+                grid-template-columns: 1fr;
+            }
+
+            #footer_container {
+                padding: 40px 20px 30px;
+            }
+
+            .footer_internship_type {
+                font-size: 16px;
+                display: block;
+                margin: 8px 0;
+            }
+
+            .footer_navigation {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .footer_nav_link {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navBarBox"></div>
+
+    <div class="register-container">
+        <div class="register-card">
+            <div class="register-header">
+                <h1>Create Account</h1>
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+
+            <div class="user-type-toggle">
+                <button class="active" id="studentBtn">Student</button>
+                <button id="companyBtn">Company</button>
+            </div>
+
+            <form id="registerForm">
+                <div class="name-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number *</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required minlength="6">
+                </div>
+
+                <!-- Student Specific Fields -->
+                <div class="student-fields" id="studentFields">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Enter your city">
+                    </div>
+                    <div class="form-group">
+                        <label for="qualification">Qualification</label>
+                        <input type="text" id="qualification" name="qualification" placeholder="Enter qualification">
+                    </div>
+                </div>
+
+                <!-- Company Specific Fields -->
+                <div class="company-fields" id="companyFields">
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
+                    </div>
+                    <div class="form-group">
+                        <label for="companyAddress">Company Address</label>
+                        <input type="text" id="companyAddress" name="companyAddress" placeholder="Enter company address">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">Create Account</span>
+                </button>
+            </form>
+
+            <div class="divider">OR</div>
+
+            <div class="social-login">
+                <button class="social-btn" onclick="socialRegister('google')">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn" onclick="socialRegister('facebook')">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer_container"></div>
+
+    <script type="module">
+        import { registerUser, TokenManager } from './script/auth.js';
+        import { ContentAPI } from './script/api.js';
+        import { initUserProfile } from './script/userProfileHandler.js';
+        import navBar from './component/navBar.js';
+
+        // Load navbar
+        try {
+            document.getElementById('navBarBox').innerHTML = navBar();
+            
+            // Initialize user profile
+            setTimeout(() => {
+                initUserProfile();
+            }, 200);
+            
+            // Handle navbar button clicks after navbar loads
+            setTimeout(() => {
+                const registerBtn = document.getElementById('register_btn');
+                if (registerBtn) {
+                    registerBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        window.location.href = 'register.html';
+                    });
+                }
+
+                const loginBtn = document.getElementById('login_btn');
+                if (loginBtn) {
+                    loginBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        window.location.href = 'login.html';
+                    });
+                }
+            }, 300);
+        } catch (e) {
+            console.log('NavBar component not found');
+        }
+        
+        // Load footer
+        (async () => {
+            if (document.getElementById('footer_container')) {
+                try {
+                    const footerModule = await import('./component/footer.js');
+                    document.getElementById('footer_container').innerHTML = footerModule.default();
+                } catch (e) {
+                    console.log('Footer component not found, using default footer');
+                    // Use default footer HTML
+                    document.getElementById('footer_container').innerHTML = `
+                        <div class="footer_internships_header">
+                            <p class="footer_internship_type">HR Internships</p>
+                            <p class="footer_internship_type">Engineering Internships</p>
+                        </div>
+                        <div class="footer_line"></div>
+                        <div class="footer_navigation">
+                            <a href="#" class="footer_nav_link">REFUND & CANCELLATION POLICY</a>
+                            <a href="#" class="footer_nav_link">COURSES</a>
+                            <a href="#" class="footer_nav_link">TERMS AND CONDITIONS</a>
+                            <a href="#" class="footer_nav_link">PRIVACY POLICY</a>
+                            <a href="#" class="footer_nav_link">CONTACT US</a>
+                            <a href="#" class="footer_nav_link">ABOUT US</a>
+                            <a href="#" class="footer_nav_link">SITEMAP</a>
+                        </div>
+                        <div class="footer_line"></div>
+                        <div class="footer_copyright">
+                            <p>© 2015 - 2022 INTERNTHEORY. ALL RIGHTS RESERVED.</p>
+                        </div>
+                    `;
+                }
+            }
+        })();
+
+        let currentUserType = 'student';
+
+        function switchUserType(type) {
+            currentUserType = type;
+            document.getElementById('studentBtn').classList.toggle('active', type === 'student');
+            document.getElementById('companyBtn').classList.toggle('active', type === 'company');
+            
+            document.getElementById('studentFields').style.display = type === 'student' ? 'block' : 'none';
+            document.getElementById('companyFields').classList.toggle('show', type === 'company');
+        }
+
+        // Make switchUserType globally accessible
+        window.switchUserType = switchUserType;
+
+        // Add event listeners to buttons
+        document.getElementById('studentBtn').addEventListener('click', () => switchUserType('student'));
+        document.getElementById('companyBtn').addEventListener('click', () => switchUserType('company'));
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            // Format error message to show each error on a new line if multiple errors
+            const formattedMessage = message.replace(/, /g, '\n• ');
+            errorDiv.innerHTML = formattedMessage.split('\n').map(line => 
+                line.trim() ? `<div>${line.startsWith('•') ? line : '• ' + line}</div>` : ''
+            ).join('');
+            errorDiv.classList.add('show');
+            setTimeout(() => errorDiv.classList.remove('show'), 8000);
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.classList.add('show');
+            setTimeout(() => successDiv.classList.remove('show'), 3000);
+        }
+
+        // Check if already logged in
+        if (TokenManager.getToken()) {
+            window.location.href = 'index.html';
+        }
+
+        // Load dynamic content
+        (async () => {
+            const content = await ContentAPI.getRegisterContent();
+            if (content) {
+                const titleEl = document.querySelector('.register-header h1');
+                const subtitleEl = document.querySelector('.register-header p');
+                if (titleEl) titleEl.textContent = content.title;
+                if (subtitleEl && content.subtitle) {
+                    subtitleEl.innerHTML = `${content.subtitle} <a href="${content.loginLink}">Sign in</a>`;
+                }
+            }
+        })();
+
+        // Handle form submission
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                mobile: document.getElementById('mobile').value,
+                password: document.getElementById('password').value,
+                userType: currentUserType,
+            };
+
+            // Add user type specific fields
+            if (currentUserType === 'student') {
+                formData.city = document.getElementById('city').value;
+                formData.qualification = document.getElementById('qualification').value;
+            } else {
+                formData.companyName = document.getElementById('companyName').value;
+                formData.companyAddress = document.getElementById('companyAddress').value;
+            }
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Creating account...';
+
+            try {
+                const response = await registerUser(formData);
+                if (response.success) {
+                    showSuccess('Account created successfully! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    throw new Error(response.message || 'Registration failed');
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                const errorMessage = error.message || 'Registration failed. Please try again.';
+                showError(errorMessage);
+                submitBtn.disabled = false;
+                btnText.textContent = 'Create Account';
+            }
+        });
+
+        function socialRegister(provider) {
+            alert(`${provider} registration will be implemented soon!`);
+        }
+
+        // Make socialRegister globally accessible
+        window.socialRegister = socialRegister;
+    </script>
+</body>
+</html>
+

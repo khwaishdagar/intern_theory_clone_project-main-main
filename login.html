@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - InternTheory</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-header a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .user-type-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: #f5f5f5;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .user-type-toggle button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .user-type-toggle button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: auto;
+        }
+
+        .forgot-password {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+            color: #999;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background: #efe;
+            color: #3c3;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .login-card {
+                padding: 30px 20px;
+            }
+
+            .login-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navBarBox"></div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Welcome Back</h1>
+                <p>Don't have an account? <a href="register.html">Sign up</a></p>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+
+            <div class="user-type-toggle">
+                <button class="active" id="studentBtn" onclick="switchUserType('student')">Student</button>
+                <button id="companyBtn" onclick="switchUserType('company')">Company</button>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">Sign In</span>
+                </button>
+            </form>
+
+            <div class="divider">OR</div>
+
+            <div class="social-login">
+                <button class="social-btn" onclick="socialLogin('google')">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn" onclick="socialLogin('facebook')">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer_container"></div>
+
+    <script type="module" src="./script/auth.js"></script>
+    <script type="module">
+        import { loginUser, TokenManager } from './script/auth.js';
+        import { ContentAPI } from './script/api.js';
+        import { initUserProfile } from './script/userProfileHandler.js';
+        import navBar from './component/navBar.js';
+        import footer from './component/footer.js';
+
+        // Load navbar and footer
+        document.getElementById('navBarBox').innerHTML = navBar();
+        if (document.getElementById('footer_container')) {
+            document.getElementById('footer_container').innerHTML = footer();
+        }
+        
+        // Initialize user profile
+        setTimeout(() => {
+            initUserProfile();
+        }, 200);
+
+        // Handle navbar button clicks
+        setTimeout(() => {
+            const registerBtn = document.getElementById('register_btn');
+            if (registerBtn) {
+                registerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'register.html';
+                });
+            }
+
+            const loginBtn = document.getElementById('login_btn');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'login.html';
+                });
+            }
+        }, 100);
+
+        let currentUserType = 'student';
+
+        function switchUserType(type) {
+            currentUserType = type;
+            document.getElementById('studentBtn').classList.toggle('active', type === 'student');
+            document.getElementById('companyBtn').classList.toggle('active', type === 'company');
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.add('show');
+            setTimeout(() => errorDiv.classList.remove('show'), 5000);
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.classList.add('show');
+            setTimeout(() => successDiv.classList.remove('show'), 3000);
+        }
+
+        // Check if already logged in
+        if (TokenManager.getToken()) {
+            window.location.href = 'index.html';
+        }
+
+        // Load dynamic content
+        (async () => {
+            const content = await ContentAPI.getLoginContent();
+            if (content) {
+                const titleEl = document.querySelector('.login-header h1');
+                const subtitleEl = document.querySelector('.login-header p');
+                if (titleEl) titleEl.textContent = content.title;
+                if (subtitleEl && content.subtitle) {
+                    subtitleEl.innerHTML = `${content.subtitle} <a href="${content.registerLink}">Sign up</a>`;
+                }
+            }
+        })();
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Signing in...';
+
+            try {
+                const response = await loginUser(email, password);
+                showSuccess('Login successful! Redirecting...');
+                
+                setTimeout(() => {
+                    // Reload to show user profile
+                    window.location.href = 'index.html';
+                }, 1000);
+            } catch (error) {
+                showError(error.message || 'Login failed. Please try again.');
+                submitBtn.disabled = false;
+                btnText.textContent = 'Sign In';
+            }
+        });
+
+        function socialLogin(provider) {
+            alert(`${provider} login will be implemented soon!`);
+        }
+    </script>
+</body>
+</html>
+

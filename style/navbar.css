@@ -1,0 +1,611 @@
+#nav_bar {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#top_strip {
+    height: 5px;
+    background-color: #2c2c2c;
+    width: 100%;
+}
+
+#nav_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    height: 90px;
+}
+
+/* Left Box - Government Emblem and Ministry */
+#left_box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+#ashoka_emblem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+}
+
+#ashoka_emblem img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+#ashoka_emblem p {
+    font-size: 10px;
+    color: #333;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+#ministry_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+    border-left: 1px solid #e0e0e0;
+}
+
+#ministry_text .hindi_text {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+#ministry_text .english_text {
+    font-size: 11px;
+    color: #666;
+    margin: 5px 0 0 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+#skill_india_logo {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    border-left: 1px solid #e0e0e0;
+}
+
+#skill_india_logo h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+#skill_india_logo .tagline {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0 0 0;
+    font-weight: 500;
+}
+
+/* Middle Box - Navigation and Search Bar */
+#middle_box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    gap: 12px;
+}
+
+/* Main Navigation Menu */
+#main_navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.nav_menu_item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav_menu_item svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.nav_menu_item:hover {
+    background-color: #f5f5f5;
+    color: #0066CC;
+    transform: translateY(-2px);
+}
+
+.nav_menu_item:hover svg {
+    transform: scale(1.1);
+}
+
+.nav_menu_item:active {
+    transform: translateY(0);
+}
+
+#search_bar_container {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border: 1px solid #d0d0d0;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 500px;
+    height: 45px;
+    padding: 0 15px;
+    gap: 10px;
+    margin: 0;
+}
+
+#search_input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    padding: 5px;
+}
+
+#search_input::placeholder {
+    color: #999;
+}
+
+/* Right Box - Buttons */
+#right_box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 0 0 auto;
+}
+
+#dashboards_btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: white;
+    border: 2px solid #0066CC;
+    border-radius: 25px;
+    color: #0066CC;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+#dashboards_btn:hover {
+    background-color: #0066CC;
+    color: white;
+}
+
+#dashboards_btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+#help_icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+#help_icon:hover {
+    background-color: #e0e0e0;
+}
+
+#help_icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+#register_btn, #login_btn {
+    text-decoration: none;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#register_btn {
+    padding: 12px 30px;
+    background-color: #FF6600;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#register_btn:hover {
+    background-color: #e55a00;
+}
+
+#login_btn {
+    padding: 12px 30px;
+    background-color: white;
+    color: #FF6600;
+    border: 2px solid #FF6600;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#login_btn:hover {
+    background-color: #FF6600;
+    color: white;
+}
+
+/* User Profile Styles */
+#auth_buttons_container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#user_profile_section {
+    display: none;
+}
+
+#user_profile_container {
+    position: relative;
+}
+
+#user_profile_btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+#user_profile_btn:hover {
+    background: linear-gradient(135deg, rgba(0,102,204,0.1) 0%, rgba(255,102,0,0.1) 100%);
+    border-color: rgba(0,102,204,0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,102,204,0.15);
+}
+
+#user_profile_btn:hover #user_dropdown_icon {
+    transform: rotate(180deg);
+    color: #0066CC;
+}
+
+#user_avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0066CC 0%, #FF6600 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+#user_name {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+#user_dropdown_icon {
+    transition: transform 0.3s;
+}
+
+#user_profile_container:hover #user_dropdown_icon {
+    transform: rotate(180deg);
+}
+
+#user_profile_dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    min-width: 280px;
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+#user_profile_dropdown.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+#user_profile_dropdown > div:first-child {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#user_profile_dropdown > div:first-child > div:first-child {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#user_profile_dropdown > div:first-child > div:nth-child(2) {
+    font-size: 12px;
+    color: #666;
+}
+
+#user_profile_dropdown > div:first-child > div:last-child {
+    font-size: 11px;
+    color: #999;
+    margin-top: 5px;
+    text-transform: capitalize;
+}
+
+.profile_menu_item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+}
+
+.profile_menu_item:hover {
+    background: linear-gradient(135deg, rgba(0,102,204,0.08) 0%, rgba(255,102,0,0.08) 100%) !important;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0,102,204,0.1);
+}
+
+#logout_btn:hover {
+    background: #fee2e2 !important;
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(220,38,38,0.15);
+}
+
+.profile_menu_item:last-child {
+    margin-bottom: 0;
+}
+
+#user_profile_menu a svg {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+#logout_btn {
+    color: #d32f2f !important;
+}
+
+#logout_btn:hover {
+    background-color: #ffebee !important;
+}
+
+/* Secondary Navigation Bar */
+#secondary_navigation {
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 30px;
+}
+
+#secondary_nav_items {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#secondary_nav_items::-webkit-scrollbar {
+    display: none;
+}
+
+.secondary_nav_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.secondary_nav_item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.secondary_nav_item:hover {
+    background-color: #f8f9fa;
+    color: #0066CC;
+    border-bottom-color: #0066CC;
+}
+
+.secondary_nav_item.active {
+    color: #FF6600;
+    border-bottom-color: #FF6600;
+    background-color: #fff5f0;
+}
+
+.secondary_nav_item.active svg {
+    color: #FF6600;
+}
+
+.new_badge {
+    background-color: #dc2626;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 4px;
+}
+
+#soar_link {
+    color: #0066CC;
+}
+
+#soar_link:hover {
+    background-color: #f0f7ff;
+    border-bottom-color: #0066CC;
+}
+
+#more_options_link {
+    margin-left: auto;
+    padding: 12px 15px;
+}
+
+#more_options_link:hover {
+    background-color: #f8f9fa;
+    border-bottom-color: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    #nav_main {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 15px 20px;
+    }
+    
+    #left_box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    #middle_box {
+        width: 100%;
+        order: 3;
+        margin-top: 15px;
+    }
+    
+    #main_navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+    
+    .nav_menu_item {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    #right_box {
+        order: 2;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #ministry_text .hindi_text {
+        font-size: 12px;
+    }
+    
+    #ministry_text .english_text {
+        font-size: 9px;
+    }
+    
+    #skill_india_logo h2 {
+        font-size: 20px;
+    }
+    
+    #register_btn, #login_btn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+    
+    .nav_menu_item {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    .nav_menu_item svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    #user_profile_dropdown {
+        min-width: 260px;
+        right: -10px;
+    }
+    
+    #user_name {
+        display: none;
+    }
+    
+    #user_profile_btn {
+        padding: 8px 10px;
+    }
+    
+    #secondary_navigation {
+        padding: 0 15px;
+        overflow-x: auto;
+    }
+    
+    .secondary_nav_item {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    
+    .secondary_nav_item svg {
+        width: 18px;
+        height: 18px;
+    }
+}
