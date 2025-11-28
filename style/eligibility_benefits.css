@@ -1,280 +1,277 @@
 /* Eligibility and Benefits Section */
 .eligibility_benefits_section {
     width: 100%;
-    background-color: #f5f5f5;
-    padding: 60px 40px;
-    margin-top: 0;
+    background-color: #f8fafc;
+    padding: 100px 40px;
+    position: relative;
 }
 
 .eligibility_benefits_container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: start;
+    align-items: stretch;
 }
 
-.eligibility_section {
+.eligibility_section,
+.benefits_section {
     background-color: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+    transition: transform 0.3s ease;
 }
 
-.section_title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 30px;
+.eligibility_section:hover,
+.benefits_section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.section_title,
+.scheme_title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 40px;
     text-align: center;
+    position: relative;
+    padding-bottom: 15px;
 }
 
-.criteria_grid {
+.section_title::after,
+.scheme_title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6600, #FFD700);
+    border-radius: 2px;
+}
+
+.criteria_grid,
+.benefits_grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
 }
 
-.criteria_card {
-    background-color: #fafafa;
-    padding: 25px;
-    border-radius: 12px;
+.criteria_card,
+.benefit_card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
 }
 
-.criteria_card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.criteria_card::before,
+.benefit_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.criteria_icon {
-    margin-bottom: 15px;
+.criteria_card:hover,
+.benefit_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.criteria_card:hover::before,
+.benefit_card:hover::before {
+    opacity: 1;
+}
+
+.criteria_icon,
+.benefit_icon {
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: #f8fafc;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.criteria_card:hover .criteria_icon,
+.benefit_card:hover .benefit_icon {
+    background: #eff6ff;
+    transform: scale(1.1);
 }
 
 .age_icon {
-    width: 70px;
-    height: 70px;
-    background-color: #FFD700;
+    width: 100%;
+    height: 100%;
+    background-color: #fef3c7;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
-    font-weight: 700;
-    color: #DC2626;
+    font-size: 28px;
+    font-weight: 800;
+    color: #d97706;
     position: relative;
 }
 
 .plus_sign {
     position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #DC2626;
+    top: 0;
+    right: 0;
+    background-color: #ef4444;
     color: white;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
     font-weight: 700;
-}
-
-.criteria_content {
-    width: 100%;
+    border: 2px solid white;
 }
 
 .criteria_label {
-    color: #FF6600;
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 8px;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-.criteria_value {
-    color: #333;
-    font-size: 14px;
+.criteria_value,
+.benefit_content p {
+    color: #64748b;
+    font-size: 15px;
     margin: 0;
+    line-height: 1.6;
 }
 
 .criteria_list {
     list-style: none;
     padding: 0;
-    margin: 8px 0 0 0;
+    margin: 10px 0 0 0;
     text-align: left;
+    width: 100%;
 }
 
 .criteria_list li {
-    color: #333;
+    color: #64748b;
     font-size: 14px;
-    margin: 5px 0;
-    padding-left: 20px;
+    margin: 8px 0;
+    padding-left: 24px;
     position: relative;
 }
 
 .criteria_list li:before {
-    content: "•";
-    color: #FF6600;
+    content: "✓";
+    color: #10b981;
     font-weight: bold;
     position: absolute;
     left: 0;
 }
 
-.benefits_section {
-    background-color: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.scheme_title {
-    font-size: 48px;
-    font-weight: 800;
-    color: #FF6600;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.benefits_grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.benefit_card {
-    background-color: #fafafa;
-    padding: 25px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.benefit_card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.benefit_icon {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.benefit_content {
-    width: 100%;
-}
-
-.benefit_content p {
-    color: #333;
-    font-size: 14px;
-    margin: 0;
-    line-height: 1.6;
-}
-
 /* Political Figures Section */
 .political_figures_section {
     width: 100%;
-    background-color: #f5f5f5;
-    padding: 60px 40px;
+    background: linear-gradient(to bottom, #f8fafc, #ffffff);
+    padding: 100px 40px;
 }
 
 .political_figures_container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
 .figure_card {
     background-color: white;
-    border-radius: 15px;
+    border-radius: 24px;
     padding: 40px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.figure_card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-.figure_card:first-child {
-    flex-direction: row;
-}
-
-.figure_card_reverse {
-    flex-direction: row-reverse;
-}
-
-.figure_image {
-    flex-shrink: 0;
-}
-
-.figure_image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #f0f0f0;
-}
-
-.figure_image_container {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    flex-shrink: 0;
+    text-align: center;
+    gap: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
 }
 
-.figure_content {
-    flex: 1;
+.figure_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.figure_image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .figure_name {
-    font-size: 24px;
-    font-weight: 700;
-    color: #333;
-    margin: 0 0 8px 0;
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 5px 0;
 }
 
 .figure_title {
-    font-size: 14px;
-    color: #666;
-    margin: 0 0 15px 0;
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 20px 0;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
 }
 
 .figure_quote {
     font-size: 16px;
-    color: #555;
-    line-height: 1.6;
+    color: #475569;
+    line-height: 1.8;
     margin: 0;
+    font-style: italic;
+    position: relative;
 }
 
-.figure_info {
-    text-align: center;
-}
-
-.figure_card_reverse .figure_info {
-    text-align: center;
+.figure_quote::before {
+    content: '"';
+    font-size: 60px;
+    color: #e2e8f0;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: serif;
 }
 
 /* Responsive Design */
@@ -283,50 +280,51 @@
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .criteria_grid,
     .benefits_grid {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .figure_card {
         flex-direction: column !important;
         text-align: center;
     }
-    
+
     .figure_info {
         text-align: center !important;
     }
 }
 
 @media (max-width: 768px) {
+
     .eligibility_benefits_section,
     .political_figures_section {
         padding: 40px 20px;
     }
-    
+
     .eligibility_section,
     .benefits_section {
         padding: 30px 20px;
     }
-    
+
     .criteria_grid,
     .benefits_grid {
         grid-template-columns: 1fr;
     }
-    
+
     .scheme_title {
         font-size: 36px;
     }
-    
+
     .section_title {
         font-size: 24px;
     }
-    
+
     .figure_card {
         padding: 30px 20px;
     }
-    
+
     .figure_image img {
         width: 120px;
         height: 120px;
@@ -649,34 +647,34 @@
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .opportunities_blocks {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-    
+
     .building_skilled_india_title {
         font-size: 28px;
     }
 }
 
 @media (max-width: 768px) {
+
     .building_skilled_india_section,
     .opportunities_section {
         padding: 40px 20px;
     }
-    
+
     .feature_card {
         padding: 25px 20px;
     }
-    
+
     .opportunity_block {
         padding: 25px 20px;
     }
-    
+
     .opportunity_title,
     .opportunity_title_white {
         font-size: 24px;
     }
 }
-

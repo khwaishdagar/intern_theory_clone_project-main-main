@@ -69,10 +69,10 @@ const registerUser = async (userData) => {
       body: JSON.stringify(userData),
     });
 
-    if (response.token && response.user) {
-      TokenManager.setToken(response.token);
-      TokenManager.setUser(response.user);
-    }
+    // if (response.token && response.user) {
+    //   TokenManager.setToken(response.token);
+    //   TokenManager.setUser(response.user);
+    // }
 
     return response;
   } catch (error) {

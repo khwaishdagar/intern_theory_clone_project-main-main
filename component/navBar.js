@@ -1,10 +1,10 @@
-function navBar(){
-    var  navbar =`<div id="nav_bar">
+function navBar() {
+    var navbar = `<div id="nav_bar">
         <div id="top_strip"></div>
         <div id="nav_main">
             <div id="left_box">
                 <div id="ashoka_emblem">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Emblem_of_India.svg/120px-Emblem_of_India.svg.png" alt="Ashoka Chakra">
+                    <img src="assets/national_logo.webp" alt="Ashoka Chakra">
                     <p>सत्यमेव जयते</p>
                 </div>
                 <div id="ministry_text">
@@ -12,8 +12,9 @@ function navBar(){
                     <p class="english_text">MINISTRY OF SKILL DEVELOPMENT AND ENTREPRENEURSHIP</p>
                 </div>
                 <div id="skill_india_logo">
-                    <h2><span style="color: #0066CC;">Skill</span><span style="color: #FF6600;">I</span><span style="color: #00AA00;">ndia</span></h2>
-                    <p class="tagline">कौशल भारत - कुशल भारत</p>
+                    <a href="index.html">
+                        <img src="assets/pm-internship-logo.png" alt="PM Internship" style="height: 60px; width: auto;">
+                    </a>
                 </div>
             </div>
 
@@ -37,13 +38,7 @@ function navBar(){
                     </svg>
                     <span>Dashboards</span>
                 </a>
-                <a id="help_icon" href="contract.html" data-route="contact" title="Get help">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
-                </a>
+                
                 <div id="auth_buttons_container">
                     <a href="register.html" id="register_btn">REGISTER</a>
                     <a href="login.html" id="login_btn">LOGIN</a>
@@ -55,7 +50,7 @@ function navBar(){
         <!-- Secondary Navigation Bar -->
         <div id="secondary_navigation">
             <nav id="secondary_nav_items">
-                <a href="courses.html" class="secondary_nav_item active" id="skill_courses_secondary_link" data-route="skillCourses">
+                <a href="courses.html" class="secondary_nav_item" id="skill_courses_secondary_link" data-route="skillCourses">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FF6600" stroke="#FF6600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                         <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
@@ -69,7 +64,7 @@ function navBar(){
                     </svg>
                     <span>Job Exchange</span>
                 </a>
-                <a href="state-skill-missions.html" class="secondary_nav_item" id="skill_centre_secondary_link" data-route="skillCentre">
+                <a href="skill-centre.html" class="secondary_nav_item" id="skill_centre_secondary_link" data-route="skillCentre">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
@@ -86,7 +81,7 @@ function navBar(){
             </nav>
         </div>
     </div>`
-    return  navbar;
+    return navbar;
 }
 
 export default navBar
