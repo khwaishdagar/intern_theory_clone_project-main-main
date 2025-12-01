@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Card Background with subtle gradient -->
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="300" rx="16" fill="url(#cardBg)" filter="url(#shadow)"/>
+  <rect width="400" height="300" rx="16" fill="none" stroke="#e9ecef" stroke-width="2" />
+  
+  <!-- Top decorative element with Indian flag colors -->
+  <rect x="0" y="0" width="400" height="8" rx="16 16 0 0" fill="#FF9933" />
+  <rect x="0" y="8" width="400" height="8" fill="#FFFFFF" />
+  <rect x="0" y="16" width="400" height="8" fill="#138808" />
+  
+  <!-- Ashoka Chakra symbol at top -->
+  <circle cx="200" cy="60" r="28" fill="#f0f7f0" stroke="#138808" stroke-width="3" />
+  <circle cx="200" cy="60" r="20" fill="none" stroke="#000080" stroke-width="2" />
+  <circle cx="200" cy="60" r="3" fill="#000080" />
+  <!-- Chakra spokes -->
+  <g stroke="#000080" stroke-width="1.5">
+    <line x1="200" y1="40" x2="200" y2="80" />
+    <line x1="180" y1="60" x2="220" y2="60" />
+    <line x1="186" y1="46" x2="214" y2="74" />
+    <line x1="214" y1="46" x2="186" y2="74" />
+  </g>
+  
+  <!-- Main Title -->
+  <text x="200" y="125" font-family="'Georgia', serif" font-size="32" font-weight="bold" fill="#1a237e" text-anchor="middle">
+    Shri Narendra Modi
+  </text>
+  
+  <!-- Subtitle with background -->
+  <rect x="90" y="140" width="220" height="28" rx="14" fill="#e8eaf6" />
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#5c6bc0" text-anchor="middle" letter-spacing="2.5">
+    HON'BLE PRIME MINISTER
+  </text>
+  
+  <!-- Quote with decorative quotes -->
+  <text x="40" y="195" font-family="Georgia, serif" font-size="80" fill="#e0e0e0" opacity="0.3">"</text>
+  
+  <text x="200" y="205" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#37474f" text-anchor="middle">
+    <tspan x="200" dy="0">Skill development of the new generation</tspan>
+    <tspan x="200" dy="20">is a national need and is the foundation</tspan>
+    <tspan x="200" dy="20">of Aatmnirbhar Bharat</tspan>
+  </text>
+  
+  <!-- Bottom decorative line -->
+  <line x1="80" y1="275" x2="320" y2="275" stroke="#FF9933" stroke-width="3" stroke-linecap="round" />
+</svg>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,30 +10,30 @@
     <link rel="stylesheet" href="./style/m_sidebar2.css">
     <link rel="stylesheet" type="text/css" href="./style/homepage.css">
     <link rel="stylesheet" href="./style/navbar.css">
-    <link rel="stylesheet" href="./style/eligibility_benefits.css"> 
+    <link rel="stylesheet" href="./style/eligibility_benefits.css">
     <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet"
-     href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" 
-      crossorigin="anonymous"/>
-      <script src="https://kit.fontawesome.com/38146a849b.js" 
-          crossorigin="anonymous"></script>
-          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <style>
-        .mySlides {display:none;}
-        </style>
-     
-</head>
-</head>
-<body>
-    
-    <!-- ---------------sidebar.html-------------------- -->
-    <div id="sidebar_div" ></div>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/38146a849b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .mySlides {
+            display: none;
+        }
+    </style>
 
-     <!-- ---------------homepage.html-------------------- --> 
-<div class="container">
-    <div id="navBarBox"></div>
-    <!-- <div id="nav_bar">
+</head>
+</head>
+
+<body>
+
+    <!-- ---------------sidebar.html-------------------- -->
+    <div id="sidebar_div"></div>
+
+    <!-- ---------------homepage.html-------------------- -->
+    <div class="container">
+        <div id="navBarBox"></div>
+        <!-- <div id="nav_bar">
         <div id="left_box">
             <div><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2 15.5v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20v-2H2z"/></svg></a></div>
             <div id="icon_img"><a href="#">
@@ -56,483 +57,537 @@
  -->
 
 
-<div id="hero_section">
-    <div id="hero_content">
-        <div id="hero_left">
-            <div id="hero_text">
-                <p class="accepted_text">Accepted the Offer</p>
-                <h1 class="hero_question">But not Joined yet?</h1>
-                <div class="orange_box">
-                    <p>Don't worry - the window is still open!</p>
+        <div id="hero_section">
+            <div id="hero_content">
+                <div id="hero_left">
+                    <div id="hero_text">
+                        <p class="accepted_text">Accepted the Offer</p>
+                        <h1 class="hero_question">But not Joined yet?</h1>
+                        <div class="orange_box">
+                            <p>Don't worry - the window is still open!</p>
+                        </div>
+                        <div class="hero_description">
+                            <p>Reach out to the company that made you the offer.</p>
+                            <p>Contact details are in your offer letter.</p>
+                        </div>
+                        <a id="reach_out_btn" href="contract.html" data-route="contact">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>Reach Out Now</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="hero_description">
-                    <p>Reach out to the company that made you the offer.</p>
-                    <p>Contact details are in your offer letter.</p>
+                <div id="hero_right">
+                    <img src="https://picsum.photos/500/600?random=100" alt="PM Modi" id="pm_image">
                 </div>
-                <a id="reach_out_btn" href="contract.html" data-route="contact">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
+            </div>
+            <a id="chatbot_icon" href="contract.html" title="Chat with us" data-route="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Eligibility and Benefits Section -->
+        <div class="eligibility_benefits_section">
+            <div class="eligibility_benefits_container">
+                <!-- Left Side: Eligibility Criteria -->
+                <div class="eligibility_section">
+                    <h2 class="section_title">Are You Eligible?</h2>
+                    <div class="criteria_grid">
+                        <div class="criteria_card">
+                            <div class="criteria_icon">
+                                <div class="age_icon">21<span class="plus_sign">+</span></div>
+                            </div>
+                            <div class="criteria_content">
+                                <p class="criteria_label">Age</p>
+                                <p class="criteria_value">21-24 Years</p>
+                            </div>
+                        </div>
+
+                        <div class="criteria_card">
+                            <div class="criteria_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                                    fill="none" stroke="#8B4513" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <div class="criteria_content">
+                                <p class="criteria_label">Job Status</p>
+                                <p class="criteria_value">Not Employed Full Time</p>
+                            </div>
+                        </div>
+
+                        <div class="criteria_card">
+                            <div class="criteria_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                                    fill="none" stroke="#1E3A8A" stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 1.1.9 2 2 2h3"></path>
+                                </svg>
+                            </div>
+                            <div class="criteria_content">
+                                <p class="criteria_label">Education</p>
+                                <p class="criteria_value">Not Enrolled Full Time</p>
+                            </div>
+                        </div>
+
+                        <div class="criteria_card">
+                            <div class="criteria_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                                    fill="none" stroke="#059669" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="criteria_content">
+                                <p class="criteria_label">Family (Self/ Spouse / Parents)</p>
+                                <ul class="criteria_list">
+                                    <li>No one is Earning more than ₹8 Lakhs PA</li>
+                                    <li>No Member has a Govt. Job</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Scheme Benefits -->
+                <div class="benefits_section">
+                    <h2 class="scheme_title">Scheme</h2>
+                    <div class="benefits_grid">
+                        <div class="benefit_card">
+                            <div class="benefit_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                                    fill="none" stroke="#3B82F6" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                </svg>
+                            </div>
+                            <div class="benefit_content">
+                                <p>12 months real-life experience in India's top companies</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit_card">
+                            <div class="benefit_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                                    fill="none" stroke="#8B4513" stroke-width="2">
+                                    <rect x="1" y="6" width="22" height="14" rx="2" ry="2"></rect>
+                                    <path d="M7 10h10"></path>
+                                    <circle cx="8" cy="14" r="1" fill="#FFD700"></circle>
+                                </svg>
+                            </div>
+                            <div class="benefit_content">
+                                <p>Monthly assistance of ₹4500 by Government of India and ₹500 by Industry</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit_card">
+                            <div class="benefit_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                                    fill="none" stroke="#FFD700" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                            </div>
+                            <div class="benefit_content">
+                                <p>One-time Grant of ₹6000 for incidentals</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit_card">
+                            <div class="benefit_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24"
+                                    fill="none" stroke="#FFD700" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path
+                                        d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="benefit_content">
+                                <p>Select from Various Sectors and from top Companies of India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Political Figures Section -->
+        <div class="political_figures_section">
+            <div class="political_figures_container">
+                <div class="figure_card">
+                    <div class="figure_image">
+                        <img tabindex="0" alt="India Prime Minister" loading="eager"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Narendra_Modi_in_2022.jpg/440px-Narendra_Modi_in_2022.jpg"
+                            onerror="this.src='https://via.placeholder.com/200?text=PM+Modi'">
+                    </div>
+                    <div class="figure_content">
+                        <h3 class="figure_name">Shri Narendra Modi</h3>
+                        <p class="figure_title">Hon'ble Prime Minister</p>
+                        <p class="figure_quote">"Skill development of the new generation is a national need and is the
+                            foundation of Aatmnirbhar Bharat"</p>
+                    </div>
+                </div>
+
+                <div class="figure_card">
+                    <div class="figure_image">
+                        <img tabindex="0"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jayant_Chaudhary_Official_Portrait.jpg/440px-Jayant_Chaudhary_Official_Portrait.jpg"
+                            alt="State Minister" loading="eager"
+                            onerror="this.src='https://via.placeholder.com/200?text=Minister'">
+                    </div>
+                    <div class="figure_content">
+                        <h3 class="figure_name">Shri Jayant Chaudhary</h3>
+                        <p class="figure_title">Hon'ble Minister of State</p>
+                        <p class="figure_quote">"New skills such as AI, machine learning, and automation are
+                            transforming industries and highlighting the critical need for continuous learning."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Building a Skilled India Section -->
+        <div class="building_skilled_india_section">
+            <div class="building_skilled_india_container">
+                <h2 class="building_skilled_india_title">Building a Skilled India</h2>
+                <div class="feature_cards_grid">
+                    <div class="feature_card">
+                        <div class="feature_illustration">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="55" fill="#FFE5D4" opacity="0.5" />
+                                <circle cx="35" cy="50" r="12" fill="#FF6600" />
+                                <rect x="28" y="55" width="14" height="30" rx="2" fill="#0066CC" />
+                                <circle cx="60" cy="50" r="12" fill="#E0E0E0" />
+                                <rect x="53" y="55" width="14" height="30" rx="2" fill="#9E9E9E" />
+                                <circle cx="85" cy="50" r="12" fill="#424242" />
+                                <rect x="78" y="55" width="14" height="30" rx="2" fill="#616161" />
+                                <line x1="45" y1="55" x2="55" y2="55" stroke="#333" stroke-width="2" />
+                                <line x1="70" y1="55" x2="80" y2="55" stroke="#333" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3 class="feature_card_title">Citizen Centric</h3>
+                        <p class="feature_card_description">Designed to meet the skilling needs of India's diverse and
+                            aspirational population</p>
+                    </div>
+
+                    <div class="feature_card">
+                        <div class="feature_illustration">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="55" fill="#FFE5D4" opacity="0.5" />
+                                <path d="M30 90 L90 90 L90 40 L30 40 Z" fill="#3B82F6" opacity="0.3" />
+                                <path d="M20 100 L100 100 L100 30 L20 30 Z" fill="#3B82F6" />
+                                <circle cx="60" cy="50" r="8" fill="#FF6600" />
+                                <rect x="56" y="45" width="8" height="20" rx="1" fill="#FFFFFF" />
+                                <circle cx="60" cy="35" r="3" fill="#DC2626" />
+                                <path d="M40 80 L80 80" stroke="#FFD700" stroke-width="3"
+                                    marker-end="url(#arrowhead)" />
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3"
+                                        orient="auto">
+                                        <polygon points="0 0, 10 3, 0 6" fill="#FFD700" />
+                                    </marker>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="feature_card_title">Career Focussed</h3>
+                        <p class="feature_card_description">Relevant skill courses, certification, jobs and
+                            apprenticeships</p>
+                    </div>
+
+                    <div class="feature_card">
+                        <div class="feature_illustration">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="55" fill="#FFE5D4" opacity="0.5" />
+                                <ellipse cx="35" cy="40" rx="20" ry="15" fill="#FFFFFF" stroke="#0066CC"
+                                    stroke-width="2" />
+                                <text x="35" y="45" font-family="Arial" font-size="10" fill="#0066CC"
+                                    text-anchor="middle">શુભેચ્છાઓ</text>
+                                <ellipse cx="85" cy="40" rx="20" ry="15" fill="#FFFFFF" stroke="#333"
+                                    stroke-width="2" />
+                                <text x="85" y="45" font-family="Arial" font-size="10" fill="#333"
+                                    text-anchor="middle">নমস্কার</text>
+                                <ellipse cx="35" cy="70" rx="20" ry="15" fill="#FFFFFF" stroke="#FF6600"
+                                    stroke-width="2" />
+                                <text x="35" y="75" font-family="Arial" font-size="10" fill="#FF6600"
+                                    text-anchor="middle">नमस्ते</text>
+                            </svg>
+                        </div>
+                        <h3 class="feature_card_title">Multilingual</h3>
+                        <p class="feature_card_description">Explore Skill India Digital Hub in Multiple Indian languages
+                        </p>
+                    </div>
+                </div>
+                <div class="register_button_container">
+                    <a class="register_button" href="register.html" data-route="register">REGISTER</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opportunities Section -->
+        <div class="opportunities_section">
+            <div class="opportunities_header">
+                <a class="opportunities_near_you" href="jobs.html" data-route="jobs">
+                    <div class="india_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="11" fill="#FF6600" stroke="#FFFFFF" stroke-width="2" />
+                            <path d="M12 3 C9 5, 7 8, 7 12 C7 16, 9 19, 12 21 C15 19, 17 16, 17 12 C17 8, 15 5, 12 3 Z"
+                                fill="#FFFFFF" opacity="0.3" />
+                        </svg>
+                    </div>
+                    <span class="opportunities_text">Opportunities near you</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="#0066CC" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                    <span>Reach Out Now</span>
                 </a>
             </div>
-        </div>
-        <div id="hero_right">
-            <img src="https://picsum.photos/500/600?random=100" alt="PM Modi" id="pm_image">
-        </div>
-    </div>
-    <a id="chatbot_icon" href="contract.html" title="Chat with us" data-route="contact">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-        </svg>
-    </a>
-</div>
 
-<!-- Eligibility and Benefits Section -->
-<div class="eligibility_benefits_section">
-    <div class="eligibility_benefits_container">
-        <!-- Left Side: Eligibility Criteria -->
-        <div class="eligibility_section">
-            <h2 class="section_title">Are You Eligible?</h2>
-            <div class="criteria_grid">
-                <div class="criteria_card">
-                    <div class="criteria_icon">
-                        <div class="age_icon">21<span class="plus_sign">+</span></div>
-                    </div>
-                    <div class="criteria_content">
-                        <p class="criteria_label">Age</p>
-                        <p class="criteria_value">21-24 Years</p>
-                    </div>
-                </div>
-                
-                <div class="criteria_card">
-                    <div class="criteria_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#8B4513" stroke-width="2">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            <div class="opportunities_blocks">
+                <div class="opportunity_block">
+                    <h2 class="opportunity_title">I want to learn!</h2>
+                    <p class="opportunity_subtitle">Skill Courses</p>
+                    <div class="opportunity_illustration">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+                            <rect x="40" y="60" width="120" height="80" rx="5" fill="#E0E0E0" />
+                            <rect x="45" y="65" width="110" height="70" fill="#FFFFFF" />
+                            <rect x="50" y="70" width="100" height="5" fill="#0066CC" />
+                            <rect x="50" y="80" width="80" height="5" fill="#CCCCCC" />
+                            <rect x="50" y="90" width="90" height="5" fill="#CCCCCC" />
+                            <circle cx="80" cy="40" r="15" fill="#FF6600" />
+                            <rect x="70" y="50" width="20" height="25" rx="2" fill="#FFFFFF" />
+                            <path d="M30 100 L170 100" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5,5"
+                                opacity="0.3" />
+                            <rect x="20" y="110" width="160" height="30" rx="3" fill="#F5F5F5" opacity="0.5" />
                         </svg>
                     </div>
-                    <div class="criteria_content">
-                        <p class="criteria_label">Job Status</p>
-                        <p class="criteria_value">Not Employed Full Time</p>
-                    </div>
-                </div>
-                
-                <div class="criteria_card">
-                    <div class="criteria_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            <path d="M6 12v5c0 1.1.9 2 2 2h3"></path>
+                    <div class="opportunity_input_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="#999" stroke-width="2" class="input_icon_left">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <input type="text" placeholder="Select Interest Area" class="opportunity_input">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="#999" stroke-width="2" class="input_icon_right">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </div>
-                    <div class="criteria_content">
-                        <p class="criteria_label">Education</p>
-                        <p class="criteria_value">Not Enrolled Full Time</p>
-                    </div>
+                    <p class="opportunity_hint">Interest areas like Automotive, Electronics etc.</p>
+                    <a class="opportunity_button" href="onlinecourses.html" data-route="onlineCourses">FIND SKILL
+                        COURSES</a>
                 </div>
-                
-                <div class="criteria_card">
-                    <div class="criteria_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+
+                <div class="opportunity_block">
+                    <h2 class="opportunity_title">I want to explore!</h2>
+                    <p class="opportunity_subtitle">Job Exchange</p>
+                    <div class="opportunity_illustration">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+                            <circle cx="100" cy="50" r="25" fill="#FFE5D4" opacity="0.5" />
+                            <circle cx="100" cy="50" r="20" fill="#FF6600" />
+                            <rect x="75" y="60" width="50" height="60" rx="3" fill="#FFFFFF" />
+                            <rect x="80" y="65" width="40" height="5" fill="#0066CC" />
+                            <rect x="80" y="75" width="35" height="5" fill="#CCCCCC" />
+                            <rect x="80" y="85" width="30" height="5" fill="#CCCCCC" />
+                            <rect x="80" y="95" width="35" height="5" fill="#CCCCCC" />
+                            <path d="M30 100 L170 100" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5,5"
+                                opacity="0.3" />
+                            <rect x="20" y="110" width="160" height="30" rx="3" fill="#F5F5F5" opacity="0.5" />
                         </svg>
                     </div>
-                    <div class="criteria_content">
-                        <p class="criteria_label">Family (Self/ Spouse / Parents)</p>
-                        <ul class="criteria_list">
-                            <li>No one is Earning more than ₹8 Lakhs PA</li>
-                            <li>No Member has a Govt. Job</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Right Side: Scheme Benefits -->
-        <div class="benefits_section">
-            <h2 class="scheme_title">Scheme</h2>
-            <div class="benefits_grid">
-                <div class="benefit_card">
-                    <div class="benefit_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                            <circle cx="12" cy="12" r="1"></circle>
+                    <div class="opportunity_input_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="#999" stroke-width="2" class="input_icon_left">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <input type="text" placeholder="Search Job Exchange" class="opportunity_input">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="#999" stroke-width="2" class="input_icon_right">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </div>
-                    <div class="benefit_content">
-                        <p>12 months real-life experience in India's top companies</p>
-                    </div>
+                    <p class="opportunity_hint">Opportunities for Job Exchange, Apprenticeship and Entrepreneurship.</p>
+                    <a class="opportunity_button" href="jobs.html" data-route="jobs">EXPLORE JOB EXCHANGE</a>
                 </div>
-                
-                <div class="benefit_card">
-                    <div class="benefit_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#8B4513" stroke-width="2">
-                            <rect x="1" y="6" width="22" height="14" rx="2" ry="2"></rect>
-                            <path d="M7 10h10"></path>
-                            <circle cx="8" cy="14" r="1" fill="#FFD700"></circle>
-                        </svg>
-                    </div>
-                    <div class="benefit_content">
-                        <p>Monthly assistance of ₹4500 by Government of India and ₹500 by Industry</p>
-                    </div>
-                </div>
-                
-                <div class="benefit_card">
-                    <div class="benefit_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2">
+
+                <div class="opportunity_block opportunity_block_highlight">
+                    <div class="question_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="#0066CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
-                            <circle cx="12" cy="12" r="6"></circle>
-                            <circle cx="12" cy="12" r="2"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
                         </svg>
                     </div>
-                    <div class="benefit_content">
-                        <p>One-time Grant of ₹6000 for incidentals</p>
+                    <h2 class="opportunity_title_white">Not sure where to begin?</h2>
+                    <p class="opportunity_description_white">Answer a few simple questions and we will help you.</p>
+                    <p class="opportunity_question">What is your highest education level?</p>
+                    <div class="opportunity_dropdown_container">
+                        <select class="opportunity_dropdown">
+                            <option>Select Education</option>
+                            <option>High School</option>
+                            <option>Graduate</option>
+                            <option>Post Graduate</option>
+                        </select>
+                    </div>
+                    <div class="progress_container">
+                        <span class="progress_text">1/5</span>
+                        <a class="next_button" href="register.html" data-route="register">NEXT</a>
                     </div>
                 </div>
-                
-                <div class="benefit_card">
-                    <div class="benefit_icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+            </div>
+        </div>
+
+        <!-- Explore Learn Carousel Section -->
+        <div class="explore_learn_section">
+            <div class="explore_learn_carousel">
+                <div class="explore_slider_items">
+                    <!-- Slide 1: Explore, Learn, Get Skill Certified -->
+                    <div class="explore_slide_item active">
+                        <div class="explore_slide_content">
+                            <div class="explore_slide_left">
+                                <div class="explore_illustration">
+                                    <div class="explore_blob_shape">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="350"
+                                            height="350">
+                                            <defs>
+                                                <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#F5E6D3;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#E8D5C4;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <path
+                                                d="M200,50 Q150,100 120,150 Q80,200 100,280 Q120,360 180,400 Q240,440 300,420 Q360,400 380,340 Q400,280 380,200 Q360,120 300,80 Q240,40 200,50 Z"
+                                                fill="url(#blobGradient)" />
+                                            <circle cx="200" cy="180" r="40" fill="#FF6600" />
+                                            <rect x="178" y="215" width="44" height="110" rx="4" fill="#1a1a1a" />
+                                            <circle cx="193" cy="172" r="7" fill="#333" />
+                                            <circle cx="207" cy="172" r="7" fill="#333" />
+                                            <path d="M192,188 Q200,195 208,188" stroke="#333" stroke-width="1.5"
+                                                fill="none" />
+                                            <path d="M200,218 L200,325" stroke="#333" stroke-width="2.5" />
+                                            <circle cx="200" cy="158" r="2.5" fill="#FFD700" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore_slide_right">
+                                <h2 class="explore_main_title">Explore, Learn, Get Skill Certified</h2>
+                                <p class="explore_subtitle">Find skill courses across sectors and locations</p>
+                                <a class="explore_learn_button" href="onlinecourses.html"
+                                    data-route="onlineCourses">LEARN MORE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Placeholder for second description -->
+                    <div class="explore_slide_item">
+                        <div class="explore_slide_content">
+                            <div class="explore_slide_left">
+                                <div class="explore_illustration">
+                                    <div class="explore_blob_shape">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="350"
+                                            height="350">
+                                            <defs>
+                                                <linearGradient id="blobGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#E3F2FD;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#BBDEFB;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <path
+                                                d="M200,50 Q150,100 120,150 Q80,200 100,280 Q120,360 180,400 Q240,440 300,420 Q360,400 380,340 Q400,280 380,200 Q360,120 300,80 Q240,40 200,50 Z"
+                                                fill="url(#blobGradient2)" />
+                                            <circle cx="200" cy="180" r="40" fill="#2196F3" />
+                                            <rect x="178" y="215" width="44" height="110" rx="4" fill="#1565C0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore_slide_right">
+                                <h2 class="explore_main_title">Build Your Career Path</h2>
+                                <p class="explore_subtitle">Discover opportunities that match your skills and
+                                    aspirations</p>
+                                <a class="explore_learn_button" href="jobs.html" data-route="jobs">EXPLORE NOW</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Placeholder for third description -->
+                    <div class="explore_slide_item">
+                        <div class="explore_slide_content">
+                            <div class="explore_slide_left">
+                                <div class="explore_illustration">
+                                    <div class="explore_blob_shape">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="350"
+                                            height="350">
+                                            <defs>
+                                                <linearGradient id="blobGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#F3E5F5;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#E1BEE7;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <path
+                                                d="M200,50 Q150,100 120,150 Q80,200 100,280 Q120,360 180,400 Q240,440 300,420 Q360,400 380,340 Q400,280 380,200 Q360,120 300,80 Q240,40 200,50 Z"
+                                                fill="url(#blobGradient3)" />
+                                            <circle cx="200" cy="180" r="40" fill="#9C27B0" />
+                                            <rect x="178" y="215" width="44" height="110" rx="4" fill="#6A1B9A" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore_slide_right">
+                                <h2 class="explore_main_title">Grow With Industry Leaders</h2>
+                                <p class="explore_subtitle">Connect with top companies and accelerate your professional
+                                    journey</p>
+                                <a class="explore_learn_button" href="partner-with-msde.html" data-route="partner">GET
+                                    STARTED</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="explore_carousel_controls">
+                    <button class="explore_pause_btn" id="explorePauseBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="#0066CC">
+                            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
                         </svg>
-                    </div>
-                    <div class="benefit_content">
-                        <p>Select from Various Sectors and from top Companies of India</p>
+                    </button>
+                    <div class="explore_slide_dots">
+                        <span class="explore_dot active" data-slide="0"></span>
+                        <span class="explore_dot" data-slide="1"></span>
+                        <span class="explore_dot" data-slide="2"></span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Political Figures Section -->
-<div class="political_figures_section">
-    <div class="political_figures_container">
-        <div class="figure_card">
-            <div class="figure_image">
-                <img tabindex="0" alt="India Prime Minister" loading="lazy" src="https://skillindiadigital.gov.in/assets/new-ux-img/sidh-pm-modi.webp">
-            </div>
-            <div class="figure_content">
-                <h3 class="figure_name">Shri Narendra Modi</h3>
-                <p class="figure_title">Hon'ble Prime Minister</p>
-                <p class="figure_quote">"Skill development of the new generation is a national need and is the foundation of Aatmnirbhar Bharat"</p>
-            </div>
-        </div>
-        
-        <div class="figure_card">
-            <div class="figure_image">
-                <img tabindex="0" src="./assets/new-ux-img/aatmnirbhar-bharat-card-jayant.webp" alt="State Minister" loading="lazy">
-            </div>
-            <div class="figure_content">
-                <h3 class="figure_name">Shri Jayant Chaudhary</h3>
-                <p class="figure_title">Hon'ble Minister of State</p>
-                <p class="figure_quote">"New skills such as AI, machine learning, and automation are transforming industries and highlighting the critical need for continuous learning."</p>
-            </div>
-        </div>
-    </div>
-</div>
+        <div id="footer_container"></div>
 
-<!-- Building a Skilled India Section -->
-<div class="building_skilled_india_section">
-    <div class="building_skilled_india_container">
-        <h2 class="building_skilled_india_title">Building a Skilled India</h2>
-        <div class="feature_cards_grid">
-            <div class="feature_card">
-                <div class="feature_illustration">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-                        <circle cx="60" cy="60" r="55" fill="#FFE5D4" opacity="0.5"/>
-                        <circle cx="35" cy="50" r="12" fill="#FF6600"/>
-                        <rect x="28" y="55" width="14" height="30" rx="2" fill="#0066CC"/>
-                        <circle cx="60" cy="50" r="12" fill="#E0E0E0"/>
-                        <rect x="53" y="55" width="14" height="30" rx="2" fill="#9E9E9E"/>
-                        <circle cx="85" cy="50" r="12" fill="#424242"/>
-                        <rect x="78" y="55" width="14" height="30" rx="2" fill="#616161"/>
-                        <line x1="45" y1="55" x2="55" y2="55" stroke="#333" stroke-width="2"/>
-                        <line x1="70" y1="55" x2="80" y2="55" stroke="#333" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3 class="feature_card_title">Citizen Centric</h3>
-                <p class="feature_card_description">Designed to meet the skilling needs of India's diverse and aspirational population</p>
-            </div>
-            
-            <div class="feature_card">
-                <div class="feature_illustration">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-                        <circle cx="60" cy="60" r="55" fill="#FFE5D4" opacity="0.5"/>
-                        <path d="M30 90 L90 90 L90 40 L30 40 Z" fill="#3B82F6" opacity="0.3"/>
-                        <path d="M20 100 L100 100 L100 30 L20 30 Z" fill="#3B82F6"/>
-                        <circle cx="60" cy="50" r="8" fill="#FF6600"/>
-                        <rect x="56" y="45" width="8" height="20" rx="1" fill="#FFFFFF"/>
-                        <circle cx="60" cy="35" r="3" fill="#DC2626"/>
-                        <path d="M40 80 L80 80" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowhead)"/>
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#FFD700"/>
-                            </marker>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="feature_card_title">Career Focussed</h3>
-                <p class="feature_card_description">Relevant skill courses, certification, jobs and apprenticeships</p>
-            </div>
-            
-            <div class="feature_card">
-                <div class="feature_illustration">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-                        <circle cx="60" cy="60" r="55" fill="#FFE5D4" opacity="0.5"/>
-                        <ellipse cx="35" cy="40" rx="20" ry="15" fill="#FFFFFF" stroke="#0066CC" stroke-width="2"/>
-                        <text x="35" y="45" font-family="Arial" font-size="10" fill="#0066CC" text-anchor="middle">શુભેચ્છાઓ</text>
-                        <ellipse cx="85" cy="40" rx="20" ry="15" fill="#FFFFFF" stroke="#333" stroke-width="2"/>
-                        <text x="85" y="45" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">নমস্কার</text>
-                        <ellipse cx="35" cy="70" rx="20" ry="15" fill="#FFFFFF" stroke="#FF6600" stroke-width="2"/>
-                        <text x="35" y="75" font-family="Arial" font-size="10" fill="#FF6600" text-anchor="middle">नमस्ते</text>
-                    </svg>
-                </div>
-                <h3 class="feature_card_title">Multilingual</h3>
-                <p class="feature_card_description">Explore Skill India Digital Hub in Multiple Indian languages</p>
-            </div>
-        </div>
-        <div class="register_button_container">
-            <a class="register_button" href="register.html" data-route="register">REGISTER</a>
-        </div>
     </div>
-</div>
-
-<!-- Opportunities Section -->
-<div class="opportunities_section">
-    <div class="opportunities_header">
-        <a class="opportunities_near_you" href="jobs.html" data-route="jobs">
-            <div class="india_icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="11" fill="#FF6600" stroke="#FFFFFF" stroke-width="2"/>
-                    <path d="M12 3 C9 5, 7 8, 7 12 C7 16, 9 19, 12 21 C15 19, 17 16, 17 12 C17 8, 15 5, 12 3 Z" fill="#FFFFFF" opacity="0.3"/>
-                </svg>
-            </div>
-            <span class="opportunities_text">Opportunities near you</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066CC" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-        </a>
-    </div>
-    
-    <div class="opportunities_blocks">
-        <div class="opportunity_block">
-            <h2 class="opportunity_title">I want to learn!</h2>
-            <p class="opportunity_subtitle">Skill Courses</p>
-            <div class="opportunity_illustration">
-                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
-                    <rect x="40" y="60" width="120" height="80" rx="5" fill="#E0E0E0"/>
-                    <rect x="45" y="65" width="110" height="70" fill="#FFFFFF"/>
-                    <rect x="50" y="70" width="100" height="5" fill="#0066CC"/>
-                    <rect x="50" y="80" width="80" height="5" fill="#CCCCCC"/>
-                    <rect x="50" y="90" width="90" height="5" fill="#CCCCCC"/>
-                    <circle cx="80" cy="40" r="15" fill="#FF6600"/>
-                    <rect x="70" y="50" width="20" height="25" rx="2" fill="#FFFFFF"/>
-                    <path d="M30 100 L170 100" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5,5" opacity="0.3"/>
-                    <rect x="20" y="110" width="160" height="30" rx="3" fill="#F5F5F5" opacity="0.5"/>
-                </svg>
-            </div>
-            <div class="opportunity_input_container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" class="input_icon_left">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                <input type="text" placeholder="Select Interest Area" class="opportunity_input">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" class="input_icon_right">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-            </div>
-            <p class="opportunity_hint">Interest areas like Automotive, Electronics etc.</p>
-            <a class="opportunity_button" href="onlinecourses.html" data-route="onlineCourses">FIND SKILL COURSES</a>
-        </div>
-        
-        <div class="opportunity_block">
-            <h2 class="opportunity_title">I want to explore!</h2>
-            <p class="opportunity_subtitle">Job Exchange</p>
-            <div class="opportunity_illustration">
-                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
-                    <circle cx="100" cy="50" r="25" fill="#FFE5D4" opacity="0.5"/>
-                    <circle cx="100" cy="50" r="20" fill="#FF6600"/>
-                    <rect x="75" y="60" width="50" height="60" rx="3" fill="#FFFFFF"/>
-                    <rect x="80" y="65" width="40" height="5" fill="#0066CC"/>
-                    <rect x="80" y="75" width="35" height="5" fill="#CCCCCC"/>
-                    <rect x="80" y="85" width="30" height="5" fill="#CCCCCC"/>
-                    <rect x="80" y="95" width="35" height="5" fill="#CCCCCC"/>
-                    <path d="M30 100 L170 100" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5,5" opacity="0.3"/>
-                    <rect x="20" y="110" width="160" height="30" rx="3" fill="#F5F5F5" opacity="0.5"/>
-                </svg>
-            </div>
-            <div class="opportunity_input_container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" class="input_icon_left">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                <input type="text" placeholder="Search Job Exchange" class="opportunity_input">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" class="input_icon_right">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-            </div>
-            <p class="opportunity_hint">Opportunities for Job Exchange, Apprenticeship and Entrepreneurship.</p>
-            <a class="opportunity_button" href="jobs.html" data-route="jobs">EXPLORE JOB EXCHANGE</a>
-        </div>
-        
-        <div class="opportunity_block opportunity_block_highlight">
-            <div class="question_icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0066CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-            </div>
-            <h2 class="opportunity_title_white">Not sure where to begin?</h2>
-            <p class="opportunity_description_white">Answer a few simple questions and we will help you.</p>
-            <p class="opportunity_question">What is your highest education level?</p>
-            <div class="opportunity_dropdown_container">
-                <select class="opportunity_dropdown">
-                    <option>Select Education</option>
-                    <option>High School</option>
-                    <option>Graduate</option>
-                    <option>Post Graduate</option>
-                </select>
-            </div>
-            <div class="progress_container">
-                <span class="progress_text">1/5</span>
-                <a class="next_button" href="register.html" data-route="register">NEXT</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Explore Learn Carousel Section -->
-<div class="explore_learn_section">
-    <div class="explore_learn_carousel">
-        <div class="explore_slider_items">
-            <!-- Slide 1: Explore, Learn, Get Skill Certified -->
-            <div class="explore_slide_item active">
-                <div class="explore_slide_content">
-                    <div class="explore_slide_left">
-                        <div class="explore_illustration">
-                            <div class="explore_blob_shape">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="350" height="350">
-                                    <defs>
-                                        <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#F5E6D3;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#E8D5C4;stop-opacity:1" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path d="M200,50 Q150,100 120,150 Q80,200 100,280 Q120,360 180,400 Q240,440 300,420 Q360,400 380,340 Q400,280 380,200 Q360,120 300,80 Q240,40 200,50 Z" fill="url(#blobGradient)"/>
-                                    <circle cx="200" cy="180" r="40" fill="#FF6600"/>
-                                    <rect x="178" y="215" width="44" height="110" rx="4" fill="#1a1a1a"/>
-                                    <circle cx="193" cy="172" r="7" fill="#333"/>
-                                    <circle cx="207" cy="172" r="7" fill="#333"/>
-                                    <path d="M192,188 Q200,195 208,188" stroke="#333" stroke-width="1.5" fill="none"/>
-                                    <path d="M200,218 L200,325" stroke="#333" stroke-width="2.5"/>
-                                    <circle cx="200" cy="158" r="2.5" fill="#FFD700"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="explore_slide_right">
-                        <h2 class="explore_main_title">Explore, Learn, Get Skill Certified</h2>
-                        <p class="explore_subtitle">Find skill courses across sectors and locations</p>
-                        <a class="explore_learn_button" href="onlinecourses.html" data-route="onlineCourses">LEARN MORE</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 2: Placeholder for second description -->
-            <div class="explore_slide_item">
-                <div class="explore_slide_content">
-                    <div class="explore_slide_left">
-                        <div class="explore_illustration">
-                            <div class="explore_blob_shape">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="350" height="350">
-                                    <defs>
-                                        <linearGradient id="blobGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#E3F2FD;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#BBDEFB;stop-opacity:1" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path d="M200,50 Q150,100 120,150 Q80,200 100,280 Q120,360 180,400 Q240,440 300,420 Q360,400 380,340 Q400,280 380,200 Q360,120 300,80 Q240,40 200,50 Z" fill="url(#blobGradient2)"/>
-                                    <circle cx="200" cy="180" r="40" fill="#2196F3"/>
-                                    <rect x="178" y="215" width="44" height="110" rx="4" fill="#1565C0"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="explore_slide_right">
-                        <h2 class="explore_main_title">Build Your Career Path</h2>
-                        <p class="explore_subtitle">Discover opportunities that match your skills and aspirations</p>
-                        <a class="explore_learn_button" href="jobs.html" data-route="jobs">EXPLORE NOW</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 3: Placeholder for third description -->
-            <div class="explore_slide_item">
-                <div class="explore_slide_content">
-                    <div class="explore_slide_left">
-                        <div class="explore_illustration">
-                            <div class="explore_blob_shape">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="350" height="350">
-                                    <defs>
-                                        <linearGradient id="blobGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#F3E5F5;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#E1BEE7;stop-opacity:1" />
-                                        </linearGradient>
-                                    </defs>
-                                    <path d="M200,50 Q150,100 120,150 Q80,200 100,280 Q120,360 180,400 Q240,440 300,420 Q360,400 380,340 Q400,280 380,200 Q360,120 300,80 Q240,40 200,50 Z" fill="url(#blobGradient3)"/>
-                                    <circle cx="200" cy="180" r="40" fill="#9C27B0"/>
-                                    <rect x="178" y="215" width="44" height="110" rx="4" fill="#6A1B9A"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="explore_slide_right">
-                        <h2 class="explore_main_title">Grow With Industry Leaders</h2>
-                        <p class="explore_subtitle">Connect with top companies and accelerate your professional journey</p>
-                        <a class="explore_learn_button" href="partner-with-msde.html" data-route="partner">GET STARTED</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Carousel Controls -->
-        <div class="explore_carousel_controls">
-            <button class="explore_pause_btn" id="explorePauseBtn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0066CC">
-                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                </svg>
-            </button>
-            <div class="explore_slide_dots">
-                <span class="explore_dot active" data-slide="0"></span>
-                <span class="explore_dot" data-slide="1"></span>
-                <span class="explore_dot" data-slide="2"></span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="footer_container"></div>
-
- </div>
- <script src="script/homepage.js"></script>
- <script type="module" src="script/landingPage.js"></script>
- <script type="module" src="script/userProfileHandler.js"></script>
- <script type="module" src="./script/layout.js"></script>
+    <script src="script/homepage.js"></script>
+    <script type="module" src="script/landingPage.js"></script>
+    <script type="module" src="script/userProfileHandler.js"></script>
+    <script type="module" src="./script/layout.js"></script>
 
 </body>
-</html>
 
+</html>

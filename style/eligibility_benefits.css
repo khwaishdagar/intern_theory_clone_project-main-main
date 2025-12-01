@@ -196,6 +196,11 @@
     width: 100%;
     background: linear-gradient(to bottom, #f8fafc, #ffffff);
     padding: 100px 40px;
+    position: relative;
+    z-index: 1;
+    display: block;
+    visibility: visible;
+    min-height: 400px;
 }
 
 .political_figures_container {
@@ -209,13 +214,13 @@
 .figure_card {
     background-color: white;
     border-radius: 24px;
-    padding: 40px;
+    padding: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 25px;
+    gap: 15px;
     transition: all 0.3s ease;
     border: 1px solid #f1f5f9;
 }
@@ -225,13 +230,22 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
+.figure_image {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
 .figure_image img {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 6px solid white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: block;
+    margin: 0 auto;
+    background-color: #f0f0f0;
 }
 
 .figure_name {
