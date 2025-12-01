@@ -5,539 +5,338 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Internships | Intern Theory</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <style>
-        #main_div {
-            /* border: 1px solid black; */
-            width: 80%;
-            margin: 20px auto;
-            display: flex;
-        }
-        
-        #advertisment {
-            width: 25%;
-            height: 250px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        }
-        
-        #advertisment>img {
-            width: 100%;
-            height: 100%;
-        }
-        
-        #all_intership {
-            /* border: 1px solid lightgray; */
-            width: 75%;
-            margin-left: 15px;
-            padding: 20px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        }
-        /* #heading{
-            border: 1px solid lightgray;
-        } */
-        
-        #heading>h2 {
-            padding-left: 10px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-weight: 100;
-        }
-        
-        #intership_programs {
-            display: flex;
-            border-color: lightgray;
-            border-bottom-style: dashed;
-        }
-        
-        #imd-div {
-            /* border: 1px solid lightgray; */
-            width: 20%;
-            text-align: center;
-            /* padding: 10px; */
-        }
-        
-        #content {
-            /* border: 1px solid lightgray; */
-            width: 60%;
-            padding-left: 10px;
-            padding-bottom: 10px;
-        }
-        
-        #view_apply {
-            /* border: 1px solid lightgray; */
-            width: 20%;
-            padding-right: 10px;
-            text-align: right;
-        }
-        
-        #imd-div>img {
-            width: 60%;
-            height: 40%;
-            margin-top: 30%;
-        }
-        
-        #content>p {
-            margin: 0;
-            color: gray;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-weight: 0;
-        }
-        
-        #content>:nth-child(2) {
-            color: black;
-        }
-        
-        #content>:nth-child(6) {
-            color: black;
-        }
-        
-        #content>h3 {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-weight: 100;
-            margin-bottom: 10px;
-        }
-        
-        #view_apply>:nth-child(2) {
-            margin: 30px 0 30px 0;
-        }
-        
-        #view_apply>:nth-child(3) {
-            color: #3498DB;
-        }
-        
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, Sans-serif;
-        }
-        
-        .dummy_page {
-            height: 200px;
-            width: 100%;
-            background-color: #f0f0f0;
-            text-align: center;
-            box-sizing: border-box;
-            padding: 60px 0px;
-        }
-        /* STYLES SPECIFIC TO FOOTER  */
-        
-        .footer {
-            width: 100%;
-            position: relative;
-            height: auto;
-            background-color: #070617;
-        }
-        
-        .footer .col {
-            width: 190px;
-            height: auto;
-            float: left;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            padding: 0px 20px 20px 20px;
-        }
-        
-        .footer .col h1 {
-            margin: 0;
-            padding: 0;
-            font-family: inherit;
-            font-size: 12px;
-            line-height: 17px;
-            padding: 20px 0px 5px 0px;
-            color: rgba(255, 255, 255, 0.2);
-            font-weight: normal;
-            text-transform: uppercase;
-            letter-spacing: 0.250em;
-        }
-        
-        .footer .col ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .footer .col ul li {
-            color: #999999;
-            font-size: 14px;
-            font-family: inherit;
-            font-weight: bold;
-            padding: 5px 0px 5px 0px;
-            cursor: pointer;
-            transition: .2s;
-            -webkit-transition: .2s;
-            -moz-transition: .2s;
-        }
-        
-        .social ul li {
-            display: inline-block;
-            padding-right: 5px !important;
-        }
-        
-        .footer .col ul li:hover {
-            color: #ffffff;
-            transition: .1s;
-            -webkit-transition: .1s;
-            -moz-transition: .1s;
-        }
-        
-        .clearfix {
-            clear: both;
-        }
-        
-        @media only screen and (min-width: 1280px) {
-            .contain {
-                width: 1200px;
-                margin: 0 auto;
-            }
-        }
-        
-        @media only screen and (max-width: 1139px) {
-            .contain .social {
-                width: 1000px;
-                display: block;
-            }
-            .social h1 {
-                margin: 0px;
-            }
-        }
-        
-        @media only screen and (max-width: 950px) {
-            .footer .col {
-                width: 33%;
-            }
-            .footer .col h1 {
-                font-size: 14px;
-            }
-            .footer .col ul li {
-                font-size: 13px;
-            }
-        }
-        
-        @media only screen and (max-width: 500px) {
-            .footer .col {
-                width: 50%;
-            }
-            .footer .col h1 {
-                font-size: 14px;
-            }
-            .footer .col ul li {
-                font-size: 13px;
-            }
-        }
-        
-        @media only screen and (max-width: 340px) {
-            .footer .col {
-                width: 100%;
-            }
-        }
-    </style>
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="./style/navbar.css">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/m_sidebar2.css">
+
+    <!-- Page Specific Style -->
+    <link rel="stylesheet" href="style/courses.css?v=2">
 </head>
 
-<body>
-    <div>
-        <select onchange="filtercity()" name="city" id="city">
-            <option value="Cities">Cities</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="Ahmedabad">Ahmedabad</option>
-            <option value="Bangalore">Bangalore</option>
-        </select>
-        <select onchange="filter_work()" name="city" id="work_type">
-            <option value="Type">Type</option>
-            <option value="Full Time Internship">Full Time</option>
-            <option value="Work From Home Internship">Work From Home</option>
-            <option value="Part Time Internship">Part Time</option>     
-        </select>
-    </div>
+<body style="overflow-x: hidden;">
+    <!-- Mobile Sidebar Container -->
+    <div id="sidebar_div"></div>
 
-    <div id="main_div">
-        <div id="advertisment">
-            <img src="https://assets.interntheory.com/creative/Internship_left_course_add_02.png" alt="">
-        </div>
+    <!-- Navbar Container -->
+    <div id="navBarBox"></div>
 
-        <div id="all_intership">
-            <div id="heading">
-                <h2>All Internships</h2>
-            </div>
-            <div id="intership_programs">
-                <div id="imd-div">
-                    <img src="https://assets.interntheory.com/creative/logo.png" alt="">
-                </div>
-                <div id="content">
-                    <h3>Develop Your Skillset</h3>
-                    <p>Online Skill Development Programs</p>
-                    <p>Taught by Industry Experts Internship</p>
-                    <p>Certified Courses</p>
-                    <p>Guaranteed Internship Opportunities</p>
-                    <p>Learn Industry-Demanded Skills</p>
-                </div>
-                <div id="view_apply">
-                    <p>4-6 Weeks</p>
-                    <p><i style="font-size: large;" class="fi fi-sr-share"></i></p>
-                    <p>UPGRADE SKILL</p>
+    <div class="page-container">
+        <!-- Sidebar / Ad -->
+        <!-- Sidebar removed for cleaner layout -->
+        <!-- <div class="sidebar">...</div> -->
 
-                </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Filters -->
+            <div class="filters-container">
+                <select onchange="handleStateChange()" name="state" id="state" class="filter-select">
+                    <option value="States">All States</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                </select>
+                <select onchange="applyFilters()" name="city" id="city" class="filter-select">
+                    <option value="Cities">All Cities</option>
+                </select>
+                <select onchange="applyFilters()" name="work_type" id="work_type" class="filter-select">
+                    <option value="Type">All Types</option>
+                    <option value="Full Time Internship">Full Time</option>
+                    <option value="Work From Home Internship">Work From Home</option>
+                    <option value="Part Time Internship">Part Time</option>
+                </select>
             </div>
 
-        </div>
-    </div>
-    <div class="dummy_page">
-        Mobile responsive footer
-    </div>
-    <!-- FOOTER START -->
-    <div class="footer">
-        <div class="contain">
-            <div class="col">
-                <h1>Company</h1>
-                <ul>
-                    <li>About</li>
-                    <li>Mission</li>
-                    <li>Services</li>
-                    <li>Social</li>
-                    <li>Get in touch</li>
-                </ul>
+            <!-- Internship List -->
+            <div id="all_intership" class="internship-list">
+                <!-- Content injected by JS -->
             </div>
-            <div class="col">
-                <h1>Products</h1>
-                <ul>
-                    <li>About</li>
-                    <li>Mission</li>
-                    <li>Services</li>
-                    <li>Social</li>
-                    <li>Get in touch</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h1>Accounts</h1>
-                <ul>
-                    <li>About</li>
-                    <li>Mission</li>
-                    <li>Services</li>
-                    <li>Social</li>
-                    <li>Get in touch</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h1>Resources</h1>
-                <ul>
-                    <li>Webmail</li>
-                    <li>Redeem code</li>
-                    <li>WHOIS lookup</li>
-                    <li>Site map</li>
-                    <li>Web templates</li>
-                    <li>Email templates</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h1>Support</h1>
-                <ul>
-                    <li>Contact us</li>
-                    <li>Web chat</li>
-                    <li>Open ticket</li>
-                </ul>
-            </div>
-            <div class="col social">
-                <h1>Social</h1>
-                <ul>
-                    <li><img src="https://svgshare.com/i/5fq.svg" width="32" style="width: 32px;"></li>
-                    <li><img src="https://svgshare.com/i/5eA.svg" width="32" style="width: 32px;"></li>
-                    <li><img src="https://svgshare.com/i/5f_.svg" width="32" style="width: 32px;"></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
         </div>
     </div>
+
+    <!-- Footer Container -->
+    <div id="footer_container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="./script/layout.js"></script>
+    <script type="module" src="./script/userProfileHandler.js"></script>
+
+    <script>
+        let Internships_data = [
+            {
+                img: "https://assets.interntheory.com/creative/logo.png",
+                title: "Software Engineer Intern",
+                name: "Tech Solutions Pvt Ltd",
+                time: "Full Time Internship",
+                industry: "IT & Software",
+                city: "Delhi",
+                state: "Delhi",
+                Stipend: "Stipend: 15000 - 20000 per month",
+                weeks: "4 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/logos/3cdd6cced1a455d7623c5319436acdcf3408009b.jpg",
+                title: "Financial Analyst",
+                name: "Finbricks",
+                time: "Full Time Internship",
+                industry: "Finance",
+                city: "Mumbai",
+                state: "Maharashtra",
+                Stipend: "Stipend: 12000 - 15000 per month",
+                weeks: "3 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/logos/f28e09eca7c1e218295c46085027e09e3f26d54d.jpg",
+                title: "Data Science Intern",
+                name: "DataMinds",
+                time: "Full Time Internship",
+                industry: "Analytics",
+                city: "Bangalore",
+                state: "Karnataka",
+                Stipend: "Stipend: 20000 - 25000 per month",
+                weeks: "2 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/logos/22b08b0fbbc16e07e4ec40860d725bdcfd37a735.jpg",
+                title: "Full Stack Developer",
+                name: "CodeCrafters",
+                time: "Full Time Internship",
+                industry: "IT & Software",
+                city: "Hyderabad",
+                state: "Telangana",
+                Stipend: "Stipend: 18000 - 22000 per month",
+                weeks: "4 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/logos/f23ec877601e7dc0cc0eba412c3031c49cff28d9.jpg",
+                title: "Mechanical Engineering Intern",
+                name: "AutoTech India",
+                time: "Full Time Internship",
+                industry: "Automobile",
+                city: "Chennai",
+                state: "Tamil Nadu",
+                Stipend: "Stipend: 10000 - 12000 per month",
+                weeks: "5 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/logos/bdc2fb3214ab03616ab475fe2f360cb8b837aa87.jpg",
+                title: "Content Writer",
+                name: "Creative Minds",
+                time: "Part Time Internship",
+                industry: "Media",
+                city: "Kolkata",
+                state: "West Bengal",
+                Stipend: "Stipend: 5000 - 8000 per month",
+                weeks: "1 week left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/companylogos/62362fbf882221470f099d8d0a119df93ce19831/7e34b7356b30b3696d14fcab94c6e8989a42fd69com.jpg",
+                title: "Digital Marketing Associate",
+                name: "Growth Hackers",
+                time: "Work From Home Internship",
+                industry: "Marketing",
+                city: "Pune",
+                state: "Maharashtra",
+                Stipend: "Stipend: 8000 - 12000 per month",
+                weeks: "3 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/companylogos/5b17adc969018b102b802193f65ffebc07494a2c/7c483889017d4bef536927bf5820941e35f05657com.jpeg",
+                title: "Sales Executive",
+                name: "MarketReach",
+                time: "Full Time Internship",
+                industry: "Sales",
+                city: "Ahmedabad",
+                state: "Gujarat",
+                Stipend: "Stipend: 10000 + Incentives",
+                weeks: "2 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/uploads/company/companylogos/e659b3b149dd5355940bc7ff40dbee2f0f53b22a/2cdd8e5a8b7f7a140f8711f385755340c64b76d5com.jpg",
+                title: "Graphic Designer",
+                name: "Design Studio",
+                time: "Part Time Internship",
+                industry: "Design",
+                city: "Jaipur",
+                state: "Rajasthan",
+                Stipend: "Stipend: 6000 - 9000 per month",
+                weeks: "4 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/creative/logo.png",
+                title: "Product Manager",
+                name: "StartUp Hub",
+                time: "Full Time Internship",
+                industry: "Management",
+                city: "Gurgaon",
+                state: "Haryana",
+                Stipend: "Stipend: 25000 per month",
+                weeks: "3 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/creative/logo.png",
+                title: "UI/UX Designer",
+                name: "PixelPerfect",
+                time: "Full Time Internship",
+                industry: "Design",
+                city: "Noida",
+                state: "Uttar Pradesh",
+                Stipend: "Stipend: 15000 - 18000 per month",
+                weeks: "4 weeks left"
+            },
+            {
+                img: "https://assets.interntheory.com/creative/logo.png",
+                title: "Architecture Intern",
+                name: "Modern Spaces",
+                time: "Full Time Internship",
+                industry: "Architecture",
+                city: "Chandigarh",
+                state: "Chandigarh",
+                Stipend: "Stipend: 10000 per month",
+                weeks: "5 weeks left"
+            }
+        ];
+
+        function handleStateChange() {
+            const stateSelect = document.getElementById('state');
+            const citySelect = document.getElementById('city');
+            const selectedState = stateSelect.value;
+
+            // Update City Options
+            let cities = [];
+            if (selectedState === "States") {
+                cities = [...new Set(Internships_data.map(item => item.city))];
+            } else {
+                cities = [...new Set(Internships_data.filter(item => item.state === selectedState).map(item => item.city))];
+            }
+            cities.sort();
+
+            citySelect.innerHTML = '<option value="Cities">All Cities</option>';
+            cities.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city;
+                citySelect.appendChild(option);
+            });
+
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const state = document.getElementById('state').value;
+            const city = document.getElementById('city').value;
+            const work = document.getElementById('work_type').value;
+
+            let filtered = Internships_data.filter(item => {
+                const stateMatch = state === "States" || item.state === state;
+                const cityMatch = city === "Cities" || item.city === city;
+                const workMatch = work === "Type" || item.time === work;
+                return stateMatch && cityMatch && workMatch;
+            });
+
+            displaydata(filtered);
+        }
+
+        function displaydata(data) {
+            const container = document.getElementById("all_intership");
+            container.innerHTML = "";
+
+            // Add Section Heading
+            const heading = document.createElement("h2");
+            heading.className = "section-title";
+            heading.innerText = "All Internships";
+            container.appendChild(heading);
+
+            if (data.length === 0) {
+                container.innerHTML += "<p style='grid-column: 1/-1; text-align: center; color: #666;'>No internships found matching your criteria.</p>";
+                return;
+            }
+
+            data.forEach(function (item, index) {
+                const card = document.createElement("div");
+                card.className = "internship-card";
+                // Staggered animation delay
+                card.style.animationDelay = `${index * 0.05}s`;
+
+                // Logo Section
+                const logoDiv = document.createElement("div");
+                logoDiv.className = "card-logo";
+                const img = document.createElement("img");
+                img.src = item.img;
+                img.alt = item.name;
+                img.onerror = function () {
+                    this.src = 'https://via.placeholder.com/80?text=Logo';
+                };
+                logoDiv.appendChild(img);
+
+                // Content Section
+                const contentDiv = document.createElement("div");
+                contentDiv.className = "card-content";
+
+                const title = document.createElement("h3");
+                title.className = "card-title";
+                title.innerText = item.title;
+
+                const company = document.createElement("p");
+                company.className = "card-company";
+                company.innerText = item.name;
+
+                const details = document.createElement("div");
+                details.className = "card-details";
+
+                const createDetail = (iconClass, text) => {
+                    const span = document.createElement("span");
+                    span.className = "detail-item";
+                    span.innerHTML = text;
+                    return span;
+                };
+
+                details.appendChild(createDetail("fi-sr-briefcase", item.industry));
+                details.appendChild(createDetail("fi-sr-marker", item.city));
+                details.appendChild(createDetail("fi-sr-clock", item.time));
+                details.appendChild(createDetail("fi-sr-money", item.Stipend));
+
+                contentDiv.append(title, company, details);
+
+                // Actions Section
+                const actionsDiv = document.createElement("div");
+                actionsDiv.className = "card-actions";
+
+                const duration = document.createElement("span");
+                duration.className = "duration-badge";
+                duration.innerText = item.weeks;
+
+                const shareIcon = document.createElement("i");
+                shareIcon.className = "fi fi-sr-share share-icon";
+
+                const applyBtn = document.createElement("a");
+                applyBtn.href = "javascript:void(0)";
+                applyBtn.className = "apply-btn";
+                applyBtn.innerHTML = `VIEW AND APPLY <i class="fi fi-sr-arrow-right"></i>`;
+
+                actionsDiv.append(duration, shareIcon, applyBtn);
+
+                // Assemble Card
+                card.append(logoDiv, contentDiv, actionsDiv);
+                container.appendChild(card);
+            });
+        }
+
+        // Initial load
+        handleStateChange(); // This will populate cities and call applyFilters (which calls displaydata)
+    </script>
 </body>
 
 </html>
-
-<script>
-    let Internships_data = [{
-        img: "https://assets.interntheory.com/creative/logo.png",
-        title: "Develop Your Skillset",
-        name: "Online Skill Development Programs",
-        time: "Taught by Industry Experts Internship",
-        industry: "Certified Courses",
-        city: "Guaranteed Internship Opportunities",
-        Stipend: "Learn Industry-Demanded Skills",
-        weeks: "4-6 week"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/logos/3cdd6cced1a455d7623c5319436acdcf3408009b.jpg",
-        title: "Business Development Intern",
-        name: "Finbricks",
-        time: "Full Time Internship",
-        industry: "Real Estate",
-        city: "Mumbai",
-        Stipend: "Stipend: 10000 - 12000 per month",
-        weeks: "4 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/logos/f28e09eca7c1e218295c46085027e09e3f26d54d.jpg",
-        title: "Business Development",
-        name: "Ministry of New",
-        time: "Full Time Internship",
-        industry: "Sales",
-        city: "Mumbai",
-        Stipend: "Stipend: 5000 per sale",
-        weeks: "4 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/logos/22b08b0fbbc16e07e4ec40860d725bdcfd37a735.jpg",
-        title: "Video Editor",
-        name: "Swamonk Educare.",
-        time: "Part Time Internship",
-        industry: "Video Editor",
-        city: "Faridabad",
-        Stipend: "Stipend: 3500 per month",
-        weeks: "3 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/logos/f23ec877601e7dc0cc0eba412c3031c49cff28d9.jpg",
-        title: "Business Development Executive",
-        name: "Kareer King Konsultancy",
-        time: "Full Time Internship",
-        industry: "Business Development",
-        city: "Mumbai",
-        Stipend: "Stipend: 10000 per month",
-        weeks: "3 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/logos/bdc2fb3214ab03616ab475fe2f360cb8b837aa87.jpg",
-        title: "Marketing Internship",
-        name: "Think and Learn Pvt Ltd",
-        time: "Full Time Internship",
-        industry: "Marketing",
-        city: "Ahmedabad",
-        Stipend: "Stipend: 18000 per month",
-        weeks: "3 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/companylogos/62362fbf882221470f099d8d0a119df93ce19831/7e34b7356b30b3696d14fcab94c6e8989a42fd69com.jpg",
-        title: "Marketing Ambassador - Work from Home",
-        name: "Laugh Out Loud Ventures",
-        time: "Work from Home Internship",
-        industry: "Marketing",
-        city: "Bangalore,Chennai,Delhi,Mumbai,Pune,Thane",
-        Stipend: "Stipend: 3000 - 10000 per month",
-        weeks: "3 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/companylogos/5b17adc969018b102b802193f65ffebc07494a2c/7c483889017d4bef536927bf5820941e35f05657com.jpeg",
-        title: "Search Engine Optimisation",
-        name: "Sizzling Career Solutions Pvt Ltd..",
-        time: "Full Time Internship",
-        industry: "SEO",
-        city: "Delhi",
-        Stipend: "Stipend: 5000 - 10000 per month",
-        weeks: "3 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/companylogos/e659b3b149dd5355940bc7ff40dbee2f0f53b22a/2cdd8e5a8b7f7a140f8711f385755340c64b76d5com.jpg",
-        title: "Talent Acquisition, HR Recruiter",
-        name: "Nimbus Logistics",
-        time: "Full Time Internship",
-        industry: "Human Resources",
-        city: "Thane",
-        Stipend: "Stipend: 3000-5000 per month",
-        weeks: "3 weeks left"
-    }, {
-        img: "https://assets.interntheory.com/uploads/company/logos/cb107f6e62308e242a975eb4664f180929f67dad.jpg",
-        title: "Business strategy",
-        name: "Magic factory",
-        time: "Work From Home Internship",
-        industry: "General Management",
-        city: "Mumbai,Bangalore",
-        Stipend: "Stipend: 7000 - 10000 per month",
-        weeks: "3 weeks left"
-    }, ]
-
-
-    //  let city = document.getElementById("city").value;
-    //  console.log(city);
-    // filter_work()
-
-    function filter_work() {
-        var selected_work = document.querySelector("#work_type").value;
-        console.log(selected_work);
-
-        if (selected_work == "Type") {
-            displaydata(Internships_data);
-            return;
-        }
-
-        var filterlist_work = Internships_data.filter(function(elem) {
-            return elem.time == selected_work;
-        })
-        console.log(filterlist_work);
-        displaydata(filterlist_work);
-    }
-
-    function filtercity() {
-        var selected_city = document.querySelector("#city").value;
-        console.log(selected_city);
-
-        if (selected_city == "Cities") {
-            displaydata(Internships_data);
-            return;
-        }
-
-        var filterlist = Internships_data.filter(function(elem) {
-            return elem.city == selected_city;
-        })
-        console.log(filterlist);
-        displaydata(filterlist);
-    }
-
-
-    displaydata(Internships_data);
-
-
-    function displaydata(Internships_data) {
-        document.getElementById("all_intership").innerHTML = "";
-
-        let div_head = document.createElement("div");
-        div_head = "heading";
-
-        let h2 = document.createElement("h2");
-        h2.innerText = "All Internships";
-
-        document.getElementById("all_intership").append(h2);
-
-        Internships_data.map(function(data) {
-
-            let div = document.createElement("div");
-            div.id = "intership_programs";
-
-            let div1 = document.createElement("div");
-            div1.id = "imd-div";
-            let img1 = document.createElement("img");
-            img1.src = data.img;
-            div1.append(img1);
-
-            let div2 = document.createElement("div");
-            div2.id = "content";
-            let head1 = document.createElement("h3");
-            head1.innerText = data.title;
-            let p1 = document.createElement("p");
-            p1.innerText = data.name;
-            let p2 = document.createElement("p");
-            p2.innerText = data.time;
-            let p3 = document.createElement("p");
-            p3.innerText = data.industry;
-            let p4 = document.createElement("p");
-            p4.innerText = data.city;
-            let p5 = document.createElement("p");
-            p5.innerText = data.Stipend;
-            div2.append(head1, p1, p2, p3, p4, p5);
-
-            div3 = document.createElement("div");
-            div3.id = "view_apply";
-            let p6 = document.createElement("p");
-            p6.innerText = data.weeks;
-            let p7 = document.createElement("p");
-            p7.innerHTML = `<i style="font-size: large;" class="fi fi-sr-share"></i>`;
-            let p8 = document.createElement("p");
-            p8.innerText = "VIEW AND APPLY";
-            div3.append(p6, p7, p8)
-
-            div.append(div1, div2, div3)
-
-            document.getElementById("all_intership").append(div);
-        })
-    }
-</script>

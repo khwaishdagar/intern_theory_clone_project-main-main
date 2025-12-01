@@ -24,11 +24,11 @@ const initUserProfile = () => {
           // Remove existing listeners to avoid duplicates
           const newProfileBtn = profileBtn.cloneNode(true);
           profileBtn.parentNode.replaceChild(newProfileBtn, profileBtn);
-          
+
           // Get fresh references after clone
           const freshProfileBtn = document.getElementById('user_profile_btn');
           const freshDropdown = document.getElementById('user_profile_dropdown');
-          
+
           freshProfileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             const isVisible = freshDropdown.classList.contains('show');
@@ -53,9 +53,9 @@ const initUserProfile = () => {
 
           // Close dropdown when clicking outside
           const closeDropdown = (e) => {
-            if (freshProfileBtn && freshDropdown && 
-                !freshProfileBtn.contains(e.target) && 
-                !freshDropdown.contains(e.target)) {
+            if (freshProfileBtn && freshDropdown &&
+              !freshProfileBtn.contains(e.target) &&
+              !freshDropdown.contains(e.target)) {
               freshDropdown.style.opacity = '0';
               freshDropdown.style.transform = 'translateY(-10px) scale(0.95)';
               setTimeout(() => {
@@ -64,7 +64,7 @@ const initUserProfile = () => {
               }, 300);
             }
           };
-          
+
           // Remove old listener and add new one
           document.removeEventListener('click', closeDropdown);
           setTimeout(() => {
@@ -90,44 +90,8 @@ const initUserProfile = () => {
       }
     }
 
-    // Setup Dashboard button click handler (works for both logged in and not logged in)
-    setTimeout(() => {
-      const dashboardBtn = document.getElementById('dashboards_btn');
-      if (dashboardBtn) {
-        // Remove existing listeners to avoid duplicates
-        const newDashboardBtn = dashboardBtn.cloneNode(true);
-        dashboardBtn.parentNode.replaceChild(newDashboardBtn, dashboardBtn);
-        
-        // Get fresh reference
-        const freshDashboardBtn = document.getElementById('dashboards_btn');
-        
-        if (freshDashboardBtn) {
-          freshDashboardBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const user = TokenManager.getUser();
-            
-            if (user) {
-              // User is logged in - open profile dropdown
-              const profileBtn = document.getElementById('user_profile_btn');
-              const dropdown = document.getElementById('user_profile_dropdown');
-              
-              if (profileBtn && dropdown) {
-                // Trigger click on profile button to open dropdown
-                profileBtn.click();
-              }
-            } else {
-              // User is not logged in - show message
-              const shouldLogin = confirm('Please login or register to access your dashboard.\n\nClick OK to go to Login page or Cancel to go to Register page.');
-              if (shouldLogin) {
-                window.location.href = 'login.html';
-              } else {
-                window.location.href = 'register.html';
-              }
-            }
-          });
-        }
-      }
-    }, 300);
+    // Dashboard button click handler removed to allow direct navigation
+
   } catch (error) {
     console.error('Error initializing user profile:', error);
     // Fallback: show auth buttons if there's an error

@@ -1,3 +1,4 @@
+
 function navBar() {
     var navbar = `<div id="nav_bar">
         <div id="top_strip"></div>
@@ -29,7 +30,7 @@ function navBar() {
             </div>
 
             <div id="right_box">
-                <a id="dashboards_btn" href="dashboard.html" data-route="dashboard">
+                <a id="dashboards_btn" href="/dashboard.html" data-route="dashboard">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="3" width="7" height="7"></rect>
                         <rect x="14" y="3" width="7" height="7"></rect>
@@ -51,11 +52,11 @@ function navBar() {
         <div id="secondary_navigation">
             <nav id="secondary_nav_items">
                 <a href="courses.html" class="secondary_nav_item" id="skill_courses_secondary_link" data-route="skillCourses">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FF6600" stroke="#FF6600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                         <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
                     </svg>
-                    <span style="color: #FF6600;">Skill Courses</span>
+                    <span>Skill Courses</span>
                 </a>
                 <a href="jobs.html" class="secondary_nav_item" id="job_exchange_secondary_link" data-route="jobs">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
