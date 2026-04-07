@@ -1,0 +1,496 @@
+{
+  "IsSuccess": true,
+  "StatusCode": 200,
+  "Message": "",
+  "Data": {
+    "UserProgramDetailsDTOS": [
+      {
+        "Id": 7,
+        "Name": "AI-powered smart inventory management system using Python",
+        "ProviderId": "07fec63a-d4c6-417d-9977-9f9cfdc053d2",
+        "ProviderName": "TutorialsPoint",
+        "Sector": "IT-ITeS",
+        "Description": "Design AI-Driven Inventory Systems Using Python, TensorFlow, Flask, and REST APIs.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1747157795303_Tutorial%20Point%20Private%20Limited-logo%20%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=9e24f21c81ec44a42fc67e989807645879c99aed66704c330f5f2ae385726769",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1747157795042_b59532ef632635cfc91f1689f75bc03fcd7fc98e-min.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=482f42756b121ab89968951568966dd7271a40c85aa16d9f0cc23197302aab94",
+        "Price": 4000,
+        "FeeType": "Paid",
+        "Mode": "Online",
+        "Duration": "3 Months",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Future Skills"
+        ],
+        "Occupation": [
+          "Artificial Intelligence and Big Data Analytics"
+        ],
+        "NumberOfOpenings": 5000,
+        "CreditsAvailable": true
+      },
+      {
+        "Id": 8,
+        "Name": "AdPro: Performance Marketing & Paid Campaigns (E-Commerce)",
+        "ProviderId": "07fec63a-d4c6-417d-9977-9f9cfdc053d2",
+        "ProviderName": "TutorialsPoint",
+        "Sector": "Media & Entertainment",
+        "Description": "Master performance marketing, optimize paid campaigns, and drive e-commerce growth effectively.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1747157795529_Tutorial%20Point%20Private%20Limited-logo%20%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=845fe61bb4ab8189d9fe9cc76e95b659e73c3bacdb1a42328d3ebc2cc243a769",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1747157795418_b59532ef632635cfc91f1689f75bc03fcd7fc98e-min.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=8130bff1b32ff089a4f6bc0420bd5f95cccb9f127b57ad6d349266346d4a1b60",
+        "Price": 4000,
+        "FeeType": "Paid",
+        "Mode": "Online",
+        "Duration": "3 Months",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Digital"
+        ],
+        "Occupation": [
+          "Marketing/Advertising Sales/Traffic"
+        ],
+        "NumberOfOpenings": 5000,
+        "CreditsAvailable": true
+      },
+      {
+        "Id": 9,
+        "Name": "ShopTrack: Smart Billing & Inventory Database",
+        "ProviderId": "07fec63a-d4c6-417d-9977-9f9cfdc053d2",
+        "ProviderName": "TutorialsPoint",
+        "Sector": "Retailers Association's",
+        "Description": "Automate billing, manage inventory, and optimize stock tracking using Excel efficiently.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1747157795702_Tutorial%20Point%20Private%20Limited-logo%20%281%29.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=e774e061d8044e2e2f367c2f7788ec215f509a8fb96f9d3e89c44def927db5fd",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1747157795573_b59532ef632635cfc91f1689f75bc03fcd7fc98e-min.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=2c6da9d99580c1d7357d9035254eaafbdd9cbd3f07f2cbd3a655251ba9b203a0",
+        "Price": 4000,
+        "FeeType": "Paid",
+        "Mode": "Online",
+        "Duration": "2 Months",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "FMCG"
+        ],
+        "Occupation": [
+          "Sales"
+        ],
+        "NumberOfOpenings": 5000,
+        "CreditsAvailable": true
+      },
+      {
+        "Id": 10,
+        "Name": "Medical Writing Wizard Program",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Life Sciences",
+        "Description": "This internship is designed for students, professionals from life sciences, medicine, related fields who aspire to establish a successful career in medical writing.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358758990_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=18a7a44ceb9e57fd8ce5524af968258853ec5197b8a3372d203b94733f0351d6",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358758617_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=b74c2a3776fbb179e1410b5f7a010a65978c284956da065a310492cb08eb81fc",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Pharmaceutical",
+          "Bio Pharmaceutical"
+        ],
+        "Occupation": [
+          "Manufacturing"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 11,
+        "Name": "Beginner's German Language, Cultural Immersion Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A comprehensive program focusing on practical German language skills, cultural knowledge, content development.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358759397_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=7db14bb3ce35c2aba7c10ee2ac55e4328bc010ae1b96050294e2b53c7b23f204",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358759132_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=cf0bef20fd18c283256be4e9fc7df57da05949174991ed2ed60092a1b28fca50",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 12,
+        "Name": "French Language, Cultural Immersion Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A structured internship designed to enhance proficiency in French through practical tasks like translation, content creation, communication exercises.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358759673_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=d8ca3b47749c400f1288cfeaa3bdaebc10553a37fb79f00b7d616f694b98078e",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358759463_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=b93629fc6252b8ab7380306512f80d33445e9b6295d3a346a4647615413bffc2",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 13,
+        "Name": "Basic Conversational Skills in Italian",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A dynamic internship focused on developing Italian language skills through practical tasks, content creation.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358759976_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=33f79bfe7fc54bfa125bd9928ae69857ab45cb94dbaeba38ef247fb38a6abdb7",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358759751_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=b726d75f5b429dcaa0be9893537a7afffc09ce3a14c175345810956976d5aa8f",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 14,
+        "Name": "The Linguist Lab - English Language Proficiency",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A structured internship aimed at improving English communication, grammar, writing through real-world applications.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760206_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=a8b3443d04c66337fecd901f767d5b06db0f7e796f69b3fae936e0994709a15c",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760047_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=d909c4792c7eafae6a2b2e9cc8520d8f33b2d02a57810b3d3207cfb20767e639",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 15,
+        "Name": "Basic Russian Communication Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A skill-based internship for learners to develop fluency in Russian through practical exercises, content creation.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760427_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=1297c7273308418b5cf8faec976ee69a92bfbc5a527f953ea91c4720a70b5c2a",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760268_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=7772b576932fc0358863299d6c4d76cf808e6da7ad3fde78c0f4c799a82498a6",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 16,
+        "Name": "Mandarin HSK 1 - Vocabulary Builder",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A comprehensive internship aimed at enhancing Mandarin language skills through interactive, structured tasks.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760696_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=f555ec3204bc442b95b4465fd05a8b1c948a2ad74a27d4ea195c6d2f2ebc3a54",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760556_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=7378c122f6de685bd4f68f2ed3855c51fbe3253000ca0c2a089123f0e2089300",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 17,
+        "Name": "Korean Vocabulary Enrichment Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A hands-on internship designed to build Korean language skills, cultural understanding through practical activities.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760896_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=c4d645c3272e71de03ed0b5055263e3b44ae7104bed03a8708e6ce215084510c",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760752_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=b2bc26f0f3a4792b3adf9800cb3241c563a73f72ba1161ea7853bceaaa91b82a",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 18,
+        "Name": "Nihongo N5 Internship Program",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A specialized internship focusing on the Japanese language, cultural insights, content development for learners.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761080_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=5860dd3de28362fd52e77da487809f2e45fdfd51cd752a7208fb16b5fc236c44",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358760956_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=2e57071c8cfaedd92a6b7e436182b0445af8d30c907bd9e202f8577acbbea3c3",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 19,
+        "Name": "Lusophone Learning Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Tourism and Hospitality",
+        "Description": "A hands-on internship aimed at improving Portuguese language skills through interactive tasks, content development.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761279_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=5414fb3bc84affbe05600bb9cd7caadfe8c10a2b3681345dcf9329af470d0ff7",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761131_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=7f33bc7b352d0bfaa14701d43b0db2d948f6ded3fab0645cf931b91d4656907e",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Entrepreneurial"
+        ],
+        "Occupation": [
+          "Entrepreneurial Skills"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 20,
+        "Name": "SAP PP Proficiency Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "IT-ITeS",
+        "Description": "A practical internship covering SAP PP concepts, including production scheduling, material requirements planning, shop floor control.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761442_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=7e9207d558ddf23d113d257b8555bb9fdfdf78ace875a279ec102604d3008049",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761329_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=e69f1380b347277bcc2a2d174f0d98d8d8d2a8464ca3b034688b9ff472b55875",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "IT Services"
+        ],
+        "Occupation": [
+          "Quality Assurance and Engineering"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 21,
+        "Name": "SAP FICO PRO Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "IT-ITeS",
+        "Description": "A structured program focusing on SAP FICO modules, covering financial accounting, controlling, reporting.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761632_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=2a29217180c6aac52e12a84341369796bc5842ca4107cc7c78ff08c3b0541bed",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761504_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=c268ea5cd8d6ebc0f1f9d55623006c7247cafa956c0184ccfb42875e96beb1a1",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Business Process Management"
+        ],
+        "Occupation": [
+          "Finance and Accounting"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 22,
+        "Name": "The SAP SD Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Logistics",
+        "Description": "A hands-on internship covering SAP SD functionalities like order management, billing, pricing.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761849_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=0a57d5f85f92eeeef305c380a96ec4c1b4e81c4f3d709a70a7cd62e078d4d0bc",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761722_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=0bf0278d01ec3d3c63915dfa10480fc5ef14705e1f8d2aaa00024d2558b6305f",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Supply Chain"
+        ],
+        "Occupation": [
+          "Supply Chain Operations"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 23,
+        "Name": "SAP MM Expert Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "IT-ITeS",
+        "Description": "A practical training program on SAP MM, covering procurement, inventory management, vendor management.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358762016_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=492e304e733e4f6874521914469e502763fe04849ed5443f29330c7b6de7d7fb",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358761906_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=4938465b3e7bff580792bbafb5db3c286dd06f9f10802190bb76cb6e99294a29",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "IT Services"
+        ],
+        "Occupation": [
+          "Quality Assurance and Engineering"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 24,
+        "Name": "Lean Six Sigma Green belt Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Management & Entrepreneurship and Professional",
+        "Description": "A training program focusing on process improvement methodologies using Lean, Six Sigma principles.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358762232_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=70ebe37d58894f346545f197d50e77ffda7d0b35af34328f20122a8ce294cabb",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358762078_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=163603cf75aac201fb9db91dd3e7869f87bc5369d6518f3c5acd34ed0a0b96bb",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Office Management & Professional Skills"
+        ],
+        "Occupation": [
+          "Operations"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 25,
+        "Name": "Master Lean Six Sigma Black Belt Internship",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Management & Entrepreneurship and Professional",
+        "Description": "A training program focusing on process improvement methodologies using Lean, Six Sigma principles.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358762444_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=1aa021a8e7b921e410b95bd07ebb28a19685cbf0369f457fb0e79d95b63031a2",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358762304_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=80af5b1678ed3aa574267e8321128e9dd9ec36a4018639fcd05e881940d67a67",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Office Management & Professional Skills"
+        ],
+        "Occupation": [
+          "Operations"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      },
+      {
+        "Id": 26,
+        "Name": "Wordsmith Program",
+        "ProviderId": "aabb8988-9dcd-4581-a70c-2fdda4319a34",
+        "ProviderName": "Henry Harvin",
+        "Sector": "Media & Entertainment",
+        "Description": "A creative internship focused on developing high-quality written content across various formats.",
+        "TechImgUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358762628_HenryHarvin-card%20logo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=08f065f2499ecdb21bf436ec703e5d6233d180748a325d316141d3615f5c77bd",
+        "InternshipPhotoUrl": "https://skill-india-dev.s3.ap-south-1.amazonaws.com/Internship_program%3A1748358762500_Henry%20Harvin%20Internship%20Card.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260310T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20260310%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=db123bec0bd20261689d18d7aeba3d6b35e16730613f97c61e099fad54dee271",
+        "Price": 0,
+        "FeeType": "Free",
+        "Mode": "Online",
+        "Duration": "1 Month",
+        "Stipend": false,
+        "StipendAmount": 0,
+        "Domain": [
+          "Digital"
+        ],
+        "Occupation": [
+          "Ad Sales /Account Management /Scheduling /Traffic"
+        ],
+        "NumberOfOpenings": null,
+        "CreditsAvailable": false
+      }
+    ],
+    "Pagination": {
+      "TotalCount": 100,
+      "CurrentPageNumber": 1,
+      "CurrentPageSize": 20
+    }
+  },
+  "MetaData": []
+}
