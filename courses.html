@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./style/m_sidebar2.css">
 
     <!-- Page Specific Style -->
-    <link rel="stylesheet" href="style/courses.css?v=2">
+    <link rel="stylesheet" href="style/courses.css?v=12">
 </head>
 
 <body style="overflow-x: hidden;">
@@ -249,74 +249,118 @@
             displaydata(filtered);
         }
 
+        function getInitials(name) {
+            if (!name) return "?";
+            return name.trim().split(/\s+/).map(w => w[0]).join("").slice(0, 2).toUpperCase();
+        }
+
         function displaydata(data) {
             const container = document.getElementById("all_intership");
             container.innerHTML = "";
 
-            // Add Section Heading
+            // Section Heading
             const heading = document.createElement("h2");
             heading.className = "section-title";
             heading.innerText = "All Internships";
             container.appendChild(heading);
 
             if (data.length === 0) {
-                container.innerHTML += "<p style='grid-column: 1/-1; text-align: center; color: #666;'>No internships found matching your criteria.</p>";
+                const empty = document.createElement("p");
+                empty.className = "list_empty_state";
+                empty.textContent = "No internships found matching your criteria.";
+                container.appendChild(empty);
                 return;
             }
 
             data.forEach(function (item, index) {
                 const card = document.createElement("div");
                 card.className = "internship-card";
-                // Staggered animation delay
-                card.style.animationDelay = `${index * 0.05}s`;
+                card.style.animationDelay = `${index * 0.06}s`;
 
-                // Logo Section
+                /* Inner wrapper */
+                const inner = document.createElement("div");
+                inner.className = "card-inner";
+
+                /* Header: logo + title + company */
+                const header = document.createElement("div");
+                header.className = "card-header";
+
                 const logoDiv = document.createElement("div");
                 logoDiv.className = "card-logo";
-                const img = document.createElement("img");
-                img.src = item.img;
-                img.alt = item.name;
-                img.onerror = function () {
-                    this.src = 'https://via.placeholder.com/80?text=Logo';
-                };
-                logoDiv.appendChild(img);
 
-                // Content Section
-                const contentDiv = document.createElement("div");
-                contentDiv.className = "card-content";
+                if (item.img) {
+                    const img = document.createElement("img");
+                    img.src = item.img;
+                    img.alt = item.name;
+                    img.onerror = function () {
+                        this.parentElement.innerHTML = `<div class="card-logo-placeholder">${getInitials(item.name)}</div>`;
+                    };
+                    logoDiv.appendChild(img);
+                } else {
+                    const ph = document.createElement("div");
+                    ph.className = "card-logo-placeholder";
+                    ph.textContent = getInitials(item.name);
+                    logoDiv.appendChild(ph);
+                }
+
+                const titleBlock = document.createElement("div");
+                titleBlock.className = "card-title-block";
 
                 const title = document.createElement("h3");
                 title.className = "card-title";
-                title.innerText = item.title;
+                title.textContent = item.title;
 
                 const company = document.createElement("p");
                 company.className = "card-company";
-                company.innerText = item.name;
+                company.textContent = item.name;
+
+                titleBlock.append(title, company);
+                header.append(logoDiv, titleBlock);
+
+                /* Body: badges */
+                const body = document.createElement("div");
+                body.className = "card-body";
 
                 const details = document.createElement("div");
                 details.className = "card-details";
 
-                const createDetail = (iconClass, text) => {
-                    const span = document.createElement("span");
-                    span.className = "detail-item";
-                    span.innerHTML = text;
-                    return span;
-                };
+                if (item.industry) {
+                    const b1 = document.createElement("span");
+                    b1.className = "detail-item";
+                    b1.innerHTML = `<i class="fi fi-sr-briefcase"></i> ${item.industry}`;
+                    details.appendChild(b1);
+                }
+                if (item.city) {
+                    const b2 = document.createElement("span");
+                    b2.className = "detail-item";
+                    b2.innerHTML = `<i class="fi fi-sr-marker"></i> ${item.city}`;
+                    details.appendChild(b2);
+                }
+                if (item.time) {
+                    const b3 = document.createElement("span");
+                    b3.className = "detail-item";
+                    b3.innerHTML = `<i class="fi fi-sr-clock"></i> ${item.time}`;
+                    details.appendChild(b3);
+                }
 
-                details.appendChild(createDetail("fi-sr-briefcase", item.industry));
-                details.appendChild(createDetail("fi-sr-marker", item.city));
-                details.appendChild(createDetail("fi-sr-clock", item.time));
-                details.appendChild(createDetail("fi-sr-money", item.Stipend));
+                body.appendChild(details);
 
-                contentDiv.append(title, company, details);
+                if (item.Stipend) {
+                    const stipend = document.createElement("div");
+                    stipend.className = "card-stipend";
+                    stipend.innerHTML = `<i class="fi fi-sr-money-bill-wave"></i><span>${item.Stipend}</span>`;
+                    body.appendChild(stipend);
+                }
 
-                // Actions Section
+                inner.append(header, body);
+
+                /* Actions footer */
                 const actionsDiv = document.createElement("div");
                 actionsDiv.className = "card-actions";
 
                 const duration = document.createElement("span");
                 duration.className = "duration-badge";
-                duration.innerText = item.weeks;
+                duration.textContent = item.weeks || "4-6 Weeks";
 
                 const shareIcon = document.createElement("i");
                 shareIcon.className = "fi fi-sr-share share-icon";
@@ -324,12 +368,10 @@
                 const applyBtn = document.createElement("a");
                 applyBtn.href = "javascript:void(0)";
                 applyBtn.className = "apply-btn";
-                applyBtn.innerHTML = `VIEW AND APPLY <i class="fi fi-sr-arrow-right"></i>`;
+                applyBtn.innerHTML = `VIEW AND APPLY <i class="fi fi-rr-arrow-right"></i>`;
 
                 actionsDiv.append(duration, shareIcon, applyBtn);
-
-                // Assemble Card
-                card.append(logoDiv, contentDiv, actionsDiv);
+                card.append(inner, actionsDiv);
                 container.appendChild(card);
             });
         }
@@ -337,6 +379,7 @@
         // Initial load
         handleStateChange(); // This will populate cities and call applyFilters (which calls displaydata)
     </script>
+    <script src="./script/chatbot.js"></script>
 </body>
 
 </html>

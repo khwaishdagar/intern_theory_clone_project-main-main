@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Scanner | InternTheory</title>
+  <meta name="description" content="Upload your resume and get AI-powered personalized internship, job, course recommendations and career tips.">
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/833a729023.js" crossorigin="anonymous"></script>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="./style/navbar.css">
+  <link rel="stylesheet" href="./style/footer.css">
+  <link rel="stylesheet" href="./style/m_sidebar2.css">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Page Wrapper ── */
+    .rs-page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+    }
+
+    /* ── Hero Header ── */
+    .rs-hero {
+      background: linear-gradient(135deg, #0052cc 0%, #e65c00 100%);
+      border-radius: 20px;
+      padding: 40px 36px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rs-hero::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+    }
+    .rs-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 30%;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .rs-hero-icon {
+      width: 72px; height: 72px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; color: #fff;
+      flex-shrink: 0;
+      backdrop-filter: blur(6px);
+    }
+    .rs-hero-text h1 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .rs-hero-text p { font-size: 15px; color: rgba(255,255,255,0.88); line-height: 1.6; }
+    .rs-hero-badges {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;
+    }
+    .rs-hero-badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 11px; font-weight: 600;
+      padding: 4px 12px; border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── Upload Card ── */
+    .rs-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .rs-card-title {
+      font-size: 17px; font-weight: 700; color: #1a1a2e;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .rs-card-title i { color: #0052cc; font-size: 18px; }
+
+    .rs-drop-zone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px dashed #0052cc;
+      border-radius: 20px;
+      padding: 60px 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(135deg, #f8faff 0%, #fff 100%);
+      position: relative;
+      width: 100%;
+    }
+    .rs-drop-zone:hover { 
+      background: #f0f6ff; 
+      border-color: #e65c00; 
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 82, 204, 0.08);
+    }
+    .rs-drop-zone.dragover { 
+      background: #eef4ff; 
+      border-color: #e65c00; 
+      border-style: solid;
+      transform: scale(1.02); 
+    }
+
+    .rs-drop-zone .drop-icon {
+      font-size: 64px; 
+      color: #0052cc;
+      margin-bottom: 20px; 
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .rs-drop-zone:hover .drop-icon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+    
+    .rs-drop-zone h3 { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+    .rs-drop-zone p { font-size: 14px; color: #64748b; margin-bottom: 24px; }
+    .rs-drop-zone input[type="file"] { display: none; }
+
+    .rs-choose-btn {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 10px;
+      padding: 12px 32px;
+      background: #0052cc;
+      color: #fff; 
+      font-size: 15px; 
+      font-weight: 600;
+      border-radius: 12px; 
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 82, 204, 0.2);
+    }
+    .rs-choose-btn:hover { 
+      background: #0041a3; 
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0, 82, 204, 0.3);
+    }
+    .rs-choose-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* File info strip */
+    .rs-file-info {
+      display: none; align-items: center; gap: 12px;
+      margin-top: 18px; padding: 14px 18px;
+      background: #f0f5ff; border-radius: 12px;
+      border: 1px solid #c2d6ff;
+    }
+    .rs-file-info.show { display: flex; }
+    .rs-file-info .fi-icon { color: #0052cc; font-size: 22px; }
+    .rs-file-info .fi-name { font-size: 14px; color: #1a1a2e; font-weight: 600; flex: 1; }
+    .rs-file-info .fi-size { font-size: 12px; color: #777; }
+    .rs-file-info .fi-remove { color: #e53e3e; cursor: pointer; font-size: 18px; margin-left: auto; transition: transform 0.2s; }
+    .rs-file-info .fi-remove:hover { transform: scale(1.2); }
+
+    /* Error */
+    .rs-error {
+      display: none; background: #fff5f5;
+      border: 1px solid #ffcccc; border-radius: 12px;
+      padding: 16px 20px; margin-top: 16px;
+      color: #c0392b; font-size: 13px;
+      align-items: center; gap: 10px;
+    }
+    .rs-error.show { display: flex; }
+
+    /* Scan button */
+    .rs-scan-btn {
+      display: block; width: 100%; margin-top: 22px;
+      padding: 16px; font-size: 16px; font-weight: 700;
+      background: linear-gradient(135deg, #0052cc, #e65c00);
+      color: #fff; border: none; border-radius: 12px;
+      cursor: pointer; letter-spacing: 0.3px;
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(0,82,204,0.25);
+    }
+    .rs-scan-btn:hover:not(:disabled) { opacity: 0.91; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,82,204,0.3); }
+    .rs-scan-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* ── Loading ── */
+    .rs-loading {
+      display: none; text-align: center; padding: 52px 32px;
+    }
+    .rs-loading.show { display: block; }
+    .rs-progress-ring {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      border: 6px solid #e8eef8;
+      border-top-color: #0052cc;
+      border-right-color: #e65c00;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .rs-loading h3 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+    .rs-loading p { font-size: 13px; color: #777; }
+    .rs-loading-steps {
+      display: flex; justify-content: center; gap: 6px;
+      margin-top: 18px; flex-wrap: wrap;
+    }
+    .rs-step-dot {
+      height: 8px; border-radius: 4px;
+      background: #e0eaff; width: 8px;
+      transition: all 0.4s ease;
+    }
+    .rs-step-dot.active { background: #0052cc; width: 28px; }
+
+    /* ── Results ── */
+    .rs-results { display: none; }
+    .rs-results.show { display: block; }
+
+    /* Score Card */
+    .rs-score-hero {
+      background: linear-gradient(135deg, #f0f5ff 0%, #fff8f0 100%);
+      border-radius: 16px; padding: 28px;
+      display: flex; align-items: center; gap: 24px;
+      margin-bottom: 20px;
+      border: 1px solid #e0eaff;
+    }
+    .rs-score-ring-wrap { position: relative; flex-shrink: 0; }
+    .rs-score-ring {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: conic-gradient(#0052cc 0%, #e65c00 50%, #eef0f8 50%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .rs-score-ring-inner {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .rs-score-num { font-size: 28px; font-weight: 800; color: #0052cc; line-height: 1; }
+    .rs-score-max { font-size: 11px; color: #aaa; }
+    .rs-score-info h3 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+    .rs-score-info .score-label-badge {
+      display: inline-block; padding: 4px 14px;
+      border-radius: 20px; font-size: 12px; font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .badge-excellent { background: #d4edda; color: #1a7a3a; }
+    .badge-good { background: #d1ecf1; color: #0c5460; }
+    .badge-average { background: #fff3cd; color: #856404; }
+    .badge-needswork { background: #f8d7da; color: #842029; }
+    .rs-score-info p { font-size: 13px; color: #555; line-height: 1.6; }
+
+    /* Profile grid */
+    .rs-profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px; margin-bottom: 8px;
+    }
+    .rs-profile-item {
+      background: #f8faff; border-radius: 12px;
+      padding: 14px 16px; border: 1px solid #e0eaff;
+      transition: box-shadow 0.2s;
+    }
+    .rs-profile-item:hover { box-shadow: 0 4px 12px rgba(0,82,204,0.08); }
+    .rs-profile-item label {
+      display: block; font-size: 10px;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: #999; font-weight: 700; margin-bottom: 4px;
+    }
+    .rs-profile-item span { font-size: 14px; color: #1a1a2e; font-weight: 600; }
+
+    /* Skills */
+    .rs-skills-wrap { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+    .rs-skill-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 13px; font-weight: 600;
+    }
+    .rs-skill-pill.strong { background: #dbeafe; color: #1d4ed8; }
+    .rs-skill-pill.medium { background: #fef3c7; color: #92400e; }
+    .rs-skill-pill.weak { background: #fee2e2; color: #991b1b; }
+    .rs-skill-pill.missing { background: #f1f5f9; color: #475569; border: 1.5px dashed #94a3b8; }
+    .rs-skill-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .strong .rs-skill-dot { background: #1d4ed8; }
+    .medium .rs-skill-dot { background: #92400e; }
+    .weak .rs-skill-dot { background: #991b1b; }
+
+    /* Score breakdown bars */
+    .rs-bar-item { margin-bottom: 16px; }
+    .rs-bar-label { display: flex; justify-content: space-between; font-size: 13px; color: #444; margin-bottom: 7px; font-weight: 500; }
+    .rs-bar-track { background: #eef0f8; border-radius: 8px; height: 10px; overflow: hidden; }
+    .rs-bar-fill { height: 100%; border-radius: 8px; width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+    .rs-bar-fill.blue { background: linear-gradient(90deg, #0052cc, #4d94ff); }
+    .rs-bar-fill.green { background: linear-gradient(90deg, #16a34a, #4ade80); }
+    .rs-bar-fill.orange { background: linear-gradient(90deg, #e65c00, #ffa040); }
+    .rs-bar-fill.red { background: linear-gradient(90deg, #dc2626, #f87171); }
+    .rs-bar-fill.purple { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+
+    /* ── Recommendations ── */
+    .rs-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .rs-tab {
+      padding: 8px 18px; border-radius: 20px;
+      border: 1.5px solid #0052cc;
+      background: #fff; color: #0052cc;
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .rs-tab.active { background: #0052cc; color: #fff; }
+    .rs-tab:hover:not(.active) { background: #f0f5ff; }
+
+    .rs-rec-card {
+      background: #fff; border: 1.5px solid #e8eef8;
+      border-radius: 14px; padding: 18px 20px;
+      margin-bottom: 12px;
+      display: flex; gap: 16px; align-items: flex-start;
+      text-decoration: none; color: inherit;
+      transition: all 0.25s ease;
+      position: relative; overflow: hidden;
+    }
+    .rs-rec-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 4px;
+      border-radius: 4px 0 0 4px;
+    }
+    .rs-rec-card.type-internship::before { background: #0052cc; }
+    .rs-rec-card.type-job::before { background: #16a34a; }
+    .rs-rec-card.type-course::before { background: #e65c00; }
+    .rs-rec-card.type-skill::before { background: #7c3aed; }
+    .rs-rec-card:hover { box-shadow: 0 6px 20px rgba(0,82,204,0.12); transform: translateY(-2px); border-color: #c2d6ff; }
+
+    .rs-rec-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .rs-rec-icon.internship { background: #dbeafe; color: #0052cc; }
+    .rs-rec-icon.job { background: #dcfce7; color: #16a34a; }
+    .rs-rec-icon.course { background: #ffedd5; color: #e65c00; }
+    .rs-rec-icon.skill { background: #ede9fe; color: #7c3aed; }
+
+    .rs-rec-body { flex: 1; }
+    .rs-rec-body h4 { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+    .rs-rec-meta { font-size: 12px; color: #888; margin-bottom: 6px; }
+    .rs-rec-body p { font-size: 13px; color: #555; line-height: 1.55; }
+    .rs-rec-footer { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+    .rs-rec-badge {
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 12px; display: inline-block;
+    }
+    .rs-rec-badge.internship { background: #dbeafe; color: #1d4ed8; }
+    .rs-rec-badge.job { background: #dcfce7; color: #15803d; }
+    .rs-rec-badge.course { background: #ffedd5; color: #c2410c; }
+    .rs-rec-badge.skill { background: #ede9fe; color: #6d28d9; }
+    .rs-rec-match {
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 12px; background: #f0fdf4; color: #16a34a;
+      border: 1px solid #bbf7d0;
+    }
+    .rs-rec-link-icon { margin-left: auto; font-size: 13px; color: #aaa; }
+
+    /* ── Suggestions ── */
+    .rs-suggestion {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px 0; border-bottom: 1px solid #f1f5f9;
+    }
+    .rs-suggestion:last-child { border-bottom: none; }
+    .rs-sug-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .rs-sug-icon.tip { background: #ffedd5; color: #c2410c; }
+    .rs-sug-icon.warn { background: #fee2e2; color: #dc2626; }
+    .rs-sug-icon.good { background: #dcfce7; color: #16a34a; }
+    .rs-sug-icon.info { background: #dbeafe; color: #1d4ed8; }
+    .rs-sug-text h5 { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+    .rs-sug-text p { font-size: 13px; color: #555; line-height: 1.55; }
+
+    /* ── Empty state ── */
+    .rs-empty { text-align: center; padding: 30px 0; color: #aaa; font-size: 14px; }
+    .rs-empty i { font-size: 36px; margin-bottom: 10px; display: block; }
+
+    /* ── Scan again btn ── */
+    .rs-again-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px; background: #fff;
+      border: 2px solid #0052cc; color: #0052cc;
+      border-radius: 10px; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+      margin-bottom: 28px;
+    }
+    .rs-again-btn:hover { background: #f0f5ff; }
+
+    /* Section divider */
+    .rs-section-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 4px 0 16px;
+    }
+    .rs-section-divider span { font-size: 11px; font-weight: 700; color: #999; white-space: nowrap; text-transform: uppercase; letter-spacing: 1px; }
+    .rs-section-divider::before, .rs-section-divider::after { content: ''; flex: 1; height: 1px; background: #eef0f8; }
+
+    /* Animate in */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .rs-results.show .rs-card { animation: fadeUp 0.4s ease both; }
+    .rs-results.show .rs-card:nth-child(2) { animation-delay: 0.08s; }
+    .rs-results.show .rs-card:nth-child(3) { animation-delay: 0.16s; }
+    .rs-results.show .rs-card:nth-child(4) { animation-delay: 0.24s; }
+
+    /* Skill legend */
+    .rs-skill-legend {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      margin-bottom: 14px; font-size: 12px; color: #666;
+    }
+    .rs-skill-legend span { display: flex; align-items: center; gap: 5px; }
+    .rs-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    @media (max-width: 640px) {
+      .rs-hero { flex-direction: column; text-align: center; padding: 28px 20px; }
+      .rs-hero-badges { justify-content: center; }
+      .rs-score-hero { flex-direction: column; text-align: center; align-items: center; }
+      .rs-hero-text h1 { font-size: 22px; }
+      .rs-card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div id="navBarBox"></div>
+  <!-- Mobile Sidebar -->
+  <div id="sidebar_div"></div>
+
+  <div class="rs-page">
+
+    <!-- Hero Header -->
+    <div class="rs-hero">
+      <div class="rs-hero-icon"><i class="fas fa-robot"></i></div>
+      <div class="rs-hero-text">
+        <h1>AI Resume Scanner</h1>
+        <p>Apna resume upload karo — AI scan karega, aur tumhare liye personalized internships, jobs, courses aur career tips dega.</p>
+        <div class="rs-hero-badges">
+          <span class="rs-hero-badge"><i class="fas fa-bolt"></i> AI Powered</span>
+          <span class="rs-hero-badge"><i class="fas fa-briefcase"></i> Internship Match</span>
+          <span class="rs-hero-badge"><i class="fas fa-graduation-cap"></i> Course Suggest</span>
+          <span class="rs-hero-badge"><i class="fas fa-lightbulb"></i> Career Tips</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Card -->
+    <div class="rs-card" id="uploadCard">
+      <div class="rs-card-title"><i class="fas fa-cloud-upload-alt"></i> Resume Upload Karo</div>
+
+      <label class="rs-drop-zone" id="dropZone" for="resumeInput">
+        <i class="fas fa-file-alt drop-icon"></i>
+        <h3>Resume yahan drop karo ya choose karo</h3>
+        <p>PDF, DOC, DOCX, TXT — max 5MB</p>
+        <span class="rs-choose-btn" onclick="event.preventDefault(); document.getElementById('resumeInput').click()">
+          <i class="fas fa-folder-open"></i> File Choose Karo
+        </span>
+        <input type="file" id="resumeInput" accept=".pdf,.doc,.docx,.txt">
+      </label>
+
+      <div class="rs-file-info" id="fileInfo">
+        <i class="fas fa-file-pdf fi-icon"></i>
+        <span class="fi-name" id="fileName">resume.pdf</span>
+        <span class="fi-size" id="fileSize"></span>
+        <span class="fi-remove" id="removeFile"><i class="fas fa-times-circle"></i></span>
+      </div>
+
+      <div class="rs-error" id="errorBox">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="errorMsg">Kuch galat ho gaya.</span>
+      </div>
+
+      <button class="rs-scan-btn" id="scanBtn" disabled onclick="scanResume()">
+        <i class="fas fa-search-plus"></i>&nbsp; Resume Scan Karo — AI se
+      </button>
+    </div>
+
+    <!-- Loading -->
+    <div class="rs-card rs-loading" id="loadingSection">
+      <div class="rs-progress-ring"></div>
+      <h3>AI aapka resume analyze kar raha hai...</h3>
+      <p>Skills, experience aur profile check ho rahi hai. Thoda wait karo.</p>
+      <div class="rs-loading-steps">
+        <div class="rs-step-dot active" id="dot1"></div>
+        <div class="rs-step-dot" id="dot2"></div>
+        <div class="rs-step-dot" id="dot3"></div>
+        <div class="rs-step-dot" id="dot4"></div>
+        <div class="rs-step-dot" id="dot5"></div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="rs-results" id="resultsSection">
+
+      <button class="rs-again-btn" onclick="resetScanner()">
+        <i class="fas fa-redo"></i> Naya Resume Scan Karo
+      </button>
+
+      <!-- 1. Profile + Score -->
+      <div class="rs-card">
+        <div class="rs-card-title"><i class="fas fa-user-circle"></i> Aapki Profile Summary</div>
+
+        <div class="rs-score-hero">
+          <div class="rs-score-ring-wrap">
+            <div class="rs-score-ring" id="scoreRing">
+              <div class="rs-score-ring-inner">
+                <span class="rs-score-num" id="overallScore">0</span>
+                <span class="rs-score-max">/100</span>
+              </div>
+            </div>
+          </div>
+          <div class="rs-score-info">
+            <div class="score-label-badge" id="scoreBadge">Calculating...</div>
+            <h3 id="scoreLabel">Resume Score</h3>
+            <p id="scoreDesc">AI analyzing your resume...</p>
+          </div>
+        </div>
+
+        <div class="rs-profile-grid" id="profileGrid"></div>
+      </div>
+
+      <!-- 2. Skills + Breakdown -->
+      <div class="rs-card">
+        <div class="rs-card-title"><i class="fas fa-code"></i> Skills Analysis</div>
+
+        <div class="rs-skill-legend">
+          <span><span class="rs-legend-dot" style="background:#1d4ed8"></span> Strong</span>
+          <span><span class="rs-legend-dot" style="background:#d97706"></span> Medium</span>
+          <span><span class="rs-legend-dot" style="background:#dc2626"></span> Needs Work</span>
+        </div>
+        <div class="rs-skills-wrap" id="skillsWrap"></div>
+
+        <div class="rs-section-divider"><span>Score Breakdown</span></div>
+        <div id="scoreBreakdown"></div>
+      </div>
+
+      <!-- 3. Recommendations -->
+      <div class="rs-card">
+        <div class="rs-card-title"><i class="fas fa-star"></i> Personalized Recommendations</div>
+
+        <div class="rs-tabs">
+          <button class="rs-tab active" onclick="switchTab('all', this)">🔥 Sab</button>
+          <button class="rs-tab" onclick="switchTab('internship', this)">💼 Internships</button>
+          <button class="rs-tab" onclick="switchTab('job', this)">🏢 Jobs</button>
+          <button class="rs-tab" onclick="switchTab('course', this)">📚 Courses</button>
+          <button class="rs-tab" onclick="switchTab('skill', this)">🧠 Skills to Learn</button>
+        </div>
+        <div id="recList"></div>
+      </div>
+
+      <!-- 4. Career Suggestions -->
+      <div class="rs-card">
+        <div class="rs-card-title"><i class="fas fa-lightbulb"></i> Career & Profile Suggestions</div>
+        <div id="suggestionsList"></div>
+      </div>
+
+    </div><!-- /results -->
+  </div><!-- /rs-page -->
+
+  <div id="footer_container"></div>
+
+  <script type="module" src="./script/layout.js"></script>
+
+  <script>
+    let selectedFile = null;
+    let allRecs = [];
+    let dotInterval = null;
+
+    const dropZone    = document.getElementById('dropZone');
+    const resumeInput = document.getElementById('resumeInput');
+    const fileInfo    = document.getElementById('fileInfo');
+    const scanBtn     = document.getElementById('scanBtn');
+    const errorBox    = document.getElementById('errorBox');
+
+    // ── File handling ──────────────────────────────────────────
+    resumeInput.addEventListener('change', e => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+    });
+
+    document.getElementById('removeFile').addEventListener('click', e => {
+      e.stopPropagation();
+      selectedFile = null;
+      fileInfo.classList.remove('show');
+      scanBtn.disabled = true;
+      resumeInput.value = '';
+      errorBox.classList.remove('show');
+    });
+
+    function handleFile(file) {
+      const allowed = ['application/pdf','application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document','text/plain'];
+      if (!allowed.includes(file.type) && !file.name.match(/\.(pdf|doc|docx|txt)$/i)) {
+        showError('Sirf PDF, DOC, DOCX ya TXT file allowed hai.'); return;
+      }
+      if (file.size > 5 * 1024 * 1024) { showError('File 5MB se badi nahi honi chahiye.'); return; }
+      selectedFile = file;
+      document.getElementById('fileName').textContent = file.name;
+      document.getElementById('fileSize').textContent = (file.size / 1024).toFixed(1) + ' KB';
+      // Icon by type
+      const icon = fileInfo.querySelector('.fi-icon');
+      icon.className = 'fi-icon fas ' + (file.name.endsWith('.pdf') ? 'fa-file-pdf' : 'fa-file-word');
+      fileInfo.classList.add('show');
+      scanBtn.disabled = false;
+      errorBox.classList.remove('show');
+    }
+
+    function showError(msg) {
+      document.getElementById('errorMsg').textContent = msg;
+      errorBox.classList.add('show');
+    }
+
+    function resetScanner() {
+      selectedFile = null;
+      resumeInput.value = '';
+      fileInfo.classList.remove('show');
+      scanBtn.disabled = true;
+      errorBox.classList.remove('show');
+      document.getElementById('resultsSection').classList.remove('show');
+      document.getElementById('uploadCard').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── Loading dots animation ──────────────────────────────────
+    function startDots() {
+      let i = 1;
+      dotInterval = setInterval(() => {
+        document.querySelectorAll('.rs-step-dot').forEach(d => d.classList.remove('active'));
+        document.getElementById('dot' + i)?.classList.add('active');
+        i = (i % 5) + 1;
+      }, 500);
+    }
+    function stopDots() { if (dotInterval) clearInterval(dotInterval); }
+
+    // ── Prompt ─────────────────────────────────────────────────
+    function getPrompt() {
+      return `Tum ek expert career counselor aur resume analyzer ho. Is resume ko deeply analyze karo aur SIRF ek valid JSON object return karo — koi extra text, preamble, markdown ya backticks nahi.
+
+Return this EXACT JSON structure (real content ke saath, sample values nahi):
+{
+  "profile": {
+    "name": "candidate ka naam ya 'Not mentioned'",
+    "experience": "Fresher / 1-2 Years / 3-5 Years / 5+ Years",
+    "education": "highest qualification",
+    "domain": "primary domain/field (e.g. Web Development, Data Science, Marketing)",
+    "location": "location ya 'Not mentioned'"
+  },
+  "overallScore": 72,
+  "scoreLabel": "Good Resume",
+  "scoreDescription": "Ek insightful line jo score explain kare — Hinglish mein",
+  "scoreBreakdown": [
+    { "label": "Skills & Technical Knowledge", "score": 80, "color": "blue" },
+    { "label": "Experience & Projects", "score": 65, "color": "green" },
+    { "label": "Education & Certifications", "score": 70, "color": "orange" },
+    { "label": "Resume Formatting & Clarity", "score": 75, "color": "purple" },
+    { "label": "Career Readiness", "score": 68, "color": "red" }
+  ],
+  "skills": [
+    { "name": "Python", "level": "strong" },
+    { "name": "Communication", "level": "medium" },
+    { "name": "SQL", "level": "weak" }
+  ],
+  "recommendations": [
+    {
+      "type": "internship",
+      "title": "Role name",
+      "company": "Company type / specific names",
+      "description": "Hinglish mein kyun suitable hai is candidate ke liye",
+      "match": "92%",
+      "link": "https://skillindia.gov.in ya relevant URL ya empty string"
+    },
+    {
+      "type": "internship",
+      "title": "Another internship role",
+      "company": "Company",
+      "description": "Why good fit",
+      "match": "80%",
+      "link": ""
+    },
+    {
+      "type": "job",
+      "title": "Job role",
+      "company": "Company names (Infosys, TCS etc.)",
+      "description": "Description in Hinglish",
+      "match": "75%",
+      "link": ""
+    },
+    {
+      "type": "job",
+      "title": "Another job role",
+      "company": "Companies",
+      "description": "Why suitable",
+      "match": "70%",
+      "link": ""
+    },
+    {
+      "type": "course",
+      "title": "Course name",
+      "platform": "Coursera / NPTEL / Skill India / YouTube",
+      "description": "Why helpful for this candidate in Hinglish",
+      "match": "High",
+      "link": "https://www.coursera.org ya relevant"
+    },
+    {
+      "type": "course",
+      "title": "Another course",
+      "platform": "Platform",
+      "description": "Why helpful",
+      "match": "High",
+      "link": "https://skillindia.gov.in"
+    },
+    {
+      "type": "skill",
+      "title": "Skill to learn",
+      "platform": "YouTube / GitHub / Platform",
+      "description": "Why important for this profile",
+      "match": "Must-Have",
+      "link": ""
+    },
+    {
+      "type": "skill",
+      "title": "Another skill",
+      "platform": "Resource",
+      "description": "Importance in Hinglish",
+      "match": "Important",
+      "link": ""
+    }
+  ],
+  "suggestions": [
+    { "type": "tip", "title": "Suggestion heading", "description": "Detailed, actionable tip in Hinglish" },
+    { "type": "warn", "title": "Warning heading", "description": "What is missing or weak" },
+    { "type": "good", "title": "Strength heading", "description": "What is already strong" },
+    { "type": "tip", "title": "Another tip", "description": "Another actionable suggestion" },
+    { "type": "warn", "title": "Another warning", "description": "Another gap to fix" }
+  ]
+}
+
+Resume ke actual content + skills + domain ke hisaab se realistic analysis karo. Suggestions aur recommendations candidate ki actual profile se match karni chahiye. Sirf JSON return karo, kuch aur nahi.`;
+    }
+
+    // ── Main scan function ──────────────────────────────────────
+    async function scanResume() {
+      if (!selectedFile) return;
+
+      document.getElementById('loadingSection').classList.add('show');
+      document.getElementById('resultsSection').classList.remove('show');
+      document.getElementById('uploadCard').style.display = 'none';
+      errorBox.classList.remove('show');
+      scanBtn.disabled = true;
+      startDots();
+
+      try {
+        let messages;
+
+        if (selectedFile.type === 'application/pdf' || selectedFile.name.endsWith('.pdf')) {
+          const base64 = await new Promise(res => {
+            const r = new FileReader();
+            r.onload = () => res(r.result.split(',')[1]);
+            r.readAsDataURL(selectedFile);
+          });
+          messages = [{
+            role: 'user',
+            content: [
+              { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: base64 } },
+              { type: 'text', text: getPrompt() }
+            ]
+          }];
+        } else {
+          const text = await new Promise(res => {
+            const r = new FileReader(); r.onload = e => res(e.target.result); r.readAsText(selectedFile);
+          });
+          messages = [{ role: 'user', content: `Resume Content:\n\n${text}\n\n${getPrompt()}` }];
+        }
+
+        const resp = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': 'YOUR_ANTHROPIC_API_KEY_HERE',
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+          },
+          body: JSON.stringify({
+            model: 'claude-opus-4-5',
+            max_tokens: 2000,
+            messages
+          })
+        });
+
+        if (!resp.ok) {
+          const err = await resp.json();
+          throw new Error(err.error?.message || 'API call fail ho gayi');
+        }
+
+        const data = await resp.json();
+        const rawText = data.content.map(c => c.text || '').join('');
+        const clean = rawText.replace(/```json|```/g, '').trim();
+        const result = JSON.parse(clean);
+        displayResults(result);
+
+      } catch (err) {
+        console.error(err);
+        stopDots();
+        document.getElementById('loadingSection').classList.remove('show');
+        document.getElementById('uploadCard').style.display = 'block';
+        scanBtn.disabled = false;
+        showError('Resume analyze karne mein problem aayi: ' + err.message + '. Dobara try karo.');
+      }
+    }
+
+    // ── Display results ─────────────────────────────────────────
+    function displayResults(data) {
+      stopDots();
+      document.getElementById('loadingSection').classList.remove('show');
+      document.getElementById('resultsSection').classList.add('show');
+      scanBtn.disabled = false;
+
+      // Animated score
+      const target = Math.min(Math.max(data.overallScore || 70, 0), 100);
+      const el = document.getElementById('overallScore');
+      const ring = document.getElementById('scoreRing');
+      let cur = 0;
+      const iv = setInterval(() => {
+        cur = Math.min(cur + 1, target);
+        el.textContent = cur;
+        const deg = Math.round(cur * 3.6);
+        ring.style.background = `conic-gradient(#0052cc 0deg, #e65c00 ${deg}deg, #eef0f8 ${deg}deg)`;
+        if (cur >= target) clearInterval(iv);
+      }, 18);
+
+      // Score badge
+      const badge = document.getElementById('scoreBadge');
+      if (target >= 85) { badge.textContent = '🏆 Excellent'; badge.className = 'score-label-badge badge-excellent'; }
+      else if (target >= 70) { badge.textContent = '👍 Good'; badge.className = 'score-label-badge badge-good'; }
+      else if (target >= 50) { badge.textContent = '📈 Average'; badge.className = 'score-label-badge badge-average'; }
+      else { badge.textContent = '⚠️ Needs Work'; badge.className = 'score-label-badge badge-needswork'; }
+
+      document.getElementById('scoreLabel').textContent = data.scoreLabel || 'Resume Score';
+      document.getElementById('scoreDesc').textContent = data.scoreDescription || '';
+
+      // Profile grid
+      const p = data.profile || {};
+      document.getElementById('profileGrid').innerHTML = [
+        { l: 'Name', v: p.name }, { l: 'Experience', v: p.experience },
+        { l: 'Education', v: p.education }, { l: 'Domain / Field', v: p.domain }, { l: 'Location', v: p.location }
+      ].map(f => `<div class="rs-profile-item"><label>${f.l}</label><span>${f.v || 'N/A'}</span></div>`).join('');
+
+      // Skills
+      const skills = data.skills || [];
+      document.getElementById('skillsWrap').innerHTML = skills.length
+        ? skills.map(s => `<span class="rs-skill-pill ${s.level}"><span class="rs-skill-dot"></span>${s.name}</span>`).join('')
+        : '<p style="color:#aaa;font-size:14px;">Skills detect nahi ho sake.</p>';
+
+      // Breakdown bars
+      const breakdown = data.scoreBreakdown || [];
+      document.getElementById('scoreBreakdown').innerHTML = breakdown.map(b =>
+        `<div class="rs-bar-item">
+          <div class="rs-bar-label"><span>${b.label}</span><span><b>${b.score}</b>/100</span></div>
+          <div class="rs-bar-track"><div class="rs-bar-fill ${b.color}" style="width:0" data-w="${b.score}%"></div></div>
+        </div>`
+      ).join('');
+      setTimeout(() => document.querySelectorAll('.rs-bar-fill').forEach(el => el.style.width = el.dataset.w), 150);
+
+      // Recommendations
+      allRecs = data.recommendations || [];
+      renderRecs('all');
+
+      // Suggestions
+      const sugs = data.suggestions || [];
+      const sugIcons = { tip: 'fa-lightbulb', warn: 'fa-exclamation-circle', good: 'fa-check-circle', info: 'fa-info-circle' };
+      document.getElementById('suggestionsList').innerHTML = sugs.length
+        ? sugs.map(s => `<div class="rs-suggestion">
+            <div class="rs-sug-icon ${s.type}"><i class="fas ${sugIcons[s.type] || 'fa-info-circle'}"></i></div>
+            <div class="rs-sug-text"><h5>${s.title}</h5><p>${s.description}</p></div>
+          </div>`).join('')
+        : '<p style="color:#aaa;font-size:14px;padding:16px 0;">No suggestions at this time.</p>';
+
+      document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderRecs(filter) {
+      const list = filter === 'all' ? allRecs : allRecs.filter(r => r.type === filter);
+      const icons = { internship: 'fa-briefcase', job: 'fa-building', course: 'fa-graduation-cap', skill: 'fa-brain' };
+      const labels = { internship: 'Internship', job: 'Job', course: 'Course', skill: 'Skill' };
+
+      document.getElementById('recList').innerHTML = list.length
+        ? list.map(r => {
+            const sub = r.company || r.platform || '';
+            return `<a class="rs-rec-card type-${r.type}" href="${r.link || '#'}" ${r.link ? 'target="_blank" rel="noopener"' : ''}>
+              <div class="rs-rec-icon ${r.type}"><i class="fas ${icons[r.type] || 'fa-star'}"></i></div>
+              <div class="rs-rec-body">
+                <h4>${r.title}</h4>
+                ${sub ? `<div class="rs-rec-meta"><i class="fas ${r.type === 'course' || r.type === 'skill' ? 'fa-laptop' : 'fa-map-marker-alt'}"></i> ${sub}</div>` : ''}
+                <p>${r.description}</p>
+                <div class="rs-rec-footer">
+                  <span class="rs-rec-badge ${r.type}">${labels[r.type]}</span>
+                  <span class="rs-rec-match">✓ Match: ${r.match || 'High'}</span>
+                  ${r.link ? '<span class="rs-rec-link-icon"><i class="fas fa-external-link-alt"></i></span>' : ''}
+                </div>
+              </div>
+            </a>`;
+          }).join('')
+        : `<div class="rs-empty"><i class="fas fa-inbox"></i>Is category mein recommendations nahi mili.</div>`;
+    }
+
+    function switchTab(filter, btn) {
+      document.querySelectorAll('.rs-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      renderRecs(filter);
+    }
+
+    window.scanResume  = scanResume;
+    window.switchTab   = switchTab;
+    window.resetScanner = resetScanner;
+  </script>
+
+</body>
+</html>

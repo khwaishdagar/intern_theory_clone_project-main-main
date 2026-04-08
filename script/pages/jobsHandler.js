@@ -34,6 +34,112 @@ const initJobsPage = async () => {
         });
     };
 
+    // Returns initials from company name for logo placeholder
+    const getInitials = (name = "") => {
+        return name.trim().split(/\s+/).map(w => w[0]).join("").slice(0, 2).toUpperCase() || "?";
+    };
+
+    const buildCard = (job, index) => {
+        const card = document.createElement("div");
+        card.className = "internship-card";
+        card.style.animationDelay = `${index * 0.06}s`;
+
+        /* ── Card Inner wrapper ── */
+        const inner = document.createElement("div");
+        inner.className = "card-inner";
+
+        /* ── Header row: logo + title + company ── */
+        const header = document.createElement("div");
+        header.className = "card-header";
+
+        // Logo
+        const logoDiv = document.createElement("div");
+        logoDiv.className = "card-logo";
+
+        if (job.img) {
+            const img = document.createElement("img");
+            img.src = job.img;
+            img.alt = job.name || "Company";
+            img.onerror = function () {
+                this.parentElement.innerHTML = `<div class="card-logo-placeholder">${getInitials(job.name)}</div>`;
+            };
+            logoDiv.appendChild(img);
+        } else {
+            const placeholder = document.createElement("div");
+            placeholder.className = "card-logo-placeholder";
+            placeholder.textContent = getInitials(job.name);
+            logoDiv.appendChild(placeholder);
+        }
+
+        // Title + Company block
+        const titleBlock = document.createElement("div");
+        titleBlock.className = "card-title-block";
+
+        const title = document.createElement("h3");
+        title.className = "card-title";
+        title.textContent = job.title || "Job Opening";
+
+        const company = document.createElement("p");
+        company.className = "card-company";
+        company.textContent = job.name || "Company";
+
+        titleBlock.append(title, company);
+        header.append(logoDiv, titleBlock);
+
+        /* ── Body: badges ── */
+        const body = document.createElement("div");
+        body.className = "card-body";
+
+        const details = document.createElement("div");
+        details.className = "card-details";
+
+        if (job.industry) {
+            const industryBadge = document.createElement("span");
+            industryBadge.className = "detail-item";
+            industryBadge.innerHTML = `<i class="fi fi-sr-briefcase"></i> ${job.industry}`;
+            details.appendChild(industryBadge);
+        }
+
+        if (job.city) {
+            const cityBadge = document.createElement("span");
+            cityBadge.className = "detail-item";
+            cityBadge.innerHTML = `<i class="fi fi-sr-marker"></i> ${job.city}`;
+            details.appendChild(cityBadge);
+        }
+
+        body.appendChild(details);
+
+        // Stipend / Salary row
+        const salaryLabel = job.Stipend || job.salary || "Negotiable";
+        const salaryRow = document.createElement("div");
+        salaryRow.className = "card-stipend";
+        salaryRow.innerHTML = `<i class="fi fi-sr-money-bill-wave"></i><span>Stipend: ${salaryLabel}</span>`;
+        body.appendChild(salaryRow);
+
+        inner.append(header, body);
+
+        /* ── Actions footer ── */
+        const actionsDiv = document.createElement("div");
+        actionsDiv.className = "card-actions";
+
+        const postedBadge = document.createElement("span");
+        postedBadge.className = "duration-badge";
+        postedBadge.textContent = job.weeks || "PERMANENT";
+
+        const shareIcon = document.createElement("i");
+        shareIcon.className = "fi fi-sr-share share-icon";
+
+        const applyBtn = document.createElement("a");
+        applyBtn.href = "register.html";
+        applyBtn.className = "apply-btn";
+        applyBtn.innerHTML = `VIEW AND APPLY <i class="fi fi-rr-arrow-right"></i>`;
+
+        actionsDiv.append(postedBadge, shareIcon, applyBtn);
+
+        card.append(inner, actionsDiv);
+        return card;
+    };
+
     const renderJobs = (jobs) => {
         container.innerHTML = "";
 
@@ -46,77 +152,12 @@ const initJobsPage = async () => {
             const empty = document.createElement("p");
             empty.className = "list_empty_state";
             empty.textContent = "No jobs found matching your criteria.";
-            empty.style.gridColumn = "1 / -1";
-            empty.style.textAlign = "center";
-            empty.style.padding = "40px";
             container.appendChild(empty);
             return;
         }
 
         jobs.forEach((job, index) => {
-            const card = document.createElement("div");
-            card.className = "internship-card";
-            card.style.animationDelay = `${index * 0.05}s`;
-
-            const logoDiv = document.createElement("div");
-            logoDiv.className = "card-logo";
-            const img = document.createElement("img");
-            img.src = job.img || "https://assets.interntheory.com/creative/logo.png";
-            img.alt = job.name;
-            img.onerror = function () { this.src = 'https://assets.interntheory.com/creative/logo.png'; };
-            logoDiv.appendChild(img);
-
-            const contentDiv = document.createElement("div");
-            contentDiv.className = "card-content";
-
-            const title = document.createElement("h3");
-            title.className = "card-title";
-            title.textContent = job.title;
-
-            const company = document.createElement("p");
-            company.className = "card-company";
-            company.textContent = job.name;
-
-            const detailsDiv = document.createElement("div");
-            detailsDiv.className = "card-details";
-
-            const industryBadge = document.createElement("span");
-            industryBadge.className = "detail-item";
-            industryBadge.innerHTML = `<i class="fas fa-briefcase"></i> ${job.industry || "General"}`;
-
-            const cityBadge = document.createElement("span");
-            cityBadge.className = "detail-item";
-            cityBadge.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${job.city || "India"}`;
-
-            detailsDiv.append(industryBadge, cityBadge);
-
-            const salaryDiv = document.createElement("div");
-            salaryDiv.className = "detail-item";
-            salaryDiv.style.marginTop = "8px";
-            salaryDiv.style.fontWeight = "600";
-            salaryDiv.innerHTML = `<i class="fas fa-money-bill-wave"></i> Stipend: ${job.Stipend || "Negotiable"}`;
-
-            contentDiv.append(title, company, detailsDiv, salaryDiv);
-
-            const actionsDiv = document.createElement("div");
-            actionsDiv.className = "card-actions";
-
-            const postedBadge = document.createElement("span");
-            postedBadge.className = "duration-badge";
-            postedBadge.textContent = job.weeks || "Permanent";
-
-            const shareIcon = document.createElement("i");
-            shareIcon.className = "fi fi-sr-share share-icon";
-
-            const applyBtn = document.createElement("a");
-            applyBtn.href = "register.html";
-            applyBtn.className = "apply-btn";
-            applyBtn.innerHTML = `VIEW AND APPLY <i class="fi fi-rr-arrow-right"></i>`;
-
-            actionsDiv.append(postedBadge, shareIcon, applyBtn);
-
-            card.append(logoDiv, contentDiv, actionsDiv);
-            container.appendChild(card);
+            container.appendChild(buildCard(job, index));
         });
     };
 

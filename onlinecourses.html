@@ -4,452 +4,516 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Online Courses | Intern Theory</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/833a729023.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style/m_sidebar2.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+
+    <!-- Shared Styles -->
     <link rel="stylesheet" href="./style/navbar.css">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/m_sidebar2.css">
 
     <style>
-        *{
-            font-family:  sans-serif;
+        :root {
+            --primary: #df5e28;
+            --primary-light: #f07840;
+            --primary-fade: rgba(223, 94, 40, 0.08);
+            --secondary: #1e293b;
+            --bg: #f1f4f8;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-mid: #475569;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 4px rgba(0,0,0,0.06), 0 2px 12px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 12px 40px rgba(223,94,40,0.12), 0 4px 16px rgba(0,0,0,0.08);
+            --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
         }
-        #onc_top{
-            background-image: url("https://assets.interntheory.com/creative/courses/listpage/Course-bannerbg.jpg");
-            background-size: cover;
-            /* background-color: teal; */
-            width: 100%;
-            margin-left: -10px;
-            padding: 1%;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
         }
-        #top_image{
-            width: 94%;
-            height: 120px;
-            margin-left: 50px;
-            margin-right: 50px;   
-        }
-        #onc_certified{
-           width: 85%;
-           height: 100px;
-           /* border: 1px solid black; */
-           margin-left: 10%;
-           margin-top: 3%;
-        }
-        #onc_certified>h2,p{
-            color: grey;
-           
-        }
-        #onc_main{
-            margin: auto;
-            width: 90%;
-            text-align: center;
-            display: grid;
-            grid-template-columns: repeat(4,23%);  
-            grid-gap: 1%;
-            height: 1100px; 
-            margin-left: 8%;
-           
-        }
-        #onc_main>div{
-            /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-            height: 335px;
-            border-radius: 10px;
 
+        /* ── Hero Banner ── */
+        .onc-hero {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 60%, #df5e28 140%);
+            padding: 48px 5% 52px;
+            position: relative;
+            overflow: hidden;
         }
-        #onc_main>h4,p{
-            line-height: 15px;
-            margin-top: -5px;
-            
+        .onc-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("https://assets.interntheory.com/creative/courses/listpage/Course-bannerbg.jpg") center/cover no-repeat;
+            opacity: 0.12;
         }
-        .div2{
-
-            display: flex;
-            margin-left: 50%;
-            margin-top: 10px;
+        .onc-hero-inner {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .div1{
-        margin-top: -20px;
+        .onc-breadcrumb {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 14px;
         }
-        .div1>p{
-            margin-top: -15px;
-        }
-        .images{
-            width: 100%;
-            height: 40%;
-        }
-        .strikethrough_Price{
-            text-decoration: line-through;
-            font-size: small;
-        }
-        .Price{
-            font-size: large;
+        .onc-breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; }
+        .onc-breadcrumb span { margin: 0 6px; }
+        .onc-hero h1 {
+            font-size: 32px;
             font-weight: 800;
-            margin-left: 10px;
-            color: black;
+            color: #fff;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
         }
-        .emi{
-            color: rgb(255,179,38);
-            margin-top: -10px;
-            margin-left: 55px;
+        .onc-hero p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.78);
+            max-width: 620px;
+            line-height: 1.7;
         }
-        .know{
-            width: 40%;
-            color: rgb(78, 162, 218);
-           background: none;
-           border: none;
-           font-weight: bold;
-        }
-        .know:hover{
-            cursor: pointer;
-            background-color: rgb(193, 211, 205);
-        }
-        .div3{
-            margin-top: -12px;
-        }
-        .div4{
+        .onc-hero-stats {
             display: flex;
-            justify-content: end;
-            margin-right: 5px;
-           
+            gap: 32px;
+            margin-top: 28px;
+            flex-wrap: wrap;
         }
-      .btn{
-          background-color: rgb(187, 35, 35);
-            color: white;
+        .onc-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .onc-stat .num {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .onc-stat .label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 2px;
+        }
+
+        /* ── Coupon Banner ── */
+        .onc-coupon {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
             font-weight: 600;
-            padding: 10px;
-            border: 0;
-            border-radius: 3px;
-      }
-      .btn:hover{
-        background-color:rgb(29, 9, 9) ;
-        cursor: pointer;
-      }
-      #firstcourse{
-          background-color:rgb(223,30,46) ;
-          /* position: fixed; */
-          text-align: center;
-          height: 30px;
-          margin: auto;
-          position:sticky ;
-           bottom:0
-      }
-      #firstcourse>p{
-        padding-top: 7px;
-        color: white;
-      }
-      .cart_symbol{
-          height: 55px;
-      }
+            padding: 12px 20px;
+            letter-spacing: 0.2px;
+        }
+        .onc-coupon code {
+            background: rgba(255,255,255,0.22);
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
 
-      /* -------------------------footer------------ */
-      #footer_container{
-    width: 100%;
-    height: 500px;
-    background-color: rgb(68,100,120);
-  
-    
-}
-#footer_con{
-    display: flex;
-}
+        /* ── Page Layout ── */
+        .onc-page {
+            max-width: 1280px;
+            width: 95%;
+            margin: 36px auto 60px;
+        }
 
-#footer_left{
-    margin-left: 100px;
-    margin-top: 70px;
-}
+        /* ── Section Header ── */
+        .onc-section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .onc-section-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--secondary);
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+            letter-spacing: -0.4px;
+        }
+        .onc-count {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
 
-#footer_midd{
-    margin-left: 230px;
-    margin-top: 70px;
-}
+        /* ── Grid ── */
+        .onc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 22px;
+        }
 
-#footer_right{
-    margin-left: 230px;
-    margin-top: 70px;
-}
-#footer_p{
-    color: aliceblue;
-}
-#footer_h{
-    color: aliceblue;
+        /* ── Course Card ── */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .onc-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1.5px solid var(--border);
+            border-top: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeSlideUp 0.5s ease forwards;
+        }
+        .onc-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(223,94,40,0.25);
+            border-top-color: var(--primary);
+        }
+        .onc-card-img {
+            width: 100%;
+            height: 155px;
+            object-fit: cover;
+            display: block;
+            background: #eee;
+        }
+        .onc-card-img-placeholder {
+            width: 100%;
+            height: 155px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+        .onc-card-body {
+            padding: 18px 18px 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .onc-card-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .onc-card-desc {
+            font-size: 12.5px;
+            color: var(--text-mid);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .onc-card-price-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+        }
+        .onc-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .onc-price-old {
+            font-size: 13px;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+        .onc-emi-badge {
+            font-size: 11px;
+            color: #e08a00;
+            font-weight: 600;
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 3px 9px;
+            border-radius: 20px;
+        }
 
-}
-#footer_dis{
-    display: flex;
-  margin-top: 20px;
+        /* ── Card Footer ── */
+        .onc-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            margin-top: 12px;
+            border-top: 1px solid #f0f4f8;
+            gap: 8px;
+        }
+        .onc-know-btn {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            background: none;
+            border: 1.5px solid var(--primary);
+            padding: 7px 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+        .onc-know-btn:hover {
+            background: var(--primary-fade);
+        }
+        .onc-cart-btn {
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .onc-cart-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(223,94,40,0.35);
+        }
 
-}
-#footer_dis >p{
-   margin-left: 70px;
-   color: white;
+        /* ── Empty / Loading States ── */
+        .onc-empty {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        .onc-skeleton {
+            background: linear-gradient(90deg, #f0f4f8 25%, #e2e8f0 50%, #f0f4f8 75%);
+            background-size: 300px 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+        }
+        @keyframes shimmer {
+            from { background-position: -300px 0; }
+            to   { background-position: 300px 0; }
+        }
 
-}
-#footer_in{
-    margin-left: 550px;
-    color: white;
-}
-.fa-brands{
-     margin-right: 20px;
-}
-#icon{
-     margin-left: 130px;
-     margin-top: 100px;
-     color: white;
-     
-}
-/* -----------------------navbar---------------------- */
-
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .onc-hero h1 { font-size: 24px; }
+            .onc-hero-stats { gap: 20px; }
+            .onc-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+            .onc-page { width: 100%; padding: 0 16px; margin-top: 24px; }
+        }
+        @media (max-width: 480px) {
+            .onc-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
+    <!-- Mobile Sidebar -->
+    <div id="sidebar_div"></div>
+
+    <!-- Navbar -->
     <div id="navBarBox"></div>
 
-     <!-- ---------------sidebar.html-------------------- -->
-     <div id="sidebar_div" ></div>
-   
-    <div id="onc_container">
-        <div id="onc_top">
-            <img id="top_image" src="https://assets.interntheory.com/creative/courses/listpage/Course-banner1.png" alt="topimg">
+    <!-- Hero Banner -->
+    <div class="onc-hero">
+        <div class="onc-hero-inner">
+            <div class="onc-breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span>Online Courses</span>
+            </div>
+            <h1>Certified Online Courses</h1>
+            <p>Upgrade your skills with Intern Theory's online learning platform. Enrol for any certified course and get a step ahead of competition.</p>
+            <div class="onc-hero-stats">
+                <div class="onc-stat"><span class="num">500+</span><span class="label">Courses Available</span></div>
+                <div class="onc-stat"><span class="num">20%</span><span class="label">Discount with FIRSTCOURSE</span></div>
+                <div class="onc-stat"><span class="num">EMI</span><span class="label">Easy Installments Available</span></div>
+            </div>
         </div>
-        <div id="onc_certified">
-            <h2>Certified Online Courses</h2>
-            <p>Upgrade your skills with Intern Theory's online learning platform. Enrol for any certified online courses and get a step ahead of competition. Select from a range of skill based online courses and kickstart your career.</p>
+    </div>
+
+    <!-- Coupon Banner -->
+    <div class="onc-coupon">
+        🎁 Use Coupon Code <code>FIRSTCOURSE</code> to avail a discount of 20% on your course enrolment!
+    </div>
+
+    <!-- Main Content -->
+    <div class="onc-page">
+        <div class="onc-section-header">
+            <h2 class="onc-section-title">All Online Courses</h2>
+            <span class="onc-count" id="onc-count-label"></span>
         </div>
-        <div id="onc_main"></div>
+        <div class="onc-grid" id="onc_main">
+            <!-- Skeleton loaders while fetching -->
+            <div style="height:340px;border-radius:20px;" class="onc-skeleton"></div>
+            <div style="height:340px;border-radius:20px;" class="onc-skeleton"></div>
+            <div style="height:340px;border-radius:20px;" class="onc-skeleton"></div>
+            <div style="height:340px;border-radius:20px;" class="onc-skeleton"></div>
+        </div>
     </div>
-    <div id="firstcourse">
-        <p>Use Coupon Code <a> FIRSTCOURSE</a> to avail a discount of 20% on your course enrolment.<a></a></p>
-    </div>
-    <div id="footer_container">
-    </div>
+
+    <!-- Footer -->
+    <div id="footer_container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="./script/layout.js"></script>
+    <script type="module" src="./script/userProfileHandler.js"></script>
+    <script type="module">
+        const grid = document.getElementById('onc_main');
+        const countLabel = document.getElementById('onc-count-label');
+
+        const buildCard = (el, index) => {
+            const card = document.createElement('div');
+            card.className = 'onc-card';
+            card.style.animationDelay = `${index * 0.06}s`;
+
+            // Image
+            if (el.images) {
+                const img = document.createElement('img');
+                img.className = 'onc-card-img';
+                img.src = el.images;
+                img.alt = el.title || 'Course';
+                img.loading = 'lazy';
+                img.onerror = function () {
+                    this.outerHTML = `<div class="onc-card-img-placeholder">📚</div>`;
+                };
+                card.appendChild(img);
+            } else {
+                const ph = document.createElement('div');
+                ph.className = 'onc-card-img-placeholder';
+                ph.textContent = '📚';
+                card.appendChild(ph);
+            }
+
+            // Body
+            const body = document.createElement('div');
+            body.className = 'onc-card-body';
+
+            const title = document.createElement('h3');
+            title.className = 'onc-card-title';
+            title.textContent = el.title || 'Online Course';
+
+            const desc = document.createElement('p');
+            desc.className = 'onc-card-desc';
+            desc.textContent = el.description || '';
+
+            const priceRow = document.createElement('div');
+            priceRow.className = 'onc-card-price-row';
+
+            const price = document.createElement('span');
+            price.className = 'onc-price';
+            price.textContent = el.Price != null ? `₹${el.Price}` : 'Free';
+            priceRow.appendChild(price);
+
+            if (el.strikethrough_Price) {
+                const old = document.createElement('span');
+                old.className = 'onc-price-old';
+                old.textContent = `₹${el.strikethrough_Price}`;
+                priceRow.appendChild(old);
+            }
+
+            body.append(title, desc, priceRow);
+
+            if (el.emi) {
+                const emiBadge = document.createElement('span');
+                emiBadge.className = 'onc-emi-badge';
+                emiBadge.textContent = el.emi;
+                body.appendChild(emiBadge);
+            }
+
+            // Footer
+            const footer = document.createElement('div');
+            footer.className = 'onc-card-footer';
+
+            const knowBtn = document.createElement('button');
+            knowBtn.className = 'onc-know-btn';
+            knowBtn.textContent = el.know || 'Know More';
+
+            const cartBtn = document.createElement('button');
+            cartBtn.className = 'onc-cart-btn';
+            cartBtn.innerHTML = `🛒 Add to Cart`;
+            cartBtn.addEventListener('click', () => {
+                let num = parseInt(localStorage.getItem('cartNumbers') || '0');
+                localStorage.setItem('cartNumbers', num + 1);
+                const span = document.querySelector('#cart_img span');
+                if (span) span.textContent = num + 1;
+
+                let items = JSON.parse(localStorage.getItem('productIncart') || 'null');
+                if (items) {
+                    if (!items[el.title]) { el.incart = 1; items[el.title] = el; }
+                    else items[el.title].incart = (items[el.title].incart || 0) + 1;
+                } else {
+                    el.incart = 1; items = { [el.title]: el };
+                }
+                localStorage.setItem('productIncart', JSON.stringify(items));
+                let cost = parseInt(localStorage.getItem('totalCost') || '0');
+                localStorage.setItem('totalCost', cost + (el.Price || 0));
+
+                const t = document.createElement('div');
+                t.style.cssText = `position:fixed;bottom:90px;left:50%;transform:translateX(-50%);
+                    background:#1e293b;color:#fff;padding:10px 20px;border-radius:12px;
+                    font-size:13px;font-weight:600;z-index:99999;box-shadow:0 4px 16px rgba(0,0,0,0.2)`;
+                t.textContent = `✅ Added to cart!`;
+                document.body.appendChild(t);
+                setTimeout(() => t.remove(), 2200);
+            });
+
+            footer.append(knowBtn, cartBtn);
+            card.append(body, footer);
+            return card;
+        };
+
+        const fetchCourses = async () => {
+            try {
+                const res = await fetch('http://localhost:5000/online');
+                const data = await res.json();
+                grid.innerHTML = '';
+
+                if (!data || !data.length) {
+                    grid.innerHTML = `<p class="onc-empty">No courses found. Please try again later.</p>`;
+                    return;
+                }
+
+                countLabel.textContent = `${data.length} courses found`;
+                data.forEach((el, i) => grid.appendChild(buildCard(el, i)));
+
+                const stored = localStorage.getItem('cartNumbers');
+                if (stored) {
+                    const span = document.querySelector('#cart_img span');
+                    if (span) span.textContent = stored;
+                }
+            } catch (err) {
+                console.error('Failed to fetch courses:', err);
+                grid.innerHTML = `<p class="onc-empty">⚠️ Unable to load courses right now. Please refresh.</p>`;
+            }
+        };
+
+        fetchCourses();
+    </script>
+    <script src="./script/chatbot.js"></script>
 </body>
 </html>
-<script type="module">
-
-let main=document.getElementById("onc_main");
-
-import {appendOnlineData} from "./script/CourseData.js"
-
-const fetchonline=async()=>{
-    let url=`http://localhost:5000/online`;
-    try{
-         let res=await fetch(url);
-        var OnlineData=await res.json();
-         console.log(OnlineData);
-         appendOnlineData(OnlineData,main);
-         myfunction(OnlineData)
-    }
-    catch(err){
-      console.log(err);
-    }
-  }
-  fetchonline();
-
-
-  // --------navbar.js-------------------------------------------
-
-import navBar from "./component/navBar.js"
- 
-   
- let navBarBox = document.getElementById("navBarBox");
-//  console.log(navBarBox )
- navBarBox.innerHTML = navBar();
-
- 
-   
-// --------slidebar.js-------------------------------------------
-   
-import sideBar from "./script/m_sidebar2.js"
-    
-    let sidebar_box = document.getElementById("sidebar_div");
-    console.log(sidebar_box)
-    sidebar_box.innerHTML = sideBar();
-
-
-    document.querySelector("#sliding").addEventListener("click",sliding_function)
-
-    function sliding_function(){
-    let sliding_sidebar = document.getElementById("side_bar")
-    sliding_sidebar.style.left = "0";
-    sliding_sidebar.style.background = "white";
-     }
-    
-     document.querySelector("#sliding2").addEventListener("click",sliding_function2)
-
-    function sliding_function2(){
-    let sliding_sidebar = document.getElementById("side_bar")
-    sliding_sidebar.style.left = "-320px";
-     }
-    
-    //  document.querySelector("#main_div").addEventListener("click",sliding_function3)
-
-    // function sliding_function3(){
-    //     console.log("OK")
-    // let sliding_sidebar = document.getElementById("side_bar")
-    // sliding_sidebar.style.left = "-320px";
-    //  }
-
-
- // let sliding_sidebar = document.getElementById("side_bar")
-    // sliding_sidebar.style.left = "-310px";
-
-
-
-    let show = document.getElementById("ul1")
-    console.log(show)
-    show.onclick = function(){
-        let show1 = document.getElementById("ul-1")
-        console.log(show1)
-        if( show1.style.display === ''){
-            show1.style.display = "none";
-        }
-        else if( show1.style.display === "none"){  
-            show1.style.display = 'block';
-        }
-        else if( show1.style.display === "block"){  
-            show1.style.display = 'none';
-        }
-      
-    }
-    let show_2 = document.getElementById("ul2")
-    console.log(show_2)
-    show_2.onclick = function(){
-        let show2 = document.getElementById("ul-2")
-        console.log(show2)
-        if( show2.style.display === ''){
-            show2.style.display = "none";
-        }
-        else if( show2.style.display === "none"){  
-            show2.style.display = 'block';
-        }
-        else if( show2.style.display === "block"){  
-            show2.style.display = 'none';
-        }   
-    }
-
-    let show_3 = document.getElementById("ul3")
-    console.log(show_3)
-    show_3.onclick = function(){
-        let show3 = document.getElementById("ul-3")
-        console.log(show3)
-        if( show3.style.display === ''){
-            show3.style.display = "none";
-        }
-        else if( show3.style.display === "none"){  
-            show3.style.display = 'block';
-        }
-        else if( show3.style.display === "block"){  
-            show3.style.display = 'none';
-        }   
-    }
-
-  
-
-
-
-
-// .......................footer.js............
-
-import footer from "./component/footer.js"    
-
-var foot = document.getElementById("footer_container")
-foot.innerHTML=footer()
-
-
-//--------------------------onlinecourses.js----------------------------
-
-function  myfunction(OnlineData){
-let carts=document.querySelectorAll(".btn")
-
-
-
-for(let i=0;i<carts.length;i++){
-
-   carts[i].addEventListener("click",()=>{
-    // console.log("added to  cart")
-    cartNumbers(OnlineData[i]);
-    totalCost(OnlineData[i])
-     
-   })
-}
-function onLoadCartNo(){
-
-let productNumber=localStorage.getItem("cartNumbers");
-
-if(productNumber){
-
-    document.querySelector("#cart_img span").textContent=productNumber;
-}
-}
-
-    function cartNumbers(OnlineData){
-
-        // console.log("clicked on ",classData)
-
-        let productNumber=localStorage.getItem("cartNumbers");
-       
-        productNumber=parseInt(productNumber);
-        
-        if(productNumber){
-            localStorage.setItem('cartNumbers',productNumber+1)
-            document.querySelector('#cart_img span').textContent=productNumber+1;
-        }else{
-            localStorage.setItem('cartNumbers',1)
-            document.querySelector('#cart_img span').textContent=1;
-        }
-       
-        setItems(OnlineData);
-
-    }
-    
-let cartItems;
-function setItems(OnlineData){
-    // console.log("inside the setitem function");
-    // console.log("my classdata is", OnlineData);
- 
-     cartItems=localStorage.getItem("productIncart")
-     cartItems=JSON.parse(cartItems)
-    console.log("my cart items are ", cartItems)
-    if( cartItems !=null){
-        let currentStoredData = cartItems[OnlineData.title]
-         if(!currentStoredData){
-            cartItems={
-                ...cartItems,
-                [OnlineData.title] : OnlineData
-            }
-         }
-      cartItems[OnlineData.title].incart += 1;
-      console.log(cartItems.incart)
-    }else{
-        OnlineData.incart = 1;
-     cartItems={
-        [OnlineData.title] : OnlineData
-    } 
-    console.log(cartItems.incart)
- }
- localStorage.setItem("productIncart",JSON.stringify(cartItems))
-
-} 
-function  totalCost(product){
-
-// console.log("the product price is ",product.Price)
-
-let cartCost=localStorage.getItem("totalCost")
-
-console.log("my cartcost is ",cartCost)
-if(cartCost!=null){
-    cartCost=parseInt(cartCost)
-    localStorage.setItem("totalCost",cartCost+product.Price)
-}else{
-
-    localStorage.setItem("totalCost",product.Price)
-}
-
-}
-
-    onLoadCartNo()
-}
-</script>

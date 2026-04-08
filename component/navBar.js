@@ -72,6 +72,13 @@ function navBar() {
                     </svg>
                     <span>Skill Centre</span>
                 </a>
+                <a href="resume-scanner.html" class="secondary_nav_item" id="resume_scanner_link" data-route="resumeScanner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <path d="M8 7h8M8 11h8M8 15h5"></path>
+                    </svg>
+                    <span>AI Resume</span>
+                </a>
                 <a href="partner-with-msde.html" class="secondary_nav_item" id="more_options_link" data-route="partner">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="1"></circle>
