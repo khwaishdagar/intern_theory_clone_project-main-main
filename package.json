@@ -17,6 +17,8 @@
     "fullstack"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.39.1"
+  }
 }
-

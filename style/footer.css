@@ -16,6 +16,10 @@
     padding: 60px 7vw 30px;
     font-family: "Poppins", "Segoe UI", Arial, sans-serif;
     border-top: 4px solid var(--footer-accent);
+    position: relative;
+    clear: both;
+    margin-top: auto;
+    z-index: 10;
 }
 
 #footer_container a {

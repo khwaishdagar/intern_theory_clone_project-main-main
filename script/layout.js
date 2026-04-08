@@ -16,29 +16,27 @@ const attachNav = (containerId) => {
 
   navContainer.innerHTML = navBar();
 
-  setTimeout(() => {
-    try {
-      initUserProfile();
-    } catch (err) {
-      console.warn("Nav profile init failed", err);
-    }
+  try {
+    initUserProfile();
+  } catch (err) {
+    console.warn("Nav profile init failed", err);
+  }
 
-    const registerBtn = document.getElementById("register_btn");
-    if (registerBtn) {
-      registerBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.location.href = "register.html";
-      });
-    }
+  const registerBtn = document.getElementById("register_btn");
+  if (registerBtn) {
+    registerBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "register.html";
+    });
+  }
 
-    const loginBtn = document.getElementById("login_btn");
-    if (loginBtn) {
-      loginBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.location.href = "login.html";
-      });
-    }
-  }, 200);
+  const loginBtn = document.getElementById("login_btn");
+  if (loginBtn) {
+    loginBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "login.html";
+    });
+  }
 };
 
 const attachSidebar = (containerId) => {
@@ -47,7 +45,7 @@ const attachSidebar = (containerId) => {
 
   try {
     sidebarContainer.innerHTML = sideBar();
-    setTimeout(initSidebarInteractions, 200);
+    initSidebarInteractions();
   } catch (err) {
     console.warn("Sidebar init skipped", err);
   }

@@ -1,63 +1,43 @@
 import "../layout.js";
 
-const Internships_data = [
-    {
-        id: 1,
-        title: "Business Development Intern",
-        company: "GrowthHacker",
-        logo: "https://assets.interntheory.com/creative/logo.png",
-        category: "Business",
-        city: "Pune",
-        stipend: "₹ 10,000 + Incentives",
-        type: "Full Time",
-        weeks: "Applied",
-        isCourse: false
-    },
-    {
-        id: 2,
-        title: "Graphic Design Intern",
-        company: "PixelPerfect",
-        logo: "https://assets.interntheory.com/creative/logo.png",
-        category: "Design",
-        city: "Remote",
-        stipend: "₹ 8,000 / month",
-        type: "Work From Home",
-        weeks: "Shortlisted",
-        isCourse: false
-    },
-    {
-        id: 3,
-        title: "Full Stack Web Development",
-        company: "InternTheory",
-        logo: "https://assets.interntheory.com/creative/logo.png",
-        category: "Development",
-        city: "Online",
-        stipend: "Course",
-        type: "Self Paced",
-        weeks: "Enrolled",
-        isCourse: true
-    },
-    {
-        id: 4,
-        title: "Digital Marketing Masterclass",
-        company: "InternTheory",
-        logo: "https://assets.interntheory.com/creative/logo.png",
-        category: "Marketing",
-        city: "Online",
-        stipend: "Course",
-        type: "Self Paced",
-        weeks: "Enrolled",
-        isCourse: true
-    }
-];
+let Internships_data = [];
 
-const initInternshipPage = () => {
+const initInternshipPage = async () => {
     const container = document.querySelector(".internship-list");
     const citySelect = document.getElementById("city");
     const typeSelect = document.getElementById("work_type");
     const categorySelect = document.getElementById("category");
 
     if (!container) return;
+
+    // Show loading state
+    container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;">Loading Internships from Skill India...</div>';
+
+    try {
+        // Fetch the scraped JSON file
+        const res = await fetch('./skillindia_internships.json');
+        if (res.ok) {
+            const rawData = await res.json();
+            const sourceItems = rawData?.Data?.UserProgramDetailsDTOS || rawData?.data?.content || [];
+            
+            Internships_data = sourceItems.map((item, index) => ({
+                id: item.Id || index,
+                title: item.Name || item.programName || "Internship Role",
+                company: item.ProviderName || item.companyName || "Skill India Provider",
+                logo: item.TechImgUrl || "https://assets.interntheory.com/creative/logo.png",
+                category: item.Sector || item.sectorName || "Skill Training",
+                city: item.Mode || item.location || "Remote/Online",
+                stipend: item.StipendAmount > 0 ? `₹ ${item.StipendAmount} / month` : (item.FeeType === 'Free' ? 'Unpaid/Free' : 'Paid/Course based'),
+                type: item.Duration || "Full Time",
+                weeks: item.NumberOfOpenings ? `View (${item.NumberOfOpenings} Openings)` : "Apply Now",
+                isCourse: false
+            }));
+        }
+    } catch (err) {
+        console.error("Error fetching Skill India data:", err);
+        container.innerHTML = '<div style="text-align: center; padding: 40px; color: red;">Failed to load data. Please ensure you are running this from a local server.</div>';
+        return;
+    }
 
     // Populate Filters
     const cities = [...new Set(Internships_data.map(item => item.city))];
@@ -75,9 +55,9 @@ const initInternshipPage = () => {
         });
     };
 
-    populateDropdown(citySelect, cities, "All Cities");
-    populateDropdown(typeSelect, types, "All Types");
-    populateDropdown(categorySelect, categories, "All Categories");
+    populateDropdown(citySelect, cities, "All Branches");
+    populateDropdown(typeSelect, types, "All Durations");
+    populateDropdown(categorySelect, categories, "All Sectors");
 
     const renderInternships = (items) => {
         container.innerHTML = "";
@@ -85,13 +65,13 @@ const initInternshipPage = () => {
         // Add Heading
         const heading = document.createElement("h2");
         heading.className = "section-title";
-        heading.textContent = "My Applications & Enrollments";
+        heading.textContent = "Skill India Internships";
         container.appendChild(heading);
 
         if (items.length === 0) {
             const empty = document.createElement("p");
             empty.className = "list_empty_state";
-            empty.textContent = "No applications found.";
+            empty.textContent = "No internships found matching your filters.";
             empty.style.gridColumn = "1 / -1";
             empty.style.textAlign = "center";
             empty.style.padding = "40px";
@@ -144,14 +124,14 @@ const initInternshipPage = () => {
             typeBadge.style.marginTop = "8px";
             typeBadge.style.background = "#fff5f0";
             typeBadge.style.color = "var(--primary-color)";
-            typeBadge.textContent = item.type;
+            typeBadge.textContent = "Duration: " + item.type;
 
             const stipendDiv = document.createElement("div");
             stipendDiv.style.marginTop = "8px";
             stipendDiv.style.fontSize = "13px";
             stipendDiv.style.fontWeight = "600";
             stipendDiv.style.color = "#495057";
-            stipendDiv.textContent = item.isCourse ? "Course Content" : `Stipend: ${item.stipend}`;
+            stipendDiv.textContent = item.isCourse ? "Course Content" : `${item.stipend}`;
 
             contentDiv.append(title, company, detailsDiv, typeBadge, stipendDiv);
 
@@ -161,25 +141,22 @@ const initInternshipPage = () => {
 
             const statusBadge = document.createElement("span");
             statusBadge.className = "duration-badge";
-            statusBadge.style.background = item.weeks === "Enrolled" ? "#10b981" : "#3b82f6";
-            statusBadge.textContent = item.weeks;
+            statusBadge.style.background = "#10b981";
+            statusBadge.textContent = "Skill India";
 
             const shareIcon = document.createElement("i");
             shareIcon.className = "fi fi-sr-share share-icon";
 
-            // Status Button (No Link)
+            // Status Button
             const statusBtn = document.createElement("button");
             statusBtn.className = "apply-btn";
-            statusBtn.style.cursor = "default";
+            statusBtn.style.cursor = "pointer";
             statusBtn.style.background = "#f0fdf4";
             statusBtn.style.color = "#16a34a";
             statusBtn.style.borderColor = "#16a34a";
-            statusBtn.innerHTML = item.isCourse ? `CONTINUE <i class="fi fi-rr-play"></i>` : `STATUS: ${item.weeks.toUpperCase()}`;
-
-            if (item.isCourse) {
-                statusBtn.style.cursor = "pointer";
-                statusBtn.onclick = () => alert("Redirecting to course...");
-            }
+            statusBtn.innerHTML = `${item.weeks.toUpperCase()}`;
+            
+            statusBtn.onclick = () => window.open('https://www.skillindiadigital.gov.in/', '_blank');
 
             actionsDiv.append(statusBadge, shareIcon, statusBtn);
 
@@ -202,6 +179,12 @@ const initInternshipPage = () => {
         renderInternships(filtered);
     };
 
+    // Attach search button listener if exists
+    const searchBtn = document.querySelector(".apply-btn");
+    if(searchBtn) {
+        searchBtn.addEventListener("click", applyFilters);
+    }
+    
     if (citySelect) citySelect.addEventListener("change", applyFilters);
     if (typeSelect) typeSelect.addEventListener("change", applyFilters);
     if (categorySelect) categorySelect.addEventListener("change", applyFilters);

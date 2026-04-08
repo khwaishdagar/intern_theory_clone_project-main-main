@@ -55,8 +55,8 @@ body {
 .main-content {
     flex: 1;
     min-width: 0;
-    min-height: 80vh;
-    padding-bottom: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 /* Filters Section */
@@ -246,7 +246,8 @@ body {
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid #f0f0f0;
-    gap: 8px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .duration-badge {
@@ -265,7 +266,7 @@ body {
     background-color: transparent;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    padding: 8px 16px;
+    padding: 10px 16px;
     border-radius: 50px;
     font-weight: 700;
     font-size: 11px;
@@ -274,10 +275,12 @@ body {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     white-space: nowrap;
     box-shadow: none;
     letter-spacing: 0.5px;
+    flex: 1 1 100%;
 }
 
 .apply-btn:hover {

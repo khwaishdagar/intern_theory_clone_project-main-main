@@ -1,97 +1,8 @@
 import "../layout.js";
 
-const Jobs_data = [
-    {
-        id: 1,
-        title: "Junior Data Scientist",
-        company: "Thinklytics",
-        logo: "assets/modi-pm.svg",
-        category: "Analytics",
-        city: "Bangalore",
-        salary: "₹ 6 - 10 LPA",
-        type: "Full Time",
-        posted: "2 days ago"
-    },
-    {
-        id: 2,
-        title: "UX Research Associate",
-        company: "Northstar Labs",
-        logo: "assets/modi-pm.svg",
-        category: "Product Design",
-        city: "Mumbai",
-        salary: "₹ 6 - 8 LPA",
-        type: "Full Time",
-        posted: "1 week ago"
-    },
-    {
-        id: 3,
-        title: "Frontend Developer",
-        company: "TechCorp",
-        logo: "assets/modi-pm.svg",
-        category: "IT & Software",
-        city: "Delhi",
-        salary: "₹ 5 - 8 LPA",
-        type: "Full Time",
-        posted: "3 days ago"
-    },
-    {
-        id: 4,
-        title: "Digital Marketing Executive",
-        company: "BrandBoost",
-        logo: "assets/modi-pm.svg",
-        category: "Marketing",
-        city: "Pune",
-        salary: "₹ 3 - 5 LPA",
-        type: "Part Time",
-        posted: "Just now"
-    },
-    {
-        id: 5,
-        title: "Business Analyst",
-        company: "FinTech Solutions",
-        logo: "assets/modi-pm.svg",
-        category: "Finance",
-        city: "Mumbai",
-        salary: "₹ 7 - 12 LPA",
-        type: "Full Time",
-        posted: "5 days ago"
-    },
-    {
-        id: 6,
-        title: "Content Writer",
-        company: "Creative Minds",
-        logo: "assets/modi-pm.svg",
-        category: "Content Writing",
-        city: "Remote",
-        salary: "₹ 3 - 6 LPA",
-        type: "Work From Home",
-        posted: "1 day ago"
-    },
-    {
-        id: 7,
-        title: "HR Generalist",
-        company: "PeopleFirst",
-        logo: "assets/modi-pm.svg",
-        category: "Human Resources",
-        city: "Bangalore",
-        salary: "₹ 4 - 7 LPA",
-        type: "Full Time",
-        posted: "4 days ago"
-    },
-    {
-        id: 8,
-        title: "React Native Developer",
-        company: "AppStudio",
-        logo: "assets/modi-pm.svg",
-        category: "Mobile Dev",
-        city: "Hyderabad",
-        salary: "₹ 8 - 15 LPA",
-        type: "Full Time",
-        posted: "2 weeks ago"
-    }
-];
+let Jobs_data = [];
 
-const initJobsPage = () => {
+const initJobsPage = async () => {
     const container = document.querySelector(".internship-list");
     const citySelect = document.getElementById("city");
     const typeSelect = document.getElementById("work_type");
@@ -99,10 +10,38 @@ const initJobsPage = () => {
 
     if (!container) return;
 
+    // Show loading state
+    container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;">Loading Jobs from Skill India...</div>';
+
+    try {
+        // Fetch the scraped JSON file
+        const res = await fetch('./skillindia_jobs.json');
+        if (res.ok) {
+            const rawData = await res.json();
+            const sourceItems = rawData?.Data?.Results || rawData?.data || [];
+            
+            Jobs_data = sourceItems.map((job, index) => ({
+                id: job.Id || job.JobId || index,
+                title: job.JobTitle || "Job Role",
+                company: job.CompanyName || "Skill India Partner",
+                logo: "assets/modi-pm.svg",
+                category: job.IndustryName || job.SectorName || "Industry",
+                city: job.JobLocationDistrict || job.JobLocations || "Remote",
+                salary: job.MinCtcMonthly ? `₹ ${job.MinCtcMonthly.toLocaleString()} - ${job.MaxCtcMonthly.toLocaleString()} / mo` : 'Not Disclosed',
+                type: job.MinExperience > 0 ? `${job.MinExperience}+ Yrs Exp` : "Fresher",
+                posted: job.VacancyCount ? `${job.VacancyCount} Openings` : "Apply"
+            }));
+        }
+    } catch (err) {
+        console.error("Error fetching Skill India jobs data:", err);
+        container.innerHTML = '<div style="text-align: center; padding: 40px; color: red;">Failed to load data. Please ensure you are running this from a local server.</div>';
+        return;
+    }
+
     // Populate Filters
-    const cities = [...new Set(Jobs_data.map(item => item.city))];
-    const types = [...new Set(Jobs_data.map(item => item.type))];
-    const categories = [...new Set(Jobs_data.map(item => item.category))];
+    const cities = [...new Set(Jobs_data.map(item => item.city))].filter(Boolean);
+    const types = [...new Set(Jobs_data.map(item => item.type))].filter(Boolean);
+    const categories = [...new Set(Jobs_data.map(item => item.category))].filter(Boolean);
 
     const populateDropdown = (select, items, defaultText) => {
         if (!select) return;
@@ -116,7 +55,7 @@ const initJobsPage = () => {
     };
 
     populateDropdown(citySelect, cities, "All Cities");
-    populateDropdown(typeSelect, types, "All Types");
+    populateDropdown(typeSelect, types, "Experience Level");
     populateDropdown(categorySelect, categories, "All Categories");
 
     const renderJobs = (jobs) => {
@@ -125,7 +64,7 @@ const initJobsPage = () => {
         // Add Heading
         const heading = document.createElement("h2");
         heading.className = "section-title";
-        heading.textContent = "Fresher Jobs";
+        heading.textContent = "Fresher & Professional Jobs (Skill India)";
         container.appendChild(heading);
 
         if (jobs.length === 0) {
@@ -206,10 +145,11 @@ const initJobsPage = () => {
             const shareIcon = document.createElement("i");
             shareIcon.className = "fi fi-sr-share share-icon";
 
-            const applyBtn = document.createElement("a");
-            applyBtn.href = "register.html";
+            const applyBtn = document.createElement("button");
             applyBtn.className = "apply-btn";
-            applyBtn.innerHTML = `VIEW AND APPLY <i class="fi fi-rr-arrow-right"></i>`;
+            applyBtn.style.cursor = "pointer";
+            applyBtn.innerHTML = `VIEW ON SKILL INDIA <i class="fi fi-rr-arrow-right"></i>`;
+            applyBtn.onclick = () => window.open('https://www.skillindiadigital.gov.in/', '_blank');
 
             actionsDiv.append(postedBadge, shareIcon, applyBtn);
 
@@ -232,6 +172,12 @@ const initJobsPage = () => {
         renderJobs(filtered);
     };
 
+    // Attach search button listener if exists
+    const searchBtn = document.querySelector(".apply-btn");
+    if(searchBtn) {
+        searchBtn.addEventListener("click", applyFilters);
+    }
+    
     if (citySelect) citySelect.addEventListener("change", applyFilters);
     if (typeSelect) typeSelect.addEventListener("change", applyFilters);
     if (categorySelect) categorySelect.addEventListener("change", applyFilters);

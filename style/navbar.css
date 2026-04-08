@@ -1,3 +1,22 @@
+/* Native Cross-document View Transitions (Eliminates white flashes across pages) */
+@view-transition {
+    navigation: auto;
+}
+
+#navBarBox {
+    min-height: 145px;
+    width: 100%;
+    background-color: white;
+}
+
+@media (max-width: 1200px) {
+    #navBarBox { min-height: 190px; }
+}
+
+@media (max-width: 768px) {
+    #navBarBox { min-height: 220px; }
+}
+
 #nav_bar {
     width: 100%;
     background-color: white;

@@ -74,161 +74,75 @@
     <script type="module" src="./script/userProfileHandler.js"></script>
 
     <script>
-        let Internships_data = [
-            {
-                img: "https://assets.interntheory.com/creative/logo.png",
-                title: "Software Engineer Intern",
-                name: "Tech Solutions Pvt Ltd",
-                time: "Full Time Internship",
-                industry: "IT & Software",
-                city: "Delhi",
-                state: "Delhi",
-                Stipend: "Stipend: 15000 - 20000 per month",
-                weeks: "4 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/logos/3cdd6cced1a455d7623c5319436acdcf3408009b.jpg",
-                title: "Financial Analyst",
-                name: "Finbricks",
-                time: "Full Time Internship",
-                industry: "Finance",
-                city: "Mumbai",
-                state: "Maharashtra",
-                Stipend: "Stipend: 12000 - 15000 per month",
-                weeks: "3 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/logos/f28e09eca7c1e218295c46085027e09e3f26d54d.jpg",
-                title: "Data Science Intern",
-                name: "DataMinds",
-                time: "Full Time Internship",
-                industry: "Analytics",
-                city: "Bangalore",
-                state: "Karnataka",
-                Stipend: "Stipend: 20000 - 25000 per month",
-                weeks: "2 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/logos/22b08b0fbbc16e07e4ec40860d725bdcfd37a735.jpg",
-                title: "Full Stack Developer",
-                name: "CodeCrafters",
-                time: "Full Time Internship",
-                industry: "IT & Software",
-                city: "Hyderabad",
-                state: "Telangana",
-                Stipend: "Stipend: 18000 - 22000 per month",
-                weeks: "4 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/logos/f23ec877601e7dc0cc0eba412c3031c49cff28d9.jpg",
-                title: "Mechanical Engineering Intern",
-                name: "AutoTech India",
-                time: "Full Time Internship",
-                industry: "Automobile",
-                city: "Chennai",
-                state: "Tamil Nadu",
-                Stipend: "Stipend: 10000 - 12000 per month",
-                weeks: "5 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/logos/bdc2fb3214ab03616ab475fe2f360cb8b837aa87.jpg",
-                title: "Content Writer",
-                name: "Creative Minds",
-                time: "Part Time Internship",
-                industry: "Media",
-                city: "Kolkata",
-                state: "West Bengal",
-                Stipend: "Stipend: 5000 - 8000 per month",
-                weeks: "1 week left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/companylogos/62362fbf882221470f099d8d0a119df93ce19831/7e34b7356b30b3696d14fcab94c6e8989a42fd69com.jpg",
-                title: "Digital Marketing Associate",
-                name: "Growth Hackers",
-                time: "Work From Home Internship",
-                industry: "Marketing",
-                city: "Pune",
-                state: "Maharashtra",
-                Stipend: "Stipend: 8000 - 12000 per month",
-                weeks: "3 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/companylogos/5b17adc969018b102b802193f65ffebc07494a2c/7c483889017d4bef536927bf5820941e35f05657com.jpeg",
-                title: "Sales Executive",
-                name: "MarketReach",
-                time: "Full Time Internship",
-                industry: "Sales",
-                city: "Ahmedabad",
-                state: "Gujarat",
-                Stipend: "Stipend: 10000 + Incentives",
-                weeks: "2 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/uploads/company/companylogos/e659b3b149dd5355940bc7ff40dbee2f0f53b22a/2cdd8e5a8b7f7a140f8711f385755340c64b76d5com.jpg",
-                title: "Graphic Designer",
-                name: "Design Studio",
-                time: "Part Time Internship",
-                industry: "Design",
-                city: "Jaipur",
-                state: "Rajasthan",
-                Stipend: "Stipend: 6000 - 9000 per month",
-                weeks: "4 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/creative/logo.png",
-                title: "Product Manager",
-                name: "StartUp Hub",
-                time: "Full Time Internship",
-                industry: "Management",
-                city: "Gurgaon",
-                state: "Haryana",
-                Stipend: "Stipend: 25000 per month",
-                weeks: "3 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/creative/logo.png",
-                title: "UI/UX Designer",
-                name: "PixelPerfect",
-                time: "Full Time Internship",
-                industry: "Design",
-                city: "Noida",
-                state: "Uttar Pradesh",
-                Stipend: "Stipend: 15000 - 18000 per month",
-                weeks: "4 weeks left"
-            },
-            {
-                img: "https://assets.interntheory.com/creative/logo.png",
-                title: "Architecture Intern",
-                name: "Modern Spaces",
-                time: "Full Time Internship",
-                industry: "Architecture",
-                city: "Chandigarh",
-                state: "Chandigarh",
-                Stipend: "Stipend: 10000 per month",
-                weeks: "5 weeks left"
+        let Internships_data = [];
+
+        async function initCoursesPage() {
+            const container = document.getElementById("all_intership");
+            if (!container) return;
+
+            // Show loading state
+            container.innerHTML = '<div style="text-align: center; padding: 40px; color: #666;">Loading Courses from Skill India...</div>';
+
+            try {
+                // Fetch the scraped JSON file
+                const res = await fetch('./skillindia_courses.json');
+                if (res.ok) {
+                    const rawData = await res.json();
+                    const sourceItems = rawData?.Data?.Online?.Courses || rawData?.data?.content || [];
+                    
+                    Internships_data = sourceItems.map((course) => ({
+                        img: course.CourseImageUrl || "https://assets.interntheory.com/creative/logo.png",
+                        title: course.Title || "Skill India Course",
+                        name: course.CreatedBy || course.providerName || "Skill India Partner",
+                        time: course.CourseMode === 1 ? "Online Course" : "Offline Training",
+                        industry: course.Sector?.[0]?.SectorName || course.sectorName || "Skill Development",
+                        city: course.Language || course.location || "Multiple",
+                        state: "India",
+                        Stipend: course.Price > 0 ? `Price: ₹ ${course.Price}` : 'Free Course',
+                        weeks: course.CourseStatistic?.EnrollmentCount ? `${course.CourseStatistic.EnrollmentCount} Enrolled` : 'View Course'
+                    }));
+                }
+            } catch (err) {
+                console.error("Error fetching Skill India courses data:", err);
+                container.innerHTML = '<div style="text-align: center; padding: 40px; color: red;">Failed to load data. Please ensure you are running this from a local server.</div>';
+                return;
             }
-        ];
+
+            handleStateChange();
+        }
 
         function handleStateChange() {
             const stateSelect = document.getElementById('state');
             const citySelect = document.getElementById('city');
+            const workTypeSelect = document.getElementById('work_type');
+            
             const selectedState = stateSelect.value;
 
-            // Update City Options
+            // Update City Options (using language or location mapping)
             let cities = [];
             if (selectedState === "States") {
-                cities = [...new Set(Internships_data.map(item => item.city))];
+                cities = [...new Set(Internships_data.map(item => item.city))].filter(Boolean);
             } else {
-                cities = [...new Set(Internships_data.filter(item => item.state === selectedState).map(item => item.city))];
+                cities = [...new Set(Internships_data.filter(item => item.state === selectedState).map(item => item.city))].filter(Boolean);
             }
             cities.sort();
 
-            citySelect.innerHTML = '<option value="Cities">All Cities</option>';
+            citySelect.innerHTML = '<option value="Cities">All Languages / Locations</option>';
             cities.forEach(city => {
                 const option = document.createElement('option');
                 option.value = city;
                 option.textContent = city;
                 citySelect.appendChild(option);
+            });
+            
+            // Also update work_type (Mode etc) based on data dynamically
+            let types = [...new Set(Internships_data.map(item => item.time))].filter(Boolean);
+            workTypeSelect.innerHTML = '<option value="Type">All Modes</option>';
+            types.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type;
+                workTypeSelect.appendChild(option);
             });
 
             applyFilters();
@@ -256,18 +170,20 @@
             // Add Section Heading
             const heading = document.createElement("h2");
             heading.className = "section-title";
-            heading.innerText = "All Internships";
+            heading.innerText = "Skill India Certification Courses";
             container.appendChild(heading);
 
             if (data.length === 0) {
-                container.innerHTML += "<p style='grid-column: 1/-1; text-align: center; color: #666;'>No internships found matching your criteria.</p>";
+                container.innerHTML += "<p style='grid-column: 1/-1; text-align: center; color: #666;'>No courses found matching your criteria.</p>";
                 return;
             }
 
-            data.forEach(function (item, index) {
+            // To not overwhelm browser, display first 60 results maximum
+            const itemsToDisplay = data.slice(0, 60);
+
+            itemsToDisplay.forEach(function (item, index) {
                 const card = document.createElement("div");
                 card.className = "internship-card";
-                // Staggered animation delay
                 card.style.animationDelay = `${index * 0.05}s`;
 
                 // Logo Section
@@ -277,7 +193,7 @@
                 img.src = item.img;
                 img.alt = item.name;
                 img.onerror = function () {
-                    this.src = 'https://via.placeholder.com/80?text=Logo';
+                    this.src = 'https://via.placeholder.com/80?text=Skill+India';
                 };
                 logoDiv.appendChild(img);
 
@@ -299,16 +215,22 @@
                 const createDetail = (iconClass, text) => {
                     const span = document.createElement("span");
                     span.className = "detail-item";
-                    span.innerHTML = text;
+                    span.innerHTML = text; // Just using the text since we removed some icons for clean look 
                     return span;
                 };
 
-                details.appendChild(createDetail("fi-sr-briefcase", item.industry));
-                details.appendChild(createDetail("fi-sr-marker", item.city));
+                details.appendChild(createDetail("fi-sr-briefcase", item.industry || "Skill Category"));
+                details.appendChild(createDetail("fi-sr-marker", item.city)); // mapped to language in courses
                 details.appendChild(createDetail("fi-sr-clock", item.time));
-                details.appendChild(createDetail("fi-sr-money", item.Stipend));
+                
+                const stipendDiv = document.createElement("div");
+                stipendDiv.style.marginTop = "8px";
+                stipendDiv.style.fontSize = "13px";
+                stipendDiv.style.fontWeight = "600";
+                stipendDiv.style.color = item.Stipend === 'Free Course' ? "#16a34a" : "#495057";
+                stipendDiv.textContent = item.Stipend;
 
-                contentDiv.append(title, company, details);
+                contentDiv.append(title, company, details, stipendDiv);
 
                 // Actions Section
                 const actionsDiv = document.createElement("div");
@@ -316,15 +238,19 @@
 
                 const duration = document.createElement("span");
                 duration.className = "duration-badge";
+                duration.style.background = "#3b82f6";
                 duration.innerText = item.weeks;
 
                 const shareIcon = document.createElement("i");
                 shareIcon.className = "fi fi-sr-share share-icon";
 
-                const applyBtn = document.createElement("a");
-                applyBtn.href = "javascript:void(0)";
+                const applyBtn = document.createElement("button");
                 applyBtn.className = "apply-btn";
-                applyBtn.innerHTML = `VIEW AND APPLY <i class="fi fi-sr-arrow-right"></i>`;
+                applyBtn.style.cursor = "pointer";
+                applyBtn.style.background = "#fff5f0";
+                applyBtn.style.color = "var(--primary-color)";
+                applyBtn.innerHTML = `ENROLL NOW <i class="fi fi-sr-arrow-right"></i>`;
+                applyBtn.onclick = () => window.open('https://www.skillindiadigital.gov.in/', '_blank');
 
                 actionsDiv.append(duration, shareIcon, applyBtn);
 
@@ -335,7 +261,7 @@
         }
 
         // Initial load
-        handleStateChange(); // This will populate cities and call applyFilters (which calls displaydata)
+        initCoursesPage();
     </script>
 </body>
 
