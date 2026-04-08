@@ -234,7 +234,7 @@ let main=document.getElementById("onc_main");
 import {appendOnlineData} from "./script/CourseData.js"
 
 const fetchonline=async()=>{
-    let url=`https://interntheory-backend.onrender.com/online`;
+    let url=`http://localhost:5000/online`;
     try{
          let res=await fetch(url);
         var OnlineData=await res.json();

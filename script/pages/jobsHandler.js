@@ -1,97 +1,7 @@
 import "../layout.js";
+import { buildBackendUrl } from "../api.js";
 
-const Jobs_data = [
-    {
-        id: 1,
-        title: "Junior Data Scientist",
-        company: "Thinklytics",
-        logo: "assets/modi-pm.svg",
-        category: "Analytics",
-        city: "Bangalore",
-        salary: "₹ 6 - 10 LPA",
-        type: "Full Time",
-        posted: "2 days ago"
-    },
-    {
-        id: 2,
-        title: "UX Research Associate",
-        company: "Northstar Labs",
-        logo: "assets/modi-pm.svg",
-        category: "Product Design",
-        city: "Mumbai",
-        salary: "₹ 6 - 8 LPA",
-        type: "Full Time",
-        posted: "1 week ago"
-    },
-    {
-        id: 3,
-        title: "Frontend Developer",
-        company: "TechCorp",
-        logo: "assets/modi-pm.svg",
-        category: "IT & Software",
-        city: "Delhi",
-        salary: "₹ 5 - 8 LPA",
-        type: "Full Time",
-        posted: "3 days ago"
-    },
-    {
-        id: 4,
-        title: "Digital Marketing Executive",
-        company: "BrandBoost",
-        logo: "assets/modi-pm.svg",
-        category: "Marketing",
-        city: "Pune",
-        salary: "₹ 3 - 5 LPA",
-        type: "Part Time",
-        posted: "Just now"
-    },
-    {
-        id: 5,
-        title: "Business Analyst",
-        company: "FinTech Solutions",
-        logo: "assets/modi-pm.svg",
-        category: "Finance",
-        city: "Mumbai",
-        salary: "₹ 7 - 12 LPA",
-        type: "Full Time",
-        posted: "5 days ago"
-    },
-    {
-        id: 6,
-        title: "Content Writer",
-        company: "Creative Minds",
-        logo: "assets/modi-pm.svg",
-        category: "Content Writing",
-        city: "Remote",
-        salary: "₹ 3 - 6 LPA",
-        type: "Work From Home",
-        posted: "1 day ago"
-    },
-    {
-        id: 7,
-        title: "HR Generalist",
-        company: "PeopleFirst",
-        logo: "assets/modi-pm.svg",
-        category: "Human Resources",
-        city: "Bangalore",
-        salary: "₹ 4 - 7 LPA",
-        type: "Full Time",
-        posted: "4 days ago"
-    },
-    {
-        id: 8,
-        title: "React Native Developer",
-        company: "AppStudio",
-        logo: "assets/modi-pm.svg",
-        category: "Mobile Dev",
-        city: "Hyderabad",
-        salary: "₹ 8 - 15 LPA",
-        type: "Full Time",
-        posted: "2 weeks ago"
-    }
-];
-
-const initJobsPage = () => {
+const initJobsPage = async () => {
     const container = document.querySelector(".internship-list");
     const citySelect = document.getElementById("city");
     const typeSelect = document.getElementById("work_type");
@@ -99,15 +9,24 @@ const initJobsPage = () => {
 
     if (!container) return;
 
-    // Populate Filters
-    const cities = [...new Set(Jobs_data.map(item => item.city))];
-    const types = [...new Set(Jobs_data.map(item => item.type))];
-    const categories = [...new Set(Jobs_data.map(item => item.category))];
+    let allData = [];
+
+    const fetchJobs = async () => {
+        try {
+            const res = await fetch(buildBackendUrl("/job"));
+            const data = await res.json();
+            return data;
+        } catch (err) {
+            console.error("Failed to fetch jobs:", err);
+            return [];
+        }
+    };
 
     const populateDropdown = (select, items, defaultText) => {
         if (!select) return;
         select.innerHTML = `<option value="">${defaultText}</option>`;
-        items.forEach(item => {
+        items.sort().forEach(item => {
+            if (!item) return;
             const option = document.createElement("option");
             option.value = item;
             option.textContent = item;
@@ -115,14 +34,9 @@ const initJobsPage = () => {
         });
     };
 
-    populateDropdown(citySelect, cities, "All Cities");
-    populateDropdown(typeSelect, types, "All Types");
-    populateDropdown(categorySelect, categories, "All Categories");
-
     const renderJobs = (jobs) => {
         container.innerHTML = "";
 
-        // Add Heading
         const heading = document.createElement("h2");
         heading.className = "section-title";
         heading.textContent = "Fresher Jobs";
@@ -135,7 +49,6 @@ const initJobsPage = () => {
             empty.style.gridColumn = "1 / -1";
             empty.style.textAlign = "center";
             empty.style.padding = "40px";
-            empty.style.color = "var(--text-light)";
             container.appendChild(empty);
             return;
         }
@@ -143,18 +56,16 @@ const initJobsPage = () => {
         jobs.forEach((job, index) => {
             const card = document.createElement("div");
             card.className = "internship-card";
-            card.style.animationDelay = `${index * 0.1}s`;
+            card.style.animationDelay = `${index * 0.05}s`;
 
-            // Logo
             const logoDiv = document.createElement("div");
             logoDiv.className = "card-logo";
             const img = document.createElement("img");
-            img.src = job.logo;
-            img.alt = job.company;
-            img.onerror = function () { this.src = 'https://via.placeholder.com/72?text=Logo'; };
+            img.src = job.img || "https://assets.interntheory.com/creative/logo.png";
+            img.alt = job.name;
+            img.onerror = function () { this.src = 'https://assets.interntheory.com/creative/logo.png'; };
             logoDiv.appendChild(img);
 
-            // Content
             const contentDiv = document.createElement("div");
             contentDiv.className = "card-content";
 
@@ -164,44 +75,35 @@ const initJobsPage = () => {
 
             const company = document.createElement("p");
             company.className = "card-company";
-            company.textContent = job.company;
+            company.textContent = job.name;
 
             const detailsDiv = document.createElement("div");
             detailsDiv.className = "card-details";
 
-            const catBadge = document.createElement("span");
-            catBadge.className = "detail-item";
-            catBadge.textContent = job.category;
+            const industryBadge = document.createElement("span");
+            industryBadge.className = "detail-item";
+            industryBadge.innerHTML = `<i class="fas fa-briefcase"></i> ${job.industry || "General"}`;
 
             const cityBadge = document.createElement("span");
             cityBadge.className = "detail-item";
-            cityBadge.textContent = job.city;
+            cityBadge.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${job.city || "India"}`;
 
-            detailsDiv.append(catBadge, cityBadge);
-
-            const typeBadge = document.createElement("div");
-            typeBadge.className = "detail-item";
-            typeBadge.style.marginTop = "8px";
-            typeBadge.style.background = "#fff5f0";
-            typeBadge.style.color = "var(--primary-color)";
-            typeBadge.textContent = job.type;
+            detailsDiv.append(industryBadge, cityBadge);
 
             const salaryDiv = document.createElement("div");
+            salaryDiv.className = "detail-item";
             salaryDiv.style.marginTop = "8px";
-            salaryDiv.style.fontSize = "13px";
             salaryDiv.style.fontWeight = "600";
-            salaryDiv.style.color = "#495057";
-            salaryDiv.textContent = `Salary: ${job.salary}`;
+            salaryDiv.innerHTML = `<i class="fas fa-money-bill-wave"></i> Stipend: ${job.Stipend || "Negotiable"}`;
 
-            contentDiv.append(title, company, detailsDiv, typeBadge, salaryDiv);
+            contentDiv.append(title, company, detailsDiv, salaryDiv);
 
-            // Actions
             const actionsDiv = document.createElement("div");
             actionsDiv.className = "card-actions";
 
             const postedBadge = document.createElement("span");
             postedBadge.className = "duration-badge";
-            postedBadge.textContent = job.posted;
+            postedBadge.textContent = job.weeks || "Permanent";
 
             const shareIcon = document.createElement("i");
             shareIcon.className = "fi fi-sr-share share-icon";
@@ -221,23 +123,33 @@ const initJobsPage = () => {
     const applyFilters = () => {
         const city = citySelect ? citySelect.value : "";
         const type = typeSelect ? typeSelect.value : "";
-        const category = categorySelect ? categorySelect.value : "";
+        const industry = categorySelect ? categorySelect.value : "";
 
-        const filtered = Jobs_data.filter(job => {
+        const filtered = allData.filter(job => {
             return (city === "" || job.city === city) &&
-                (type === "" || job.type === type) &&
-                (category === "" || job.category === category);
+                (type === "" || (job.time && job.time.includes(type))) &&
+                (industry === "" || job.industry === industry);
         });
 
         renderJobs(filtered);
     };
+
+    // Load Data
+    allData = await fetchJobs();
+
+    // Setup Filters
+    const cities = [...new Set(allData.map(item => item.city))];
+    const industries = [...new Set(allData.map(item => item.industry))];
+
+    populateDropdown(citySelect, cities, "All Cities");
+    populateDropdown(categorySelect, industries, "All Categories");
 
     if (citySelect) citySelect.addEventListener("change", applyFilters);
     if (typeSelect) typeSelect.addEventListener("change", applyFilters);
     if (categorySelect) categorySelect.addEventListener("change", applyFilters);
 
     // Initial Render
-    renderJobs(Jobs_data);
+    renderJobs(allData);
 };
 
 initJobsPage();

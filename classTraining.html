@@ -234,7 +234,7 @@ let main=document.getElementById("train_main");
 import {appendclassroomData} from "./script/CourseData.js"
 
 const fetchclassroom=async()=>{
-    let url=`https://interntheory-backend.onrender.com/classroom`;
+    let url=`http://localhost:5000/classroom`;
     try{
          let res=await fetch(url);
         var classroomData=await res.json();
